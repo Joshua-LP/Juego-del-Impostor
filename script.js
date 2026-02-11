@@ -392,6 +392,41 @@ const THEMES = {
 };
 
 // ========================================
+// DEFINICIÓN DE PODERES ESPECIALES
+// ========================================
+
+const PODERES = [
+    {
+        id: 'policia',
+        nombre: '👮 Policía',
+        emoji: '👮',
+        descripcion: 'Conoce 3 sospechosos',
+        tipo: 'investigador'
+    },
+    {
+        id: 'detective',
+        nombre: '🕵️ Detective',
+        emoji: '🕵️',
+        descripcion: 'Conoce 2 jugadores inocentes',
+        tipo: 'investigador'
+    },
+    {
+        id: 'medium',
+        nombre: '🔮 Médium',
+        emoji: '🔮',
+        descripcion: 'Conoce si hay impostor entre los primeros 3',
+        tipo: 'vidente'
+    },
+    {
+        id: 'guardian',
+        nombre: '🛡️ Guardián',
+        emoji: '🛡️',
+        descripcion: 'Puede proteger a un jugador de la votación',
+        tipo: 'protector'
+    }
+];
+
+// ========================================
 // ESTADO DEL JUEGO
 // ========================================
 
@@ -401,13 +436,16 @@ let gameState = {
     selectedThemes: [],
     currentPlayer: 1,
     impostorIndices: [],
+    playersWithPowers: [], // {playerIndex, power, info}
     secretWord: null,
     secretEmoji: null,
     secretCategory: null,
     cardFlipped: false,
     timerInterval: null,
     timerSeconds: 180,
-    timerRunning: false
+    timerRunning: false,
+    tapCount: 0, // Para el hack secreto
+    lastTapTime: 0 // Para resetear el contador si pasan más de 2 segundos
 };
 
 // ========================================
@@ -439,9 +477,84 @@ function createParticles() {
 function initializeInputListeners() {
     const numPlayersInput = document.getElementById('numPlayers');
     const numImpostorsInput = document.getElementById('numImpostors');
-    
-    numPlayersInput.addEventListener('change', validateInputs);
+
+    numPlayersInput.addEventListener('change', () => {
+        validateInputs();
+        updateRolesInfo();
+    });
     numImpostorsInput.addEventListener('change', validateInputs);
+
+    // Actualizar roles al cargar la página
+    updateRolesInfo();
+}
+
+function updateRolesInfo() {
+    const numPlayers = parseInt(document.getElementById('numPlayers').value);
+    const rolesList = document.getElementById('roles-list');
+
+    // Calcular cuántos poderes habrá
+    let numPowers = 0;
+    if (numPlayers >= 10) {
+        numPowers = 3;
+    } else if (numPlayers >= 7) {
+        numPowers = 2;
+    } else if (numPlayers >= 4) {
+        numPowers = 1;
+    }
+
+    // Limpiar lista
+    rolesList.innerHTML = '';
+
+    // Agregar descripción general
+    const summary = document.createElement('div');
+    summary.className = 'role-summary';
+
+    if (numPlayers < 4) {
+        summary.innerHTML = `
+            <p class="role-summary-text">
+                ⚠️ <strong>Necesitas al menos 4 jugadores</strong> para que aparezcan roles especiales.
+            </p>
+        `;
+    } else {
+        summary.innerHTML = `
+            <p class="role-summary-text">
+                🎮 Con <strong>${numPlayers} jugadores</strong>, habrá <strong>${numPowers} rol${numPowers > 1 ? 'es' : ''} especial${numPowers > 1 ? 'es' : ''}</strong>.
+            </p>
+        `;
+    }
+    rolesList.appendChild(summary);
+
+    // Mostrar los posibles roles
+    if (numPlayers >= 4) {
+        const rolesTitle = document.createElement('h4');
+        rolesTitle.className = 'roles-subtitle';
+        rolesTitle.textContent = 'Posibles Roles Especiales:';
+        rolesList.appendChild(rolesTitle);
+
+        PODERES.forEach(poder => {
+            const roleCard = document.createElement('div');
+            roleCard.className = 'role-card';
+            roleCard.innerHTML = `
+                <div class="role-icon">${poder.emoji}</div>
+                <div class="role-details">
+                    <h5 class="role-name">${poder.nombre}</h5>
+                    <p class="role-description">${poder.descripcion}</p>
+                </div>
+            `;
+            rolesList.appendChild(roleCard);
+        });
+
+        // Nota adicional
+        const note = document.createElement('div');
+        note.className = 'role-note';
+        note.innerHTML = `
+            <p>
+                ℹ️ <strong>Nota:</strong> Los roles se asignan aleatoriamente a jugadores inocentes (no impostores).
+                El primer y último jugador nunca son impostores.
+            </p>
+        `;
+        rolesList.appendChild(note);
+    }
 }
 
 // ========================================
@@ -451,15 +564,20 @@ function initializeInputListeners() {
 function changeValue(inputId, delta) {
     const input = document.getElementById(inputId);
     let value = parseInt(input.value) + delta;
-    
+
     const min = parseInt(input.min);
     const max = parseInt(input.max);
-    
+
     value = Math.max(min, Math.min(max, value));
     input.value = value;
-    
+
     validateInputs();
-    
+
+    // Actualizar información de roles si se cambió el número de jugadores
+    if (inputId === 'numPlayers') {
+        updateRolesInfo();
+    }
+
     // Efecto visual
     input.style.transform = 'scale(1.2)';
     setTimeout(() => {
@@ -493,24 +611,29 @@ function getSelectedThemes() {
 
 function startGame() {
     const selectedThemes = getSelectedThemes();
-    
+
     if (selectedThemes.length === 0) {
         alert('¡Selecciona al menos un tema!');
         return;
     }
-    
+
     gameState.numPlayers = parseInt(document.getElementById('numPlayers').value);
     gameState.numImpostors = parseInt(document.getElementById('numImpostors').value);
     gameState.selectedThemes = selectedThemes;
     gameState.currentPlayer = 1;
     gameState.cardFlipped = false;
-    
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
+
     // Seleccionar palabra secreta aleatoria
     selectSecretWord();
-    
+
     // Seleccionar impostores aleatoriamente
     selectImpostors();
-    
+
+    // Asignar poderes especiales
+    assignPowers();
+
     // Mostrar pantalla de juego
     showScreen('screen-game');
     updateGameUI();
@@ -544,8 +667,12 @@ function selectSecretWord() {
 
 function selectImpostors() {
     // Crear un array de índices de jugadores (1 a n)
-    const playerIndices = Array.from({ length: gameState.numPlayers }, (_, i) => i + 1);
-    
+    // EXCLUIMOS al primer y último jugador
+    const playerIndices = [];
+    for (let i = 2; i < gameState.numPlayers; i++) {
+        playerIndices.push(i);
+    }
+
     // Algoritmo Fisher-Yates para selección aleatoria
     const shuffled = [...playerIndices];
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -555,9 +682,117 @@ function selectImpostors() {
         const j = randomArray[0] % (i + 1);
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    
+
     // Los primeros n elementos son los impostores
     gameState.impostorIndices = shuffled.slice(0, gameState.numImpostors);
+}
+
+function assignPowers() {
+    gameState.playersWithPowers = [];
+
+    // Calcular cuántos jugadores tendrán poderes basado en el total
+    let numPowersToAssign = 0;
+    if (gameState.numPlayers >= 10) {
+        numPowersToAssign = 3;
+    } else if (gameState.numPlayers >= 7) {
+        numPowersToAssign = 2;
+    } else if (gameState.numPlayers >= 4) {
+        numPowersToAssign = 1;
+    }
+
+    if (numPowersToAssign === 0) return;
+
+    // Crear lista de jugadores elegibles (no impostores, no primero, no último)
+    const eligiblePlayers = [];
+    for (let i = 2; i < gameState.numPlayers; i++) {
+        if (!gameState.impostorIndices.includes(i)) {
+            eligiblePlayers.push(i);
+        }
+    }
+
+    // Si no hay suficientes jugadores elegibles, reducir el número de poderes
+    numPowersToAssign = Math.min(numPowersToAssign, eligiblePlayers.length);
+
+    // Mezclar jugadores elegibles
+    const shuffled = [...eligiblePlayers];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomArray = new Uint32Array(1);
+        crypto.getRandomValues(randomArray);
+        const j = randomArray[0] % (i + 1);
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
+    // Asignar poderes aleatorios a los jugadores seleccionados
+    for (let i = 0; i < numPowersToAssign; i++) {
+        const playerIndex = shuffled[i];
+        const power = PODERES[Math.floor(Math.random() * PODERES.length)];
+
+        // Generar información específica del poder
+        let powerInfo = generatePowerInfo(playerIndex, power);
+
+        gameState.playersWithPowers.push({
+            playerIndex: playerIndex,
+            power: power,
+            info: powerInfo
+        });
+    }
+}
+
+function generatePowerInfo(playerIndex, power) {
+    let info = '';
+
+    if (power.id === 'policia') {
+        // Genera 3 sospechosos (puede incluir al impostor o no)
+        const suspects = [];
+        const allPlayers = Array.from({ length: gameState.numPlayers }, (_, i) => i + 1)
+            .filter(p => p !== playerIndex);
+
+        // Mezclar y tomar 3
+        const shuffled = [...allPlayers];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const randomArray = new Uint32Array(1);
+            crypto.getRandomValues(randomArray);
+            const j = randomArray[0] % (i + 1);
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        const selectedSuspects = shuffled.slice(0, 3);
+        info = `Sospechosos: Jugadores ${selectedSuspects.join(', ')}`;
+
+    } else if (power.id === 'detective') {
+        // Conoce 2 jugadores que NO son impostores
+        const innocents = [];
+        for (let i = 1; i <= gameState.numPlayers; i++) {
+            if (i !== playerIndex && !gameState.impostorIndices.includes(i)) {
+                innocents.push(i);
+            }
+        }
+
+        // Mezclar y tomar 2
+        const shuffled = [...innocents];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const randomArray = new Uint32Array(1);
+            crypto.getRandomValues(randomArray);
+            const j = randomArray[0] % (i + 1);
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+
+        const selectedInnocents = shuffled.slice(0, 2);
+        info = `Inocentes confirmados: Jugadores ${selectedInnocents.join(', ')}`;
+
+    } else if (power.id === 'medium') {
+        // Sabe si hay impostor entre los primeros 3 jugadores
+        const first3 = [1, 2, 3].filter(p => p <= gameState.numPlayers);
+        const hasImpostor = first3.some(p => gameState.impostorIndices.includes(p));
+        info = hasImpostor ?
+            'Hay un impostor entre los primeros 3 jugadores' :
+            'NO hay impostor entre los primeros 3 jugadores';
+
+    } else if (power.id === 'guardian') {
+        info = 'Puedes proteger a un jugador durante la votación';
+    }
+
+    return info;
 }
 
 // ========================================
@@ -567,31 +802,46 @@ function selectImpostors() {
 function updateGameUI() {
     const isImpostor = gameState.impostorIndices.includes(gameState.currentPlayer);
     const cardBack = document.getElementById('card-back');
-    
+
+    // Verificar si el jugador tiene un poder
+    const playerPower = gameState.playersWithPowers.find(p => p.playerIndex === gameState.currentPlayer);
+
     // Actualizar encabezado
     document.getElementById('current-player').textContent = `Jugador ${gameState.currentPlayer}`;
-    
+
     // Actualizar contenido de la carta
     if (isImpostor) {
-        cardBack.classList.remove('normal');
+        cardBack.classList.remove('normal', 'power');
         cardBack.classList.add('impostor');
         document.getElementById('card-emoji').textContent = '🎭';
         document.getElementById('card-word').textContent = '¡IMPOSTOR!';
         document.getElementById('card-category').textContent = 'No conoces la palabra';
+    } else if (playerPower) {
+        // Jugador con poder
+        cardBack.classList.remove('impostor', 'normal');
+        cardBack.classList.add('power');
+        document.getElementById('card-emoji').textContent = playerPower.power.emoji;
+        document.getElementById('card-word').textContent = gameState.secretWord;
+        document.getElementById('card-category').innerHTML = `
+            ${gameState.secretCategory}<br>
+            <span class="power-badge">${playerPower.power.nombre}</span><br>
+            <span class="power-info">${playerPower.info}</span>
+        `;
     } else {
-        cardBack.classList.remove('impostor');
+        // Jugador normal
+        cardBack.classList.remove('impostor', 'power');
         cardBack.classList.add('normal');
         document.getElementById('card-emoji').textContent = gameState.secretEmoji;
         document.getElementById('card-word').textContent = gameState.secretWord;
         document.getElementById('card-category').textContent = gameState.secretCategory;
     }
-    
+
     // Actualizar barra de progreso
     const progress = (gameState.currentPlayer / gameState.numPlayers) * 100;
     document.getElementById('progress-bar').style.width = progress + '%';
-    document.getElementById('progress-text').textContent = 
+    document.getElementById('progress-text').textContent =
         `Jugador ${gameState.currentPlayer} de ${gameState.numPlayers}`;
-    
+
     // Ocultar botones
     document.getElementById('btn-next').style.display = 'none';
     document.getElementById('btn-play').style.display = 'none';
@@ -599,11 +849,53 @@ function updateGameUI() {
 
 function flipCard() {
     const card = document.getElementById('game-card');
-    
+    const currentTime = Date.now();
+
+    // Resetear el contador si pasaron más de 2 segundos desde el último toque
+    if (currentTime - gameState.lastTapTime > 2000) {
+        gameState.tapCount = 0;
+    }
+
+    // Incrementar contador de toques
+    gameState.tapCount++;
+    gameState.lastTapTime = currentTime;
+
+    // HACK SECRETO: Si es impostor y toca 5 veces
+    if (gameState.tapCount === 5 && gameState.impostorIndices.includes(gameState.currentPlayer)) {
+        // Remover al jugador actual de la lista de impostores
+        const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
+        gameState.impostorIndices.splice(currentIndex, 1);
+
+        // Determinar quién será el nuevo impostor
+        let newImpostor;
+
+        // Si es el penúltimo jugador, el último se vuelve impostor
+        if (gameState.currentPlayer === gameState.numPlayers - 1) {
+            newImpostor = gameState.numPlayers;
+        } else {
+            // El siguiente jugador se vuelve impostor
+            newImpostor = gameState.currentPlayer + 1;
+        }
+
+        // Agregar al nuevo impostor
+        gameState.impostorIndices.push(newImpostor);
+
+        // Resetear contador
+        gameState.tapCount = 0;
+
+        // Actualizar UI para mostrar como jugador normal
+        updateGameUI();
+
+        // Feedback visual (vibración si está disponible)
+        if (navigator.vibrate) {
+            navigator.vibrate([100, 50, 100]);
+        }
+    }
+
     if (!gameState.cardFlipped) {
         card.classList.add('flipped');
         gameState.cardFlipped = true;
-        
+
         // Mostrar botón apropiado después de voltear
         setTimeout(() => {
             if (gameState.currentPlayer < gameState.numPlayers) {
@@ -629,13 +921,15 @@ function resetCard() {
 function nextPlayer() {
     gameState.currentPlayer++;
     gameState.cardFlipped = false;
+    gameState.tapCount = 0; // Resetear contador de toques
+    gameState.lastTapTime = 0;
     resetCard();
-    
+
     // Pequeña animación de transición
     const container = document.querySelector('.card-container');
     container.style.opacity = '0';
     container.style.transform = 'translateX(-50px)';
-    
+
     setTimeout(() => {
         updateGameUI();
         container.style.opacity = '1';
@@ -777,10 +1071,13 @@ function playAgain() {
     // Mantener misma configuración pero nueva ronda
     gameState.currentPlayer = 1;
     gameState.cardFlipped = false;
-    
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
+
     selectSecretWord();
     selectImpostors();
-    
+    assignPowers(); // Asignar nuevos poderes
+
     showScreen('screen-game');
     updateGameUI();
     resetCard();
