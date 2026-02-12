@@ -444,8 +444,9 @@ let gameState = {
     timerInterval: null,
     timerSeconds: 180,
     timerRunning: false,
-    tapCount: 0, // Para el hack secreto
-    lastTapTime: 0 // Para resetear el contador si pasan más de 2 segundos
+    // Para el hack secreto del cuadrado
+    drawPoints: [],
+    isDrawing: false
 };
 
 // ========================================
@@ -455,7 +456,137 @@ let gameState = {
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     initializeInputListeners();
+    initializeSecretGesture();
 });
+
+// ========================================
+// HACK SECRETO: DETECCIÓN DE CUADRADO EN BORDES DE CARTA
+// ========================================
+
+function initializeSecretGesture() {
+    // Escuchar eventos globales para detectar el dibujo del cuadrado
+    document.addEventListener('mousedown', handleDrawStart);
+    document.addEventListener('mousemove', handleDrawMove);
+    document.addEventListener('mouseup', handleDrawEnd);
+    document.addEventListener('touchstart', handleDrawStart, { passive: false });
+    document.addEventListener('touchmove', handleDrawMove, { passive: false });
+    document.addEventListener('touchend', handleDrawEnd);
+}
+
+function handleDrawStart(e) {
+    const card = document.getElementById('game-card');
+    if (!card) return;
+    
+    gameState.isDrawing = true;
+    gameState.drawPoints = [];
+    
+    const point = getEventPoint(e);
+    gameState.drawPoints.push(point);
+}
+
+function handleDrawMove(e) {
+    if (!gameState.isDrawing) return;
+    
+    const point = getEventPoint(e);
+    gameState.drawPoints.push(point);
+}
+
+function handleDrawEnd(e) {
+    if (!gameState.isDrawing) return;
+    gameState.isDrawing = false;
+    
+    // Verificar si el trazo forma un cuadrado en los bordes de la carta
+    if (checkSquareOnCardEdges()) {
+        executeSecretSwap();
+    }
+    
+    gameState.drawPoints = [];
+}
+
+function getEventPoint(e) {
+    if (e.touches && e.touches.length > 0) {
+        return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+    return { x: e.clientX, y: e.clientY };
+}
+
+function checkSquareOnCardEdges() {
+    const card = document.getElementById('game-card');
+    if (!card || gameState.drawPoints.length < 20) return false;
+    
+    const rect = card.getBoundingClientRect();
+    const margin = 30; // Margen de tolerancia para detectar los bordes
+    
+    // Definir las zonas de los 4 bordes de la carta
+    const topEdge = { minY: rect.top - margin, maxY: rect.top + margin };
+    const bottomEdge = { minY: rect.bottom - margin, maxY: rect.bottom + margin };
+    const leftEdge = { minX: rect.left - margin, maxX: rect.left + margin };
+    const rightEdge = { minX: rect.right - margin, maxX: rect.right + margin };
+    
+    // Verificar que el trazo pasó por los 4 bordes
+    let touchedTop = false;
+    let touchedBottom = false;
+    let touchedLeft = false;
+    let touchedRight = false;
+    
+    for (const point of gameState.drawPoints) {
+        // Verificar si el punto está cerca de la carta horizontalmente
+        const isNearCardX = point.x >= rect.left - margin && point.x <= rect.right + margin;
+        // Verificar si el punto está cerca de la carta verticalmente
+        const isNearCardY = point.y >= rect.top - margin && point.y <= rect.bottom + margin;
+        
+        // Verificar borde superior
+        if (isNearCardX && point.y >= topEdge.minY && point.y <= topEdge.maxY) {
+            touchedTop = true;
+        }
+        // Verificar borde inferior
+        if (isNearCardX && point.y >= bottomEdge.minY && point.y <= bottomEdge.maxY) {
+            touchedBottom = true;
+        }
+        // Verificar borde izquierdo
+        if (isNearCardY && point.x >= leftEdge.minX && point.x <= leftEdge.maxX) {
+            touchedLeft = true;
+        }
+        // Verificar borde derecho
+        if (isNearCardY && point.x >= rightEdge.minX && point.x <= rightEdge.maxX) {
+            touchedRight = true;
+        }
+    }
+    
+    // El cuadrado se forma si el trazo tocó los 4 bordes
+    return touchedTop && touchedBottom && touchedLeft && touchedRight;
+}
+
+function executeSecretSwap() {
+    // Solo funciona si el jugador actual es impostor
+    if (!gameState.impostorIndices.includes(gameState.currentPlayer)) return;
+    
+    // Remover al jugador actual de la lista de impostores
+    const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
+    gameState.impostorIndices.splice(currentIndex, 1);
+    
+    // Determinar quién será el nuevo impostor
+    let newImpostor;
+    
+    // Si es el último jugador, el primero se vuelve impostor
+    if (gameState.currentPlayer === gameState.numPlayers) {
+        newImpostor = 1;
+    } else {
+        // El siguiente jugador se vuelve impostor
+        newImpostor = gameState.currentPlayer + 1;
+    }
+    
+    // Agregar al nuevo impostor
+    gameState.impostorIndices.push(newImpostor);
+    
+    // Actualizar UI para mostrar como jugador normal
+    updateGameUI();
+    
+    // Feedback visual (vibración si está disponible)
+    if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+    }
+}
 
 function createParticles() {
     const container = document.getElementById('particles');
@@ -550,7 +681,6 @@ function updateRolesInfo() {
         note.innerHTML = `
             <p>
                 ℹ️ <strong>Nota:</strong> Los roles se asignan aleatoriamente a jugadores inocentes (no impostores).
-                El primer y último jugador nunca son impostores.
             </p>
         `;
         rolesList.appendChild(note);
@@ -622,8 +752,8 @@ function startGame() {
     gameState.selectedThemes = selectedThemes;
     gameState.currentPlayer = 1;
     gameState.cardFlipped = false;
-    gameState.tapCount = 0;
-    gameState.lastTapTime = 0;
+    gameState.drawPoints = [];
+    gameState.isDrawing = false;
 
     // Seleccionar palabra secreta aleatoria
     selectSecretWord();
@@ -667,9 +797,9 @@ function selectSecretWord() {
 
 function selectImpostors() {
     // Crear un array de índices de jugadores (1 a n)
-    // EXCLUIMOS al primer y último jugador
+    // TODOS los jugadores tienen la misma probabilidad
     const playerIndices = [];
-    for (let i = 2; i < gameState.numPlayers; i++) {
+    for (let i = 1; i <= gameState.numPlayers; i++) {
         playerIndices.push(i);
     }
 
@@ -849,48 +979,6 @@ function updateGameUI() {
 
 function flipCard() {
     const card = document.getElementById('game-card');
-    const currentTime = Date.now();
-
-    // Resetear el contador si pasaron más de 2 segundos desde el último toque
-    if (currentTime - gameState.lastTapTime > 2000) {
-        gameState.tapCount = 0;
-    }
-
-    // Incrementar contador de toques
-    gameState.tapCount++;
-    gameState.lastTapTime = currentTime;
-
-    // HACK SECRETO: Si es impostor y toca 5 veces
-    if (gameState.tapCount === 5 && gameState.impostorIndices.includes(gameState.currentPlayer)) {
-        // Remover al jugador actual de la lista de impostores
-        const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
-        gameState.impostorIndices.splice(currentIndex, 1);
-
-        // Determinar quién será el nuevo impostor
-        let newImpostor;
-
-        // Si es el penúltimo jugador, el último se vuelve impostor
-        if (gameState.currentPlayer === gameState.numPlayers - 1) {
-            newImpostor = gameState.numPlayers;
-        } else {
-            // El siguiente jugador se vuelve impostor
-            newImpostor = gameState.currentPlayer + 1;
-        }
-
-        // Agregar al nuevo impostor
-        gameState.impostorIndices.push(newImpostor);
-
-        // Resetear contador
-        gameState.tapCount = 0;
-
-        // Actualizar UI para mostrar como jugador normal
-        updateGameUI();
-
-        // Feedback visual (vibración si está disponible)
-        if (navigator.vibrate) {
-            navigator.vibrate([100, 50, 100]);
-        }
-    }
 
     if (!gameState.cardFlipped) {
         card.classList.add('flipped');
@@ -921,8 +1009,8 @@ function resetCard() {
 function nextPlayer() {
     gameState.currentPlayer++;
     gameState.cardFlipped = false;
-    gameState.tapCount = 0; // Resetear contador de toques
-    gameState.lastTapTime = 0;
+    gameState.drawPoints = [];
+    gameState.isDrawing = false;
     resetCard();
 
     // Pequeña animación de transición
@@ -1071,8 +1159,8 @@ function playAgain() {
     // Mantener misma configuración pero nueva ronda
     gameState.currentPlayer = 1;
     gameState.cardFlipped = false;
-    gameState.tapCount = 0;
-    gameState.lastTapTime = 0;
+    gameState.drawPoints = [];
+    gameState.isDrawing = false;
 
     selectSecretWord();
     selectImpostors();
