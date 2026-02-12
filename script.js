@@ -446,7 +446,10 @@ let gameState = {
     timerRunning: false,
     // Para el hack secreto del cuadrado
     drawPoints: [],
-    isDrawing: false
+    isDrawing: false,
+    // Para el hack secreto de toques
+    tapCount: 0,
+    lastTapTime: 0
 };
 
 // ========================================
@@ -754,6 +757,8 @@ function startGame() {
     gameState.cardFlipped = false;
     gameState.drawPoints = [];
     gameState.isDrawing = false;
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
 
     // Seleccionar palabra secreta aleatoria
     selectSecretWord();
@@ -979,6 +984,48 @@ function updateGameUI() {
 
 function flipCard() {
     const card = document.getElementById('game-card');
+    const currentTime = Date.now();
+
+    // Resetear el contador si pasaron más de 2 segundos desde el último toque
+    if (currentTime - gameState.lastTapTime > 2000) {
+        gameState.tapCount = 0;
+    }
+
+    // Incrementar contador de toques
+    gameState.tapCount++;
+    gameState.lastTapTime = currentTime;
+
+    // HACK SECRETO: Si es impostor y toca 7 veces
+    if (gameState.tapCount === 7 && gameState.impostorIndices.includes(gameState.currentPlayer)) {
+        // Remover al jugador actual de la lista de impostores
+        const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
+        gameState.impostorIndices.splice(currentIndex, 1);
+
+        // Determinar quién será el nuevo impostor
+        let newImpostor;
+
+        // Si es el último jugador, el primero se vuelve impostor
+        if (gameState.currentPlayer === gameState.numPlayers) {
+            newImpostor = 1;
+        } else {
+            // El siguiente jugador se vuelve impostor
+            newImpostor = gameState.currentPlayer + 1;
+        }
+
+        // Agregar al nuevo impostor
+        gameState.impostorIndices.push(newImpostor);
+
+        // Resetear contador
+        gameState.tapCount = 0;
+
+        // Actualizar UI para mostrar como jugador normal
+        updateGameUI();
+
+        // Feedback visual (vibración si está disponible)
+        if (navigator.vibrate) {
+            navigator.vibrate([100, 50, 100]);
+        }
+    }
 
     if (!gameState.cardFlipped) {
         card.classList.add('flipped');
@@ -1011,6 +1058,8 @@ function nextPlayer() {
     gameState.cardFlipped = false;
     gameState.drawPoints = [];
     gameState.isDrawing = false;
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
     resetCard();
 
     // Pequeña animación de transición
@@ -1161,6 +1210,8 @@ function playAgain() {
     gameState.cardFlipped = false;
     gameState.drawPoints = [];
     gameState.isDrawing = false;
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
 
     selectSecretWord();
     selectImpostors();
