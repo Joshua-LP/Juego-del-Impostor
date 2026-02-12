@@ -677,16 +677,6 @@ function updateRolesInfo() {
             `;
             rolesList.appendChild(roleCard);
         });
-
-        // Nota adicional
-        const note = document.createElement('div');
-        note.className = 'role-note';
-        note.innerHTML = `
-            <p>
-                ℹ️ <strong>Nota:</strong> Los roles se asignan aleatoriamente a jugadores inocentes (no impostores).
-            </p>
-        `;
-        rolesList.appendChild(note);
     }
 }
 
