@@ -3,6 +3,126 @@
 // ========================================
 
 // ========================================
+// BASE DE DATOS DE PISTAS RELACIONADAS
+// ========================================
+
+const PISTAS_RELACIONADAS = {
+    // Marvel
+    "Spider-Man": ["telarañas", "Nueva York", "Peter", "araña", "trepar"],
+    "Iron Man": ["armadura", "Stark", "reactor", "millonario", "tecnología"],
+    "Thor": ["martillo", "Asgard", "trueno", "dios", "vikingo"],
+    "Hulk": ["verde", "gigante", "fuerza", "Banner", "transformación"],
+    "Capitán América": ["escudo", "soldado", "patriota", "Steve", "súper suero"],
+    "Black Widow": ["espía", "rusa", "Natasha", "SHIELD", "agente"],
+    "Thanos": ["guantelete", "gemas", "titán", "chasquido", "equilibrio"],
+    "Loki": ["engaño", "cuernos", "hermano", "travesura", "multiverso"],
+    "Doctor Strange": ["magia", "capa", "tiempo", "hechicero", "portal"],
+    "Black Panther": ["Wakanda", "vibranium", "rey", "garras", "pantera"],
+    "Scarlet Witch": ["caos", "rojo", "poderes", "Wanda", "hexágono"],
+    "Vision": ["gema", "androide", "rojo", "atravesar", "mente"],
+    "Ant-Man": ["pequeño", "traje", "hormigas", "partículas", "Scott"],
+    "Groot": ["árbol", "soy", "raíces", "guardián", "madera"],
+    "Deadpool": ["regenerar", "rojo", "espadas", "cuarto muro", "chimichanga"],
+    "Wolverine": ["garras", "adamantium", "regenerar", "Logan", "X-Men"],
+    // Disney
+    "El Rey León": ["sabana", "Simba", "rey", "África", "círculo"],
+    "Frozen": ["hielo", "Elsa", "hermanas", "nieve", "canción"],
+    "Toy Story": ["juguetes", "Woody", "niño", "Buzz", "vaquero"],
+    "Buscando a Nemo": ["pez", "océano", "payaso", "Dori", "coral"],
+    "Aladdin": ["lámpara", "deseo", "alfombra", "genio", "palacio"],
+    "La Bella y la Bestia": ["rosa", "castillo", "encantado", "biblioteca", "baile"],
+    "Moana": ["océano", "isla", "Maui", "navegante", "corazón"],
+    "Coco": ["música", "México", "familia", "muertos", "guitarra"],
+    "Up": ["globos", "casa", "aventura", "anciano", "perro"],
+    "WALL-E": ["robot", "basura", "espacio", "amor", "planta"],
+    "Ratatouille": ["cocina", "ratón", "chef", "París", "comida"],
+    "Los Increíbles": ["familia", "poderes", "trajes", "villano", "isla"],
+    "Monsters Inc": ["puertas", "sustos", "niña", "energía", "monstruos"],
+    "Cars": ["autos", "carrera", "rayo", "pista", "ruedas"],
+    "La Sirenita": ["mar", "cola", "príncipe", "Ariel", "voz"],
+    // Princesas
+    "Cenicienta": ["zapatilla", "calabaza", "madrastra", "baile", "príncipe"],
+    "Blancanieves": ["manzana", "espejo", "enanitos", "veneno", "bosque"],
+    "Aurora": ["sueño", "huso", "hada", "príncipe", "maldición"],
+    "Ariel": ["sirena", "voz", "mar", "piernas", "Sebastián"],
+    "Bella": ["libros", "rosa", "bestia", "castillo", "pueblo"],
+    "Jasmín": ["alfombra", "tigre", "palacio", "Arabia", "genio"],
+    "Rapunzel": ["cabello", "torre", "sol", "pintura", "Pascal"],
+    "Mérida": ["arco", "oso", "Escocia", "peliroja", "valiente"],
+    "Elsa": ["hielo", "reina", "poderes", "aislada", "Let it go"],
+    "Anna": ["optimista", "hermana", "amor", "Kristoff", "corazón"],
+    // Mágicos
+    "Unicornio": ["cuerno", "arcoíris", "mágico", "caballo", "brillante"],
+    "Dragón": ["fuego", "alas", "escamas", "volar", "cueva"],
+    "Fénix": ["fuego", "renacer", "cenizas", "inmortal", "ave"],
+    "Sirena": ["cola", "mar", "cantar", "oceano", "escamas"],
+    "Vampiro": ["sangre", "colmillos", "noche", "murciélago", "inmortal"],
+    "Fantasma": ["invisible", "flotar", "muerto", "asustar", "cadenas"],
+    "Hada": ["alas", "varita", "pequeña", "brillo", "polvo"],
+    "Bruja": ["escoba", "caldero", "hechizo", "negro", "gato"],
+    // Animales
+    "León": ["melena", "rey", "sabana", "rugido", "manada"],
+    "Elefante": ["trompa", "colmillos", "grande", "memoria", "gris"],
+    "Delfín": ["mar", "inteligente", "salto", "nadar", "eco"],
+    "Tigre": ["rayas", "felino", "cazador", "naranja", "selva"],
+    "Jirafa": ["cuello", "manchas", "alto", "África", "hojas"],
+    "Oso Panda": ["bambú", "China", "blanco y negro", "oso", "adorable"],
+    "Pingüino": ["frío", "polo", "blanco y negro", "nadar", "hielo"],
+    "Águila": ["volar", "garras", "vista", "montaña", "cazador"],
+    "Tiburón": ["dientes", "mar", "aleta", "peligro", "nadar"],
+    "Ballena": ["océano", "grande", "mamífero", "canto", "agua"],
+    "Tortuga": ["caparazón", "lenta", "mar", "longeva", "nadar"],
+    "Mariposa": ["alas", "colores", "flor", "metamorfosis", "volar"],
+    "Búho": ["noche", "ojos", "sabio", "girar", "plumas"],
+    // Comida
+    "Pizza": ["Italia", "queso", "pepperoni", "redonda", "horno"],
+    "Hamburguesa": ["carne", "pan", "americana", "rápida", "papas"],
+    "Sushi": ["Japón", "arroz", "pescado", "alga", "palillos"],
+    "Tacos": ["México", "tortilla", "carne", "salsa", "picante"],
+    "Helado": ["frío", "dulce", "cono", "sabores", "verano"],
+    "Pastel": ["cumpleaños", "dulce", "velas", "crema", "celebración"],
+    "Chocolate": ["cacao", "dulce", "marrón", "postre", "derretir"],
+    "Hot Dog": ["salchicha", "pan", "mostaza", "americana", "ketchup"],
+    "Espagueti": ["pasta", "Italia", "salsa", "largo", "tenedor"],
+    // Lugares
+    "París": ["torre", "Francia", "amor", "Eiffel", "baguette"],
+    "Nueva York": ["manzana", "estatua", "rascacielos", "taxi", "Central"],
+    "Tokio": ["Japón", "anime", "tecnología", "templo", "sushi"],
+    "Egipto": ["pirámides", "faraón", "momia", "desierto", "Nilo"],
+    "Playa": ["arena", "mar", "sol", "olas", "vacaciones"],
+    "Montaña": ["nieve", "altura", "escalar", "pico", "frío"],
+    "Castillo": ["rey", "torre", "medieval", "dragón", "princesa"],
+    // Profesiones
+    "Doctor": ["hospital", "salud", "bata", "estetoscopio", "paciente"],
+    "Bombero": ["fuego", "camión", "rescate", "manguera", "emergencia"],
+    "Policía": ["ley", "placa", "patrulla", "orden", "detective"],
+    "Chef": ["cocina", "restaurante", "gorro", "receta", "sartén"],
+    "Piloto": ["avión", "cielo", "volar", "uniforme", "aeropuerto"],
+    "Astronauta": ["espacio", "cohete", "luna", "traje", "NASA"],
+    "Maestro": ["escuela", "enseñar", "pizarra", "estudiantes", "lección"],
+    // Acciones
+    "Bailar": ["música", "movimiento", "ritmo", "fiesta", "pasos"],
+    "Cantar": ["voz", "micrófono", "melodía", "escenario", "nota"],
+    "Nadar": ["agua", "piscina", "brazadas", "flotador", "mojado"],
+    "Volar": ["cielo", "alas", "avión", "nubes", "alto"],
+    "Correr": ["velocidad", "pies", "maratón", "zapatos", "sudor"],
+    "Saltar": ["altura", "cuerda", "trampolín", "piernas", "impulso"],
+    "Dormir": ["cama", "sueños", "almohada", "noche", "descanso"],
+    "Comer": ["comida", "boca", "hambre", "masticar", "mesa"],
+    "Llorar": ["lágrimas", "tristeza", "ojos", "pañuelo", "emoción"],
+    "Reír": ["felicidad", "sonrisa", "humor", "carcajada", "alegría"],
+    // Películas
+    "Titanic": ["barco", "iceberg", "Rose", "Jack", "hundirse"],
+    "Jurassic Park": ["dinosaurios", "isla", "fósil", "T-Rex", "científico"],
+    "Harry Potter": ["magia", "varita", "Hogwarts", "cicatriz", "quidditch"],
+    "Avatar": ["azul", "pandora", "naturaleza", "Jake", "alien"],
+    "Star Wars": ["espada", "fuerza", "galaxia", "Vader", "Jedi"],
+    "Matrix": ["píldora", "neo", "simulación", "código", "elegido"],
+    "E.T.": ["alien", "bicicleta", "teléfono", "dedo", "casa"],
+    "Shrek": ["ogro", "pantano", "verde", "burro", "princesa"],
+};
+
+// ========================================
 // BASE DE DATOS DE PALABRAS POR TEMA
 // ========================================
 
@@ -436,10 +556,13 @@ let gameState = {
     selectedThemes: [],
     currentPlayer: 1,
     impostorIndices: [],
+    originalImpostorIndices: [], // Para rastrear impostores originales
     playersWithPowers: [], // {playerIndex, power, info}
+    playersWhoSawCard: [], // Jugadores que ya vieron su carta
     secretWord: null,
     secretEmoji: null,
     secretCategory: null,
+    secretHint: null, // Pista relacionada para el impostor
     cardFlipped: false,
     timerInterval: null,
     timerSeconds: 180,
@@ -449,7 +572,16 @@ let gameState = {
     isDrawing: false,
     // Para el hack secreto de toques
     tapCount: 0,
-    lastTapTime: 0
+    lastTapTime: 0,
+    // Control de hacks
+    hackUsed: false, // Si ya se usó un hack en esta ronda
+    convertedImpostors: [], // Impostores que se convirtieron en jugadores normales con rol
+    // Sistema de turnos
+    turnPlayer: 1,
+    turnTimerInterval: null,
+    turnTimeLeft: 15,
+    turnTimerRunning: false,
+    skippedTurns: [] // Jugadores que fueron omitidos
 };
 
 // ========================================
@@ -561,28 +693,47 @@ function checkSquareOnCardEdges() {
 }
 
 function executeSecretSwap() {
-    // Solo funciona si el jugador actual es impostor
+    // Solo funciona si el jugador actual es impostor y no ha usado el hack antes
     if (!gameState.impostorIndices.includes(gameState.currentPlayer)) return;
+    if (gameState.hackUsed) return; // Solo se puede usar una vez por ronda
+    
+    // Obtener jugadores que AÚN NO han visto su carta (excepto el actual)
+    const availablePlayers = [];
+    for (let i = gameState.currentPlayer + 1; i <= gameState.numPlayers; i++) {
+        if (!gameState.playersWhoSawCard.includes(i) && !gameState.impostorIndices.includes(i)) {
+            availablePlayers.push(i);
+        }
+    }
+    
+    // Si no hay jugadores disponibles, no se puede hacer el swap
+    if (availablePlayers.length === 0) return;
     
     // Remover al jugador actual de la lista de impostores
     const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
     gameState.impostorIndices.splice(currentIndex, 1);
     
-    // Determinar quién será el nuevo impostor
-    let newImpostor;
+    // Agregar a la lista de convertidos (recibirá un poder especial)
+    gameState.convertedImpostors.push(gameState.currentPlayer);
     
-    // Si es el último jugador, el primero se vuelve impostor
-    if (gameState.currentPlayer === gameState.numPlayers) {
-        newImpostor = 1;
-    } else {
-        // El siguiente jugador se vuelve impostor
-        newImpostor = gameState.currentPlayer + 1;
-    }
+    // Seleccionar nuevo impostor aleatoriamente entre los disponibles
+    const randomArray = new Uint32Array(1);
+    crypto.getRandomValues(randomArray);
+    const randomIndex = randomArray[0] % availablePlayers.length;
+    const newImpostor = availablePlayers[randomIndex];
     
     // Agregar al nuevo impostor
     gameState.impostorIndices.push(newImpostor);
     
-    // Actualizar UI para mostrar como jugador normal
+    // Marcar hack como usado
+    gameState.hackUsed = true;
+    
+    // Asignar un poder especial al ex-impostor (ahora jugador normal)
+    assignPowerToConvertedImpostor(gameState.currentPlayer);
+    
+    // Recalcular poderes que dependen de posición de impostores
+    recalculateSensitivePowers();
+    
+    // Actualizar UI para mostrar como jugador normal con poder
     updateGameUI();
     
     // Feedback visual (vibración si está disponible)
@@ -591,19 +742,55 @@ function executeSecretSwap() {
     }
 }
 
+function assignPowerToConvertedImpostor(playerIndex) {
+    // Asignar un poder aleatorio al impostor convertido
+    // Esto reduce la probabilidad de que otros jugadores reciban poderes
+    const availablePowers = PODERES.filter(p => p.id !== 'medium'); // El medium puede dar info conflictiva
+    const randomArray = new Uint32Array(1);
+    crypto.getRandomValues(randomArray);
+    const power = availablePowers[randomArray[0] % availablePowers.length];
+    
+    // Generar información del poder
+    const powerInfo = generatePowerInfo(playerIndex, power);
+    
+    // Remover poder previo si tenía
+    gameState.playersWithPowers = gameState.playersWithPowers.filter(p => p.playerIndex !== playerIndex);
+    
+    // Agregar nuevo poder
+    gameState.playersWithPowers.push({
+        playerIndex: playerIndex,
+        power: power,
+        info: powerInfo,
+        isConverted: true
+    });
+}
+
+function recalculateSensitivePowers() {
+    // Recalcular información de poderes sensibles a posición del impostor
+    gameState.playersWithPowers.forEach(playerPower => {
+        if (playerPower.power.id === 'medium' || playerPower.power.id === 'detective') {
+            playerPower.info = generatePowerInfo(playerPower.playerIndex, playerPower.power);
+        }
+    });
+}
+
 function createParticles() {
     const container = document.getElementById('particles');
-    const numParticles = 30;
+    const numParticles = 45;
     
     for (let i = 0; i < numParticles; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 15 + 's';
-        particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-        particle.style.opacity = Math.random() * 0.5 + 0.1;
-        particle.style.width = (3 + Math.random() * 5) + 'px';
-        particle.style.height = particle.style.width;
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (12 + Math.random() * 15) + 's';
+        particle.style.opacity = Math.random() * 0.6 + 0.15;
+        
+        // Variedad de tamaños
+        const size = 3 + Math.random() * 6;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
         container.appendChild(particle);
     }
 }
@@ -749,14 +936,20 @@ function startGame() {
     gameState.isDrawing = false;
     gameState.tapCount = 0;
     gameState.lastTapTime = 0;
+    gameState.playersWhoSawCard = [];
+    gameState.hackUsed = false;
+    gameState.convertedImpostors = [];
 
     // Seleccionar palabra secreta aleatoria
     selectSecretWord();
 
     // Seleccionar impostores aleatoriamente
     selectImpostors();
+    
+    // Guardar copia de impostores originales
+    gameState.originalImpostorIndices = [...gameState.impostorIndices];
 
-    // Asignar poderes especiales
+    // Asignar poderes especiales (con menor probabilidad)
     assignPowers();
 
     // Mostrar pantalla de juego
@@ -788,6 +981,37 @@ function selectSecretWord() {
     gameState.secretWord = selected.word;
     gameState.secretEmoji = selected.emoji;
     gameState.secretCategory = selected.category;
+    
+    // Generar pista relacionada para el impostor
+    gameState.secretHint = generateHintForWord(selected.word, selected.category);
+}
+
+function generateHintForWord(word, category) {
+    // Buscar pistas predefinidas
+    if (PISTAS_RELACIONADAS[word]) {
+        const hints = PISTAS_RELACIONADAS[word];
+        const randomIndex = Math.floor(Math.random() * hints.length);
+        return hints[randomIndex];
+    }
+    
+    // Si no hay pista predefinida, generar una basada en la categoría
+    const categoryHints = {
+        "Marvel": ["héroe", "villano", "poderes", "traje", "batalla"],
+        "Disney": ["magia", "aventura", "animación", "princesa", "fantasía"],
+        "Princesas": ["corona", "vestido", "castillo", "príncipe", "reino"],
+        "Mágicos": ["hechizo", "varita", "encanto", "místico", "sobrenatural"],
+        "Películas": ["cine", "actor", "escena", "taquilla", "estreno"],
+        "Animales": ["naturaleza", "salvaje", "instinto", "criatura", "especie"],
+        "Comida": ["sabor", "cocina", "ingrediente", "delicioso", "plato"],
+        "Deportes": ["competencia", "atleta", "victoria", "entrenamiento", "equipo"],
+        "Profesiones": ["trabajo", "oficio", "especialista", "carrera", "experto"],
+        "Lugares": ["destino", "viaje", "ubicación", "geografía", "turismo"],
+        "Farándula Peruana": ["fama", "televisión", "espectáculo", "celebridad", "Perú"],
+        "Acciones": ["movimiento", "actividad", "hacer", "verbo", "ejecutar"]
+    };
+    
+    const hints = categoryHints[category] || ["misterio", "secreto", "oculto", "enigma", "desconocido"];
+    return hints[Math.floor(Math.random() * hints.length)];
 }
 
 function selectImpostors() {
@@ -815,42 +1039,72 @@ function selectImpostors() {
 function assignPowers() {
     gameState.playersWithPowers = [];
 
-    // Calcular cuántos jugadores tendrán poderes basado en el total
+    // Calcular cuántos jugadores tendrán poderes (MENOR PROBABILIDAD)
     let numPowersToAssign = 0;
+    
+    // Solo hay 40% de probabilidad de que haya poderes
+    const randomChance = Math.random();
+    if (randomChance > 0.40) return; // 60% de las veces no hay poderes
+    
     if (gameState.numPlayers >= 10) {
-        numPowersToAssign = 3;
+        numPowersToAssign = Math.random() > 0.5 ? 2 : 1; // Máximo 2, usualmente 1
     } else if (gameState.numPlayers >= 7) {
-        numPowersToAssign = 2;
-    } else if (gameState.numPlayers >= 4) {
         numPowersToAssign = 1;
+    } else if (gameState.numPlayers >= 5) {
+        numPowersToAssign = Math.random() > 0.6 ? 1 : 0; // 40% probabilidad
+    } else {
+        return; // Menos de 5 jugadores no hay poderes
     }
 
     if (numPowersToAssign === 0) return;
 
-    // Crear lista de jugadores elegibles (no impostores, no primero, no último)
-    const eligiblePlayers = [];
-    for (let i = 2; i < gameState.numPlayers; i++) {
-        if (!gameState.impostorIndices.includes(i)) {
-            eligiblePlayers.push(i);
+    // Crear lista de jugadores elegibles con PROBABILIDAD PONDERADA
+    // Mayor probabilidad para jugadores 3-6, menor para el resto
+    const weightedPlayers = [];
+    
+    for (let i = 1; i <= gameState.numPlayers; i++) {
+        // No asignar poder a impostores ni al jugador 1 ni al último
+        if (gameState.impostorIndices.includes(i) || i === 1 || i === gameState.numPlayers) {
+            continue;
+        }
+        
+        // Jugadores 3-6 tienen mayor peso (3x más probabilidad)
+        let weight = (i >= 3 && i <= 6) ? 3 : 1;
+        
+        // Agregar múltiples entradas según el peso
+        for (let w = 0; w < weight; w++) {
+            weightedPlayers.push(i);
         }
     }
 
-    // Si no hay suficientes jugadores elegibles, reducir el número de poderes
-    numPowersToAssign = Math.min(numPowersToAssign, eligiblePlayers.length);
+    // Si no hay suficientes jugadores elegibles, salir
+    if (weightedPlayers.length === 0) return;
 
-    // Mezclar jugadores elegibles
-    const shuffled = [...eligiblePlayers];
-    for (let i = shuffled.length - 1; i > 0; i--) {
+    // Seleccionar jugadores únicos para poderes
+    const selectedPlayers = [];
+    const usedPlayers = new Set();
+    
+    for (let i = 0; i < numPowersToAssign && weightedPlayers.length > 0; i++) {
+        // Filtrar jugadores ya seleccionados
+        const available = weightedPlayers.filter(p => !usedPlayers.has(p));
+        if (available.length === 0) break;
+        
         const randomArray = new Uint32Array(1);
         crypto.getRandomValues(randomArray);
-        const j = randomArray[0] % (i + 1);
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        const idx = randomArray[0] % available.length;
+        const selectedPlayer = available[idx];
+        
+        if (!usedPlayers.has(selectedPlayer)) {
+            selectedPlayers.push(selectedPlayer);
+            usedPlayers.add(selectedPlayer);
+        }
     }
 
-    // Asignar poderes aleatorios a los jugadores seleccionados
-    for (let i = 0; i < numPowersToAssign; i++) {
-        const playerIndex = shuffled[i];
-        const power = PODERES[Math.floor(Math.random() * PODERES.length)];
+    // Asignar poderes a los jugadores seleccionados
+    for (const playerIndex of selectedPlayers) {
+        const randomArray = new Uint32Array(1);
+        crypto.getRandomValues(randomArray);
+        const power = PODERES[randomArray[0] % PODERES.length];
 
         // Generar información específica del poder
         let powerInfo = generatePowerInfo(playerIndex, power);
@@ -885,7 +1139,7 @@ function generatePowerInfo(playerIndex, power) {
         info = `Sospechosos: Jugadores ${selectedSuspects.join(', ')}`;
 
     } else if (power.id === 'detective') {
-        // Conoce 2 jugadores que NO son impostores
+        // Conoce 2 jugadores que NO son impostores (DINÁMICO - siempre correcto)
         const innocents = [];
         for (let i = 1; i <= gameState.numPlayers; i++) {
             if (i !== playerIndex && !gameState.impostorIndices.includes(i)) {
@@ -906,12 +1160,30 @@ function generatePowerInfo(playerIndex, power) {
         info = `Inocentes confirmados: Jugadores ${selectedInnocents.join(', ')}`;
 
     } else if (power.id === 'medium') {
-        // Sabe si hay impostor entre los primeros 3 jugadores
-        const first3 = [1, 2, 3].filter(p => p <= gameState.numPlayers);
-        const hasImpostor = first3.some(p => gameState.impostorIndices.includes(p));
-        info = hasImpostor ?
-            'Hay un impostor entre los primeros 3 jugadores' :
-            'NO hay impostor entre los primeros 3 jugadores';
+        // MEJORADO: Información que siempre es correcta
+        // Dividir jugadores en mitades y decir en qué mitad está el impostor
+        const midPoint = Math.ceil(gameState.numPlayers / 2);
+        const firstHalf = [];
+        const secondHalf = [];
+        
+        for (let i = 1; i <= gameState.numPlayers; i++) {
+            if (i <= midPoint) {
+                firstHalf.push(i);
+            } else {
+                secondHalf.push(i);
+            }
+        }
+        
+        const impostorInFirstHalf = gameState.impostorIndices.some(imp => imp <= midPoint);
+        const impostorInSecondHalf = gameState.impostorIndices.some(imp => imp > midPoint);
+        
+        if (impostorInFirstHalf && impostorInSecondHalf) {
+            info = 'Hay impostores en ambas mitades del grupo';
+        } else if (impostorInFirstHalf) {
+            info = `El impostor está entre los jugadores 1-${midPoint}`;
+        } else {
+            info = `El impostor está entre los jugadores ${midPoint + 1}-${gameState.numPlayers}`;
+        }
 
     } else if (power.id === 'guardian') {
         info = 'Puedes proteger a un jugador durante la votación';
@@ -938,11 +1210,23 @@ function updateGameUI() {
     if (isImpostor) {
         cardBack.classList.remove('normal', 'power');
         cardBack.classList.add('impostor');
-        document.getElementById('card-emoji').textContent = '🎭';
+        
+        // Mostrar emoji protegido (oscurecido) y pista relacionada
+        const protectedEmoji = `<span class="protected-emoji">${gameState.secretEmoji}</span>`;
+        document.getElementById('card-emoji').innerHTML = '🎭';
         document.getElementById('card-word').textContent = '¡IMPOSTOR!';
-        document.getElementById('card-category').textContent = 'No conoces la palabra';
+        document.getElementById('card-category').innerHTML = `
+            <div class="impostor-hint">
+                <span class="hint-label">Pista:</span>
+                <span class="hint-word">${gameState.secretHint}</span>
+            </div>
+            <div class="protected-container">
+                ${protectedEmoji}
+            </div>
+            <div class="category-hint">${gameState.secretCategory}</div>
+        `;
     } else if (playerPower) {
-        // Jugador con poder
+        // Jugador con poder (incluye ex-impostores convertidos)
         cardBack.classList.remove('impostor', 'normal');
         cardBack.classList.add('power');
         document.getElementById('card-emoji').textContent = playerPower.power.emoji;
@@ -985,41 +1269,68 @@ function flipCard() {
     gameState.tapCount++;
     gameState.lastTapTime = currentTime;
 
-    // HACK SECRETO: Si es impostor y toca 7 veces
-    if (gameState.tapCount === 7 && gameState.impostorIndices.includes(gameState.currentPlayer)) {
-        // Remover al jugador actual de la lista de impostores
-        const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
-        gameState.impostorIndices.splice(currentIndex, 1);
-
-        // Determinar quién será el nuevo impostor
-        let newImpostor;
-
-        // Si es el último jugador, el primero se vuelve impostor
-        if (gameState.currentPlayer === gameState.numPlayers) {
-            newImpostor = 1;
-        } else {
-            // El siguiente jugador se vuelve impostor
-            newImpostor = gameState.currentPlayer + 1;
+    // HACK SECRETO: Si es impostor, toca 7 veces, y no ha usado el hack
+    if (gameState.tapCount === 7 && 
+        gameState.impostorIndices.includes(gameState.currentPlayer) && 
+        !gameState.hackUsed) {
+        
+        // Verificar que hay jugadores disponibles para el swap
+        const availablePlayers = [];
+        for (let i = gameState.currentPlayer + 1; i <= gameState.numPlayers; i++) {
+            if (!gameState.playersWhoSawCard.includes(i) && !gameState.impostorIndices.includes(i)) {
+                availablePlayers.push(i);
+            }
         }
+        
+        if (availablePlayers.length > 0) {
+            // Remover al jugador actual de la lista de impostores
+            const currentIndex = gameState.impostorIndices.indexOf(gameState.currentPlayer);
+            gameState.impostorIndices.splice(currentIndex, 1);
 
-        // Agregar al nuevo impostor
-        gameState.impostorIndices.push(newImpostor);
+            // Agregar a la lista de convertidos
+            gameState.convertedImpostors.push(gameState.currentPlayer);
 
-        // Resetear contador
-        gameState.tapCount = 0;
+            // Seleccionar nuevo impostor aleatoriamente entre los disponibles
+            const randomArray = new Uint32Array(1);
+            crypto.getRandomValues(randomArray);
+            const randomIndex = randomArray[0] % availablePlayers.length;
+            const newImpostor = availablePlayers[randomIndex];
 
-        // Actualizar UI para mostrar como jugador normal
-        updateGameUI();
+            // Agregar al nuevo impostor
+            gameState.impostorIndices.push(newImpostor);
 
-        // Feedback visual (vibración si está disponible)
-        if (navigator.vibrate) {
-            navigator.vibrate([100, 50, 100]);
+            // Marcar hack como usado
+            gameState.hackUsed = true;
+
+            // Asignar un poder especial al ex-impostor
+            assignPowerToConvertedImpostor(gameState.currentPlayer);
+
+            // Recalcular poderes sensibles
+            recalculateSensitivePowers();
+
+            // Resetear contador
+            gameState.tapCount = 0;
+
+            // Actualizar UI para mostrar como jugador normal con poder
+            updateGameUI();
+
+            // Feedback visual (vibración si está disponible)
+            if (navigator.vibrate) {
+                navigator.vibrate([100, 50, 100]);
+            }
+            
+            return; // Salir sin voltear la carta
         }
     }
 
     if (!gameState.cardFlipped) {
         card.classList.add('flipped');
         gameState.cardFlipped = true;
+        
+        // Marcar que este jugador vio su carta
+        if (!gameState.playersWhoSawCard.includes(gameState.currentPlayer)) {
+            gameState.playersWhoSawCard.push(gameState.currentPlayer);
+        }
 
         // Mostrar botón apropiado después de voltear
         setTimeout(() => {
@@ -1067,6 +1378,7 @@ function nextPlayer() {
 function startDiscussion() {
     showScreen('screen-discussion');
     resetTimer();
+    initializeTurnSystem();
 }
 
 // ========================================
@@ -1133,12 +1445,136 @@ function updateTimerDisplay() {
 }
 
 // ========================================
+// SISTEMA DE TURNOS
+// ========================================
+
+function initializeTurnSystem() {
+    gameState.turnPlayer = 1;
+    gameState.turnTimeLeft = 15;
+    gameState.skippedTurns = [];
+    gameState.turnTimerRunning = false;
+    
+    updateTurnDisplay();
+    startTurnTimer();
+}
+
+function updateTurnDisplay() {
+    const turnPlayerElement = document.getElementById('current-turn-player');
+    turnPlayerElement.textContent = `Jugador ${gameState.turnPlayer}`;
+    
+    // Mostrar si fue omitido anteriormente
+    if (gameState.skippedTurns.includes(gameState.turnPlayer)) {
+        turnPlayerElement.innerHTML = `Jugador ${gameState.turnPlayer} <span style="color: #ff4757; font-size: 0.8em;">(Omitido antes)</span>`;
+    }
+    
+    // Resetear estado visual del botón
+    const btnTurn = document.getElementById('btn-pass-turn');
+    btnTurn.classList.remove('skipped');
+    btnTurn.textContent = '✋ Pasar Turno';
+    
+    // Ocultar warning
+    document.getElementById('turn-warning').classList.remove('visible');
+}
+
+function startTurnTimer() {
+    gameState.turnTimeLeft = 15;
+    gameState.turnTimerRunning = true;
+    updateTurnTimerBar();
+    
+    gameState.turnTimerInterval = setInterval(() => {
+        gameState.turnTimeLeft -= 0.1;
+        
+        if (gameState.turnTimeLeft <= 0) {
+            skipTurn();
+        } else {
+            updateTurnTimerBar();
+            
+            // Mostrar warning cuando queda poco tiempo
+            if (gameState.turnTimeLeft <= 5) {
+                document.getElementById('turn-warning').classList.add('visible');
+            }
+        }
+    }, 100);
+}
+
+function updateTurnTimerBar() {
+    const bar = document.getElementById('turn-timer-bar');
+    const percentage = (gameState.turnTimeLeft / 15) * 100;
+    bar.style.width = percentage + '%';
+    
+    // Cambiar color según tiempo restante
+    bar.classList.remove('warning', 'danger');
+    if (percentage <= 20) {
+        bar.classList.add('danger');
+    } else if (percentage <= 40) {
+        bar.classList.add('warning');
+    }
+}
+
+function passTurn() {
+    // El jugador presionó el botón a tiempo
+    clearInterval(gameState.turnTimerInterval);
+    
+    // Avanzar al siguiente jugador
+    gameState.turnPlayer++;
+    
+    if (gameState.turnPlayer > gameState.numPlayers) {
+        // Si ya pasaron todos, reiniciar la ronda
+        gameState.turnPlayer = 1;
+    }
+    
+    updateTurnDisplay();
+    startTurnTimer();
+}
+
+function skipTurn() {
+    // El tiempo se acabó, omitir turno
+    clearInterval(gameState.turnTimerInterval);
+    
+    // Registrar turno omitido
+    if (!gameState.skippedTurns.includes(gameState.turnPlayer)) {
+        gameState.skippedTurns.push(gameState.turnPlayer);
+    }
+    
+    // Efecto visual de omisión
+    const btnTurn = document.getElementById('btn-pass-turn');
+    btnTurn.classList.add('skipped');
+    btnTurn.textContent = '⏭️ ¡Turno Omitido!';
+    
+    // Esperar un momento antes de pasar al siguiente
+    setTimeout(() => {
+        gameState.turnPlayer++;
+        
+        if (gameState.turnPlayer > gameState.numPlayers) {
+            gameState.turnPlayer = 1;
+        }
+        
+        updateTurnDisplay();
+        startTurnTimer();
+    }, 1500);
+}
+
+function stopTurnSystem() {
+    clearInterval(gameState.turnTimerInterval);
+    gameState.turnTimerRunning = false;
+}
+
+// ========================================
 // RESULTADOS
 // ========================================
 
 function revealImpostors() {
     pauseTimer();
+    stopTurnSystem();
     showScreen('screen-results');
+    
+    // Actualizar título según cantidad de impostores
+    const resultsTitle = document.getElementById('results-title');
+    if (gameState.impostorIndices.length === 1) {
+        resultsTitle.textContent = '🎭 El Impostor Era...';
+    } else {
+        resultsTitle.textContent = '🎭 Los Impostores Eran...';
+    }
     
     // Mostrar impostores
     const impostorsList = document.getElementById('impostors-list');
@@ -1162,24 +1598,73 @@ function revealImpostors() {
 }
 
 function createConfetti() {
-    const colors = ['#00d26a', '#ff4757', '#6c5ce7', '#0984e3', '#ffa502', '#ff6b81'];
+    const colors = [
+        '#00d26a', '#ff4757', '#6c5ce7', '#0984e3', '#ffa502', '#ff6b81',
+        '#00cec9', '#fd79a8', '#e17055', '#a29bfe', '#f9ca24', '#55efc4'
+    ];
+    const shapes = ['circle', 'square', 'star', 'rectangle', 'triangle'];
     
-    for (let i = 0; i < 50; i++) {
+    // Crear oleadas de confeti
+    for (let wave = 0; wave < 3; wave++) {
         setTimeout(() => {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.top = '-10px';
-            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.width = (5 + Math.random() * 10) + 'px';
-            confetti.style.height = confetti.style.width;
-            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-            document.body.appendChild(confetti);
-            
-            setTimeout(() => {
-                confetti.remove();
-            }, 3000);
-        }, i * 50);
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = 6 + Math.random() * 12;
+                    const startX = Math.random() * 100;
+                    const drift = (Math.random() - 0.5) * 200;
+                    const rotation = Math.random() * 720 - 360;
+                    const duration = 3 + Math.random() * 2;
+                    
+                    confetti.style.left = startX + 'vw';
+                    confetti.style.top = '-20px';
+                    confetti.style.setProperty('--drift', drift + 'px');
+                    confetti.style.setProperty('--rotation', rotation + 'deg');
+                    confetti.style.animationDuration = duration + 's';
+                    
+                    // Aplicar forma
+                    if (shape === 'circle') {
+                        confetti.style.width = size + 'px';
+                        confetti.style.height = size + 'px';
+                        confetti.style.borderRadius = '50%';
+                        confetti.style.background = `radial-gradient(circle at 30% 30%, ${color}, ${color}88)`;
+                    } else if (shape === 'square') {
+                        confetti.style.width = size + 'px';
+                        confetti.style.height = size + 'px';
+                        confetti.style.background = color;
+                        confetti.style.borderRadius = '2px';
+                    } else if (shape === 'rectangle') {
+                        confetti.style.width = size * 0.5 + 'px';
+                        confetti.style.height = size * 1.5 + 'px';
+                        confetti.style.background = `linear-gradient(135deg, ${color}, ${color}88)`;
+                        confetti.style.borderRadius = '2px';
+                    } else if (shape === 'star') {
+                        confetti.style.width = size + 'px';
+                        confetti.style.height = size + 'px';
+                        confetti.style.background = color;
+                        confetti.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+                    } else if (shape === 'triangle') {
+                        confetti.style.width = '0';
+                        confetti.style.height = '0';
+                        confetti.style.borderLeft = size/2 + 'px solid transparent';
+                        confetti.style.borderRight = size/2 + 'px solid transparent';
+                        confetti.style.borderBottom = size + 'px solid ' + color;
+                        confetti.style.background = 'transparent';
+                    }
+                    
+                    // Añadir brillo
+                    confetti.style.boxShadow = `0 0 ${size/2}px ${color}66`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), duration * 1000 + 500);
+                }, i * 30);
+            }
+        }, wave * 800);
     }
 }
 
@@ -1202,9 +1687,13 @@ function playAgain() {
     gameState.isDrawing = false;
     gameState.tapCount = 0;
     gameState.lastTapTime = 0;
+    gameState.playersWhoSawCard = [];
+    gameState.hackUsed = false;
+    gameState.convertedImpostors = [];
 
     selectSecretWord();
     selectImpostors();
+    gameState.originalImpostorIndices = [...gameState.impostorIndices];
     assignPowers(); // Asignar nuevos poderes
 
     showScreen('screen-game');

@@ -165,6 +165,21 @@
                     </div>
                 </div>
                 
+                <!-- Sistema de Turnos -->
+                <div class="turn-system">
+                    <div class="turn-header">
+                        <h3>🎯 Turno Actual</h3>
+                        <p id="current-turn-player">Jugador 1</p>
+                    </div>
+                    <div class="turn-timer-container">
+                        <div class="turn-timer-bar" id="turn-timer-bar"></div>
+                    </div>
+                    <button class="btn-turn" id="btn-pass-turn" onclick="passTurn()">
+                        ✋ Pasar Turno
+                    </button>
+                    <p class="turn-warning" id="turn-warning">⚠️ ¡Presiona antes de que se acabe el tiempo!</p>
+                </div>
+                
                 <div class="voting-section">
                     <h3>🗳️ ¡Hora de Votar!</h3>
                     <p>¿Quién creen que es el impostor?</p>
