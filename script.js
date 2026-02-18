@@ -120,6 +120,62 @@ const PISTAS_RELACIONADAS = {
     "Matrix": ["píldora", "neo", "simulación", "código", "elegido"],
     "E.T.": ["alien", "bicicleta", "teléfono", "dedo", "casa"],
     "Shrek": ["ogro", "pantano", "verde", "burro", "princesa"],
+    // Princesas Disney expandidas
+    "Blancanieves": ["manzana", "espejo", "enanitos", "veneno", "bosque"],
+    "Cenicienta": ["zapatilla", "calabaza", "madrastra", "baile", "medianoche"],
+    "Aurora": ["sueño", "huso", "hada", "príncipe", "maldición"],
+    "Ariel": ["sirena", "voz", "mar", "piernas", "Sebastián"],
+    "Bella": ["libros", "rosa", "bestia", "castillo", "pueblo"],
+    "Jasmín": ["alfombra", "tigre", "palacio", "Arabia", "Aladdin"],
+    "Pocahontas": ["naturaleza", "colores", "John Smith", "río", "viento"],
+    "Mulán": ["china", "guerrera", "dragón", "espada", "honor"],
+    "Tiana": ["rana", "restaurante", "Nueva Orleans", "trabajo", "beso"],
+    "Rapunzel": ["cabello", "torre", "sol", "pintura", "Pascal"],
+    "Mérida": ["arco", "oso", "Escocia", "peliroja", "valiente"],
+    "Moana": ["océano", "isla", "Maui", "navegante", "corazón"],
+    "Elsa": ["hielo", "reina", "poderes", "aislada", "Let it go"],
+    "Anna": ["optimista", "hermana", "amor", "Kristoff", "corazón"],
+    "Raya": ["dragón", "gema", "Kumandra", "guerrera", "confianza"],
+    "Mirabel": ["familia", "magia", "Encanto", "Colombia", "mariposas"],
+    // Villanos Disney
+    "Maléfica": ["dragón", "hada", "maldición", "sueño", "cuernos"],
+    "Úrsula": ["pulpo", "mar", "voz", "contrato", "tentáculos"],
+    "Cruella de Vil": ["dálmatas", "pieles", "moda", "blanco y negro", "perros"],
+    "Scar": ["león", "cicatriz", "hienas", "rey", "traición"],
+    "Jafar": ["serpiente", "sultán", "genio", "bastón", "Arabia"],
+    "Hades": ["fuego", "inframundo", "azul", "muerte", "trato"],
+    "Capitán Garfio": ["pirata", "cocodrilo", "reloj", "Neverland", "gancho"],
+    "Reina Malvada": ["espejo", "manzana", "veneno", "vanidad", "cazador"],
+    "Gastón": ["músculos", "caza", "espejo", "huevos", "arrogante"],
+    // Famosos
+    "Taylor Swift": ["cantante", "eras", "serpiente", "guitarra", "rubia"],
+    "BTS": ["kpop", "army", "corea", "baile", "grupo"],
+    "Shakira": ["caderas", "colombiana", "loba", "rubia", "mundial"],
+    "Bad Bunny": ["reggaeton", "conejo", "Puerto Rico", "lentes", "trap"],
+    "Lionel Messi": ["Argentina", "gol", "Barcelona", "copa", "pulga"],
+    "Cristiano Ronaldo": ["Portugal", "Siiii", "goles", "abdominales", "salto"],
+    "Beyoncé": ["Queen B", "diva", "Single Ladies", "Formation", "limonada"],
+    "Michael Jackson": ["thriller", "moonwalk", "guante", "rey del pop", "sombrero"],
+    // Videojuegos
+    "Mario": ["bigote", "fontanero", "hongo", "saltar", "princesa"],
+    "Sonic": ["veloz", "azul", "anillos", "erizo", "correr"],
+    "Pikachu": ["amarillo", "electricidad", "pokemon", "Ash", "mejillas"],
+    "Link": ["espada", "Zelda", "Hyrule", "verde", "elfo"],
+    "Minecraft Steve": ["bloques", "picar", "crafting", "cuadrado", "zombies"],
+    "Fortnite": ["baile", "construcción", "battle royale", "bus", "tormenta"],
+    "Among Us": ["impostor", "tareas", "espacial", "emergencia", "votar"],
+    // Anime
+    "Goku": ["sayajin", "kame", "pelo", "pelear", "transformación"],
+    "Naruto": ["ninja", "zorro", "hokage", "ramen", "aldea"],
+    "Luffy": ["pirata", "goma", "sombrero", "one piece", "tripulación"],
+    "Sailor Moon": ["luna", "transformación", "amor", "justicia", "cetro"],
+    "Totoro": ["bosque", "paraguas", "gato", "grande", "espíritu"],
+    "Death Note": ["cuaderno", "manzana", "shinigami", "justicia", "nombres"],
+    // Música/Canciones
+    "Let It Go": ["Frozen", "Elsa", "libre", "hielo", "puerta"],
+    "Despacito": ["Puerto Rico", "Luis Fonsi", "lento", "verano", "playa"],
+    "Thriller": ["zombies", "noche", "baile", "Michael", "terror"],
+    "Gangnam Style": ["caballo", "baile", "coreano", "PSY", "viral"],
 };
 
 // ========================================
@@ -190,11 +246,12 @@ const THEMES = {
         ]
     },
     princesas: {
-        name: "Princesas",
+        name: "Princesas Disney",
         emoji: "👸",
         words: [
-            { word: "Cenicienta", emoji: "👠" },
+            // Princesas oficiales de Disney
             { word: "Blancanieves", emoji: "🍎" },
+            { word: "Cenicienta", emoji: "👠" },
             { word: "Aurora", emoji: "🌹" },
             { word: "Ariel", emoji: "🧜‍♀️" },
             { word: "Bella", emoji: "📚" },
@@ -205,14 +262,31 @@ const THEMES = {
             { word: "Rapunzel", emoji: "💇‍♀️" },
             { word: "Mérida", emoji: "🏹" },
             { word: "Moana", emoji: "🌊" },
+            // Reinas y princesas de Frozen
             { word: "Elsa", emoji: "❄️" },
             { word: "Anna", emoji: "💕" },
+            // Otras princesas Disney
             { word: "Raya", emoji: "🐉" },
             { word: "Mirabel", emoji: "🦋" },
             { word: "Giselle", emoji: "👗" },
             { word: "Vanellope", emoji: "🍬" },
             { word: "Sofia", emoji: "💜" },
-            { word: "Elena", emoji: "👑" }
+            { word: "Elena de Avalor", emoji: "👑" },
+            { word: "Megara", emoji: "💜" },
+            { word: "Esmeralda", emoji: "💃" },
+            { word: "Nala", emoji: "🦁" },
+            { word: "Kida", emoji: "🔷" },
+            { word: "Giselle", emoji: "👗" },
+            { word: "Eilonwy", emoji: "✨" },
+            { word: "Marian", emoji: "🦊" },
+            { word: "Princesa Atta", emoji: "🐜" },
+            { word: "Princesa Dot", emoji: "🐜" },
+            { word: "Faline", emoji: "🦌" },
+            { word: "Wendy Darling", emoji: "🧚" },
+            { word: "Alicia", emoji: "🃏" },
+            { word: "Tiger Lily", emoji: "🪶" },
+            { word: "Minnie Mouse", emoji: "🎀" },
+            { word: "Daisy Duck", emoji: "🌼" }
         ]
     },
     magicos: {
@@ -508,6 +582,174 @@ const THEMES = {
             { word: "Bostezar", emoji: "🥱" },
             { word: "Pelear", emoji: "👊" }
         ]
+    },
+    villanos: {
+        name: "Villanos Disney",
+        emoji: "😈",
+        words: [
+            { word: "Maléfica", emoji: "🐉" },
+            { word: "Úrsula", emoji: "🐙" },
+            { word: "Cruella de Vil", emoji: "🐕" },
+            { word: "Scar", emoji: "🦁" },
+            { word: "Jafar", emoji: "🐍" },
+            { word: "Hades", emoji: "🔥" },
+            { word: "Capitán Garfio", emoji: "🪝" },
+            { word: "Reina Malvada", emoji: "🍎" },
+            { word: "Gastón", emoji: "💪" },
+            { word: "Lady Tremaine", emoji: "👠" },
+            { word: "Dr. Facilier", emoji: "🎩" },
+            { word: "Madre Gothel", emoji: "🗡️" },
+            { word: "Shan Yu", emoji: "⚔️" },
+            { word: "Ratigan", emoji: "🐀" },
+            { word: "Frollo", emoji: "⛪" },
+            { word: "Edgar", emoji: "🐱" },
+            { word: "Príncipe Juan", emoji: "👑" },
+            { word: "Reina de Corazones", emoji: "♥️" },
+            { word: "Yzma", emoji: "💜" },
+            { word: "Tamatoa", emoji: "🦀" },
+            { word: "Te Kā", emoji: "🌋" },
+            { word: "Hans", emoji: "❄️" },
+            { word: "Lotso", emoji: "🧸" },
+            { word: "Síndrome", emoji: "🦸" }
+        ]
+    },
+    famosos: {
+        name: "Famosos Mundiales",
+        emoji: "🌟",
+        words: [
+            { word: "Taylor Swift", emoji: "🎤" },
+            { word: "BTS", emoji: "💜" },
+            { word: "Shakira", emoji: "💃" },
+            { word: "Bad Bunny", emoji: "🐰" },
+            { word: "Lionel Messi", emoji: "⚽" },
+            { word: "Cristiano Ronaldo", emoji: "⚽" },
+            { word: "Beyoncé", emoji: "👑" },
+            { word: "Michael Jackson", emoji: "🎤" },
+            { word: "Lady Gaga", emoji: "🎭" },
+            { word: "Drake", emoji: "🎵" },
+            { word: "Rihanna", emoji: "💎" },
+            { word: "Justin Bieber", emoji: "🎤" },
+            { word: "Selena Gomez", emoji: "💄" },
+            { word: "Dua Lipa", emoji: "🎶" },
+            { word: "Ed Sheeran", emoji: "🎸" },
+            { word: "Ariana Grande", emoji: "🎀" },
+            { word: "Bruno Mars", emoji: "🎹" },
+            { word: "The Weeknd", emoji: "🌃" },
+            { word: "Neymar", emoji: "⚽" },
+            { word: "LeBron James", emoji: "🏀" },
+            { word: "Kim Kardashian", emoji: "📱" },
+            { word: "Elon Musk", emoji: "🚀" },
+            { word: "MrBeast", emoji: "💰" },
+            { word: "PewDiePie", emoji: "🎮" }
+        ]
+    },
+    videojuegos: {
+        name: "Videojuegos",
+        emoji: "🎮",
+        words: [
+            { word: "Mario", emoji: "🍄" },
+            { word: "Sonic", emoji: "🦔" },
+            { word: "Pikachu", emoji: "⚡" },
+            { word: "Link", emoji: "🗡️" },
+            { word: "Zelda", emoji: "👸" },
+            { word: "Minecraft Steve", emoji: "⛏️" },
+            { word: "Fortnite", emoji: "🎯" },
+            { word: "Among Us", emoji: "🚀" },
+            { word: "Pac-Man", emoji: "🟡" },
+            { word: "Kratos", emoji: "⚔️" },
+            { word: "Master Chief", emoji: "🪖" },
+            { word: "Lara Croft", emoji: "🏺" },
+            { word: "Crash Bandicoot", emoji: "🧡" },
+            { word: "Spyro", emoji: "🐉" },
+            { word: "Roblox", emoji: "🎮" },
+            { word: "Fall Guys", emoji: "🫘" },
+            { word: "GTA", emoji: "🚗" },
+            { word: "FIFA", emoji: "⚽" },
+            { word: "Call of Duty", emoji: "🔫" },
+            { word: "The Sims", emoji: "💎" },
+            { word: "Animal Crossing", emoji: "🏝️" },
+            { word: "Kirby", emoji: "🩷" },
+            { word: "Yoshi", emoji: "🦕" },
+            { word: "Donkey Kong", emoji: "🦍" }
+        ]
+    },
+    musica: {
+        name: "Música y Canciones",
+        emoji: "🎵",
+        words: [
+            { word: "Let It Go", emoji: "❄️" },
+            { word: "Despacito", emoji: "🎶" },
+            { word: "Thriller", emoji: "🧟" },
+            { word: "Shape of You", emoji: "💃" },
+            { word: "Uptown Funk", emoji: "🕺" },
+            { word: "Rolling in the Deep", emoji: "🎤" },
+            { word: "Bohemian Rhapsody", emoji: "👑" },
+            { word: "Bad Guy", emoji: "😈" },
+            { word: "Gangnam Style", emoji: "🐴" },
+            { word: "Hips Don't Lie", emoji: "💃" },
+            { word: "Waka Waka", emoji: "⚽" },
+            { word: "Shake It Off", emoji: "💃" },
+            { word: "Hello", emoji: "👋" },
+            { word: "Roar", emoji: "🦁" },
+            { word: "Firework", emoji: "🎆" },
+            { word: "Dynamite", emoji: "💣" },
+            { word: "Happy", emoji: "😊" },
+            { word: "Havana", emoji: "🌴" },
+            { word: "Señorita", emoji: "💕" },
+            { word: "Blinding Lights", emoji: "✨" }
+        ]
+    },
+    anime: {
+        name: "Anime y Manga",
+        emoji: "🎌",
+        words: [
+            { word: "Goku", emoji: "🐉" },
+            { word: "Naruto", emoji: "🍥" },
+            { word: "Luffy", emoji: "🏴‍☠️" },
+            { word: "Pikachu", emoji: "⚡" },
+            { word: "Sailor Moon", emoji: "🌙" },
+            { word: "Totoro", emoji: "🌳" },
+            { word: "Spirited Away", emoji: "🛁" },
+            { word: "Attack on Titan", emoji: "⚔️" },
+            { word: "Death Note", emoji: "📓" },
+            { word: "One Punch Man", emoji: "👊" },
+            { word: "Demon Slayer", emoji: "🗡️" },
+            { word: "My Hero Academia", emoji: "💪" },
+            { word: "Jujutsu Kaisen", emoji: "👁️" },
+            { word: "Dragon Ball", emoji: "🟠" },
+            { word: "Pokémon", emoji: "🎮" },
+            { word: "Doraemon", emoji: "🐱" },
+            { word: "Sasuke", emoji: "⚡" },
+            { word: "Eren Yeager", emoji: "⚔️" },
+            { word: "Vegeta", emoji: "👑" },
+            { word: "Itachi", emoji: "🌀" }
+        ]
+    },
+    objetos: {
+        name: "Objetos Cotidianos",
+        emoji: "📦",
+        words: [
+            { word: "Teléfono", emoji: "📱" },
+            { word: "Computadora", emoji: "💻" },
+            { word: "Televisión", emoji: "📺" },
+            { word: "Refrigerador", emoji: "🧊" },
+            { word: "Cama", emoji: "🛏️" },
+            { word: "Silla", emoji: "🪑" },
+            { word: "Mesa", emoji: "🪵" },
+            { word: "Lámpara", emoji: "💡" },
+            { word: "Espejo", emoji: "🪞" },
+            { word: "Reloj", emoji: "⏰" },
+            { word: "Libro", emoji: "📚" },
+            { word: "Lápiz", emoji: "✏️" },
+            { word: "Tijeras", emoji: "✂️" },
+            { word: "Llave", emoji: "🔑" },
+            { word: "Paraguas", emoji: "☂️" },
+            { word: "Gafas", emoji: "👓" },
+            { word: "Zapatos", emoji: "👟" },
+            { word: "Mochila", emoji: "🎒" },
+            { word: "Cámara", emoji: "📷" },
+            { word: "Guitarra", emoji: "🎸" }
+        ]
     }
 };
 
@@ -553,6 +795,7 @@ const PODERES = [
 let gameState = {
     numPlayers: 4,
     numImpostors: 1,
+    invertedMode: false, // Modo invertido: todos son "impostores" excepto uno que sabe la palabra
     selectedThemes: [],
     currentPlayer: 1,
     impostorIndices: [],
@@ -563,6 +806,7 @@ let gameState = {
     secretEmoji: null,
     secretCategory: null,
     secretHint: null, // Pista relacionada para el impostor
+    decoyWords: [], // Palabras señuelo para el modo invertido
     cardFlipped: false,
     timerInterval: null,
     timerSeconds: 180,
@@ -798,12 +1042,41 @@ function createParticles() {
 function initializeInputListeners() {
     const numPlayersInput = document.getElementById('numPlayers');
     const numImpostorsInput = document.getElementById('numImpostors');
+    const invertedModeInput = document.getElementById('invertedMode');
 
     numPlayersInput.addEventListener('change', () => {
         validateInputs();
         updateRolesInfo();
     });
     numImpostorsInput.addEventListener('change', validateInputs);
+    
+    // Listener para el modo invertido
+    if (invertedModeInput) {
+        // Referencias a los labels
+        const labelNormal = document.getElementById('mode-label-normal');
+        const labelInverted = document.getElementById('mode-label-inverted');
+        const modeHint = document.getElementById('mode-hint');
+        
+        invertedModeInput.addEventListener('change', () => {
+            if (invertedModeInput.checked) {
+                // Modo Invertido activo
+                modeHint.innerHTML = '🔄 ¡Invertido! Solo unos pocos conocen la palabra, el resto ve pistas falsas';
+                modeHint.style.color = '#ff6b81';
+                modeHint.classList.add('inverted-active');
+                
+                if (labelNormal) labelNormal.classList.add('inactive');
+                if (labelInverted) labelInverted.classList.add('active');
+            } else {
+                // Modo Normal activo
+                modeHint.innerHTML = '🔍 Todos conocen la palabra, encuentra al impostor';
+                modeHint.style.color = '';
+                modeHint.classList.remove('inverted-active');
+                
+                if (labelNormal) labelNormal.classList.remove('inactive');
+                if (labelInverted) labelInverted.classList.remove('active');
+            }
+        });
+    }
 
     // Actualizar roles al cargar la página
     updateRolesInfo();
@@ -903,11 +1176,11 @@ function validateInputs() {
     const maxImpostors = Math.floor(numPlayers / 2);
     
     if (numImpostors > maxImpostors) {
-        document.getElementById('numImpostors').value = maxImpostors;
+        document.getElementById('numImpostors').value = Math.max(1, maxImpostors);
     }
     
     // Actualizar límite máximo dinámicamente
-    document.getElementById('numImpostors').max = maxImpostors;
+    document.getElementById('numImpostors').max = Math.max(1, maxImpostors);
 }
 
 function getSelectedThemes() {
@@ -929,6 +1202,7 @@ function startGame() {
 
     gameState.numPlayers = parseInt(document.getElementById('numPlayers').value);
     gameState.numImpostors = parseInt(document.getElementById('numImpostors').value);
+    gameState.invertedMode = document.getElementById('invertedMode')?.checked || false;
     gameState.selectedThemes = selectedThemes;
     gameState.currentPlayer = 1;
     gameState.cardFlipped = false;
@@ -939,6 +1213,7 @@ function startGame() {
     gameState.playersWhoSawCard = [];
     gameState.hackUsed = false;
     gameState.convertedImpostors = [];
+    gameState.decoyWords = [];
 
     // Seleccionar palabra secreta aleatoria
     selectSecretWord();
@@ -969,7 +1244,8 @@ function selectSecretWord() {
                 word: wordObj.word,
                 emoji: wordObj.emoji,
                 category: theme.name,
-                categoryEmoji: theme.emoji
+                categoryEmoji: theme.emoji,
+                themeKey: themeKey
             });
         });
     });
@@ -984,6 +1260,23 @@ function selectSecretWord() {
     
     // Generar pista relacionada para el impostor
     gameState.secretHint = generateHintForWord(selected.word, selected.category);
+    
+    // Para el modo invertido, generar palabras señuelo (diferentes para cada jugador no-impostor)
+    if (gameState.invertedMode) {
+        // Obtener palabras del mismo tema que no sean la palabra secreta
+        const sameThemeWords = allWords.filter(w => 
+            w.themeKey === selected.themeKey && w.word !== selected.word
+        );
+        
+        // Si no hay suficientes del mismo tema, usar de otros temas
+        const otherWords = allWords.filter(w => w.word !== selected.word);
+        
+        // Mezclar y seleccionar palabras señuelo (una por cada jugador no-impostor potencial)
+        const wordsToUse = sameThemeWords.length >= gameState.numPlayers ? sameThemeWords : otherWords;
+        const shuffledDecoys = [...wordsToUse].sort(() => Math.random() - 0.5);
+        
+        gameState.decoyWords = shuffledDecoys.slice(0, gameState.numPlayers);
+    }
 }
 
 function generateHintForWord(word, category) {
@@ -1197,6 +1490,15 @@ function generatePowerInfo(playerIndex, power) {
 // ========================================
 
 function updateGameUI() {
+    // Verificar si ya terminamos con todos
+    if (gameState.currentPlayer > gameState.numPlayers) {
+        // Todos vieron sus cartas, ir a discusión
+        document.getElementById('btn-next').style.display = 'none';
+        document.getElementById('btn-play').style.display = 'inline-block';
+        document.getElementById('current-player').textContent = '¡Todos listos!';
+        return;
+    }
+    
     const isImpostor = gameState.impostorIndices.includes(gameState.currentPlayer);
     const cardBack = document.getElementById('card-back');
 
@@ -1206,50 +1508,96 @@ function updateGameUI() {
     // Actualizar encabezado
     document.getElementById('current-player').textContent = `Jugador ${gameState.currentPlayer}`;
 
-    // Actualizar contenido de la carta
-    if (isImpostor) {
-        cardBack.classList.remove('normal', 'power');
-        cardBack.classList.add('impostor');
-        
-        // Mostrar emoji protegido (oscurecido) y pista relacionada
-        const protectedEmoji = `<span class="protected-emoji">${gameState.secretEmoji}</span>`;
-        document.getElementById('card-emoji').innerHTML = '🎭';
-        document.getElementById('card-word').textContent = '¡IMPOSTOR!';
-        document.getElementById('card-category').innerHTML = `
-            <div class="impostor-hint">
-                <span class="hint-label">Pista:</span>
-                <span class="hint-word">${gameState.secretHint}</span>
-            </div>
-            <div class="protected-container">
-                ${protectedEmoji}
-            </div>
-            <div class="category-hint">${gameState.secretCategory}</div>
-        `;
-    } else if (playerPower) {
-        // Jugador con poder (incluye ex-impostores convertidos)
-        cardBack.classList.remove('impostor', 'normal');
-        cardBack.classList.add('power');
-        document.getElementById('card-emoji').textContent = playerPower.power.emoji;
-        document.getElementById('card-word').textContent = gameState.secretWord;
-        document.getElementById('card-category').innerHTML = `
-            ${gameState.secretCategory}<br>
-            <span class="power-badge">${playerPower.power.nombre}</span><br>
-            <span class="power-info">${playerPower.info}</span>
-        `;
+    // MODO INVERTIDO: Los roles se invierten
+    // - Los "impostores" (pocos) CONOCEN la palabra real
+    // - El resto ve palabras señuelo diferentes
+    if (gameState.invertedMode) {
+        if (isImpostor) {
+            // En modo invertido, los "impostores" son los que SABEN la palabra
+            // Tarjeta VERDE
+            cardBack.classList.remove('impostor', 'power', 'normal', 'inverted-decoy');
+            cardBack.classList.add('inverted-knows');
+            document.getElementById('card-emoji').textContent = '🎯';
+            document.getElementById('card-word').textContent = gameState.secretWord;
+            document.getElementById('card-category').innerHTML = `
+                ${gameState.secretCategory}<br>
+                <span class="power-badge" style="background: linear-gradient(135deg, #22c55e, #15803d);">✓ ¡CONOCES LA PALABRA!</span>
+            `;
+        } else if (playerPower) {
+            // Jugador con poder pero NO conoce la palabra real
+            // Tarjeta ROJA (señuelo)
+            cardBack.classList.remove('impostor', 'normal', 'inverted-knows');
+            cardBack.classList.add('inverted-decoy');
+            const decoyIndex = (gameState.currentPlayer - 1) % gameState.decoyWords.length;
+            const decoy = gameState.decoyWords[decoyIndex];
+            document.getElementById('card-emoji').textContent = decoy?.emoji || '❓';
+            document.getElementById('card-word').textContent = decoy?.word || '???';
+            document.getElementById('card-category').innerHTML = `
+                ${gameState.secretCategory}<br>
+                <span class="power-badge">${playerPower.power.nombre}</span><br>
+                <span class="power-info">${playerPower.info}</span>
+            `;
+        } else {
+            // Jugador normal en modo invertido - ve palabra señuelo
+            // Tarjeta ROJA
+            cardBack.classList.remove('impostor', 'power', 'normal', 'inverted-knows');
+            cardBack.classList.add('inverted-decoy');
+            const decoyIndex = (gameState.currentPlayer - 1) % gameState.decoyWords.length;
+            const decoy = gameState.decoyWords[decoyIndex];
+            document.getElementById('card-emoji').textContent = decoy?.emoji || '❓';
+            document.getElementById('card-word').textContent = decoy?.word || '???';
+            document.getElementById('card-category').textContent = gameState.secretCategory;
+        }
     } else {
-        // Jugador normal
-        cardBack.classList.remove('impostor', 'power');
-        cardBack.classList.add('normal');
-        document.getElementById('card-emoji').textContent = gameState.secretEmoji;
-        document.getElementById('card-word').textContent = gameState.secretWord;
-        document.getElementById('card-category').textContent = gameState.secretCategory;
+        // MODO NORMAL: El impostor NO conoce la palabra
+        if (isImpostor) {
+            cardBack.classList.remove('normal', 'power');
+            cardBack.classList.add('impostor');
+            
+            // Mostrar emoji protegido (oscurecido) y pista relacionada
+            const protectedEmoji = `<span class="protected-emoji">${gameState.secretEmoji}</span>`;
+            document.getElementById('card-emoji').innerHTML = '🎭';
+            document.getElementById('card-word').textContent = '¡IMPOSTOR!';
+            document.getElementById('card-category').innerHTML = `
+                <div class="impostor-hint">
+                    <span class="hint-label">Pista:</span>
+                    <span class="hint-word">${gameState.secretHint}</span>
+                </div>
+                <div class="protected-container">
+                    ${protectedEmoji}
+                </div>
+                <div class="category-hint">${gameState.secretCategory}</div>
+            `;
+        } else if (playerPower) {
+            // Jugador con poder (incluye ex-impostores convertidos)
+            cardBack.classList.remove('impostor', 'normal');
+            cardBack.classList.add('power');
+            document.getElementById('card-emoji').textContent = playerPower.power.emoji;
+            document.getElementById('card-word').textContent = gameState.secretWord;
+            document.getElementById('card-category').innerHTML = `
+                ${gameState.secretCategory}<br>
+                <span class="power-badge">${playerPower.power.nombre}</span><br>
+                <span class="power-info">${playerPower.info}</span>
+            `;
+        } else {
+            // Jugador normal
+            cardBack.classList.remove('impostor', 'power');
+            cardBack.classList.add('normal');
+            document.getElementById('card-emoji').textContent = gameState.secretEmoji;
+            document.getElementById('card-word').textContent = gameState.secretWord;
+            document.getElementById('card-category').textContent = gameState.secretCategory;
+        }
     }
 
     // Actualizar barra de progreso
-    const progress = (gameState.currentPlayer / gameState.numPlayers) * 100;
+    const humansSeen = gameState.playersWhoSawCard.length;
+    const totalHumans = gameState.numPlayers;
+    const progress = (humansSeen / totalHumans) * 100;
     document.getElementById('progress-bar').style.width = progress + '%';
+    
+    // Mostrar información de progreso
     document.getElementById('progress-text').textContent =
-        `Jugador ${gameState.currentPlayer} de ${gameState.numPlayers}`;
+        `Jugador ${gameState.currentPlayer} - ${humansSeen}/${totalHumans}`;
 
     // Ocultar botones
     document.getElementById('btn-next').style.display = 'none';
@@ -1334,6 +1682,7 @@ function flipCard() {
 
         // Mostrar botón apropiado después de voltear
         setTimeout(() => {
+            // Verificar si hay más jugadores por ver
             if (gameState.currentPlayer < gameState.numPlayers) {
                 document.getElementById('btn-next').style.display = 'inline-block';
             } else {
@@ -1734,3 +2083,100 @@ document.addEventListener('click', (e) => {
         playHaptic();
     }
 });
+
+// ========================================
+// PANEL DE VOTACIÓN
+// ========================================
+
+function renderVoteButtons() {
+    const container = document.getElementById('vote-buttons');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    for (let i = 1; i <= gameState.numPlayers; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'vote-btn';
+        btn.innerHTML = `👤 Jugador ${i}`;
+        btn.onclick = () => {
+            container.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            addSystemMessage(`🗳️ Has votado por Jugador ${i}`);
+        };
+        container.appendChild(btn);
+    }
+}
+
+// Inicializar discusión
+function startDiscussion() {
+    showScreen('screen-discussion');
+    resetTimer();
+    initializeTurnSystem();
+    renderVoteButtons();
+    initializeChat();
+}
+
+// Revelar impostores
+function revealImpostors() {
+    pauseTimer();
+    stopTurnSystem();
+    chatState.enabled = false;
+    showScreen('screen-results');
+    
+    const resultsTitle = document.getElementById('results-title');
+    
+    // Ajustar título según modo de juego
+    if (gameState.invertedMode) {
+        if (gameState.impostorIndices.length === 1) {
+            resultsTitle.textContent = '🎯 El que conocía la palabra era...';
+        } else {
+            resultsTitle.textContent = '🎯 Los que conocían la palabra eran...';
+        }
+    } else {
+        if (gameState.impostorIndices.length === 1) {
+            resultsTitle.textContent = '🎭 El Impostor Era...';
+        } else {
+            resultsTitle.textContent = '🎭 Los Impostores Eran...';
+        }
+    }
+    
+    const impostorsList = document.getElementById('impostors-list');
+    impostorsList.innerHTML = '';
+    
+    gameState.impostorIndices.forEach((playerNum, index) => {
+        setTimeout(() => {
+            const badge = document.createElement('div');
+            badge.className = 'impostor-badge';
+            badge.textContent = `🎭 Jugador ${playerNum}`;
+            impostorsList.appendChild(badge);
+        }, index * 300);
+    });
+    
+    document.getElementById('secret-word').textContent = 
+        `${gameState.secretEmoji} ${gameState.secretWord}`;
+    
+    createConfetti();
+}
+
+// Jugar de nuevo
+function playAgain() {
+    gameState.currentPlayer = 1;
+    gameState.cardFlipped = false;
+    gameState.drawPoints = [];
+    gameState.isDrawing = false;
+    gameState.tapCount = 0;
+    gameState.lastTapTime = 0;
+    gameState.playersWhoSawCard = [];
+    gameState.hackUsed = false;
+    gameState.convertedImpostors = [];
+    gameState.decoyWords = [];
+
+    selectSecretWord();
+    selectImpostors();
+    gameState.originalImpostorIndices = [...gameState.impostorIndices];
+    assignPowers();
+
+    showScreen('screen-game');
+    updateGameUI();
+    resetCard();
+}

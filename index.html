@@ -18,10 +18,10 @@
             
             <div class="config-panel">
                 <div class="config-group">
-                    <label for="numPlayers">👥 Número de Jugadores</label>
+                    <label for="numPlayers">👥 Jugadores Humanos</label>
                     <div class="counter">
                         <button class="counter-btn" onclick="changeValue('numPlayers', -1)">-</button>
-                        <input type="number" id="numPlayers" value="4" min="3" max="20">
+                        <input type="number" id="numPlayers" value="2" min="1" max="20">
                         <button class="counter-btn" onclick="changeValue('numPlayers', 1)">+</button>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <button class="counter-btn" onclick="changeValue('numImpostors', 1)">+</button>
                     </div>
                 </div>
-                
+
                 <div class="config-group">
                     <label>🎨 Selecciona los Temas</label>
                     <div class="themes-grid">
@@ -48,7 +48,7 @@
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="princesas" checked>
-                            <span class="theme-label">👸 Princesas</span>
+                            <span class="theme-label">👸 Princesas Disney</span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="magicos" checked>
@@ -86,7 +86,47 @@
                             <input type="checkbox" value="acciones" checked>
                             <span class="theme-label">🎬 Acciones</span>
                         </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="villanos" checked>
+                            <span class="theme-label">😈 Villanos Disney</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="famosos" checked>
+                            <span class="theme-label">🌟 Famosos</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="videojuegos" checked>
+                            <span class="theme-label">🎮 Videojuegos</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="musica" checked>
+                            <span class="theme-label">🎵 Música</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="anime" checked>
+                            <span class="theme-label">🎌 Anime</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="objetos" checked>
+                            <span class="theme-label">📦 Objetos</span>
+                        </label>
                     </div>
+                </div>
+
+                <div class="config-group">
+                    <label>🎮 Modo de Juego</label>
+                    <div class="mode-toggle-container">
+                        <span class="mode-label-left" id="mode-label-normal">🔍 Normal</span>
+                        <label class="neon-toggle">
+                            <input type="checkbox" id="invertedMode">
+                            <span class="neon-slider">
+                                <span class="neon-knob"></span>
+                                <span class="glow-effect"></span>
+                            </span>
+                        </label>
+                        <span class="mode-label-right" id="mode-label-inverted">Invertido 🔄</span>
+                    </div>
+                    <p class="config-hint mode-description" id="mode-hint">🔍 Todos conocen la palabra, encuentra al impostor</p>
                 </div>
                 
                 <button class="btn-primary pulse" onclick="startGame()">
@@ -150,40 +190,45 @@
 
     <!-- Pantalla de Discusión -->
     <div id="screen-discussion" class="screen">
-        <div class="container">
+        <div class="container discussion-layout">
             <div class="discussion-content">
                 <h2>🗣️ ¡Tiempo de Discusión!</h2>
-                <p class="discussion-text">Hablen sobre la palabra secreta.<br>¡Encuentren al impostor!</p>
+                <p class="discussion-text">Da pistas en el chat para descubrir al impostor.</p>
                 
-                <div class="timer-container">
-                    <div class="timer-circle">
-                        <span id="timer">3:00</span>
+                <div class="discussion-top-bar">
+                    <div class="timer-container-mini">
+                        <div class="timer-circle-mini">
+                            <span id="timer">3:00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="btn-timer" onclick="toggleTimer()">⏯️</button>
+                            <button class="btn-timer" onclick="resetTimer()">🔄</button>
+                        </div>
                     </div>
-                    <div class="timer-controls">
-                        <button class="btn-timer" onclick="toggleTimer()">⏯️</button>
-                        <button class="btn-timer" onclick="resetTimer()">🔄</button>
+                    
+                    <!-- Sistema de Turnos compacto -->
+                    <div class="turn-system-mini">
+                        <div class="turn-header-mini">
+                            <span class="turn-label">🎯 Turno:</span>
+                            <span id="current-turn-player" class="turn-player-name">Jugador 1</span>
+                        </div>
+                        <div class="turn-timer-container">
+                            <div class="turn-timer-bar" id="turn-timer-bar"></div>
+                        </div>
+                        <button class="btn-turn-mini" id="btn-pass-turn" onclick="passTurn()">
+                            ✋ Pasar Turno
+                        </button>
+                        <p class="turn-warning" id="turn-warning">⚠️ ¡Presiona antes de que se acabe el tiempo!</p>
                     </div>
                 </div>
-                
-                <!-- Sistema de Turnos -->
-                <div class="turn-system">
-                    <div class="turn-header">
-                        <h3>🎯 Turno Actual</h3>
-                        <p id="current-turn-player">Jugador 1</p>
-                    </div>
-                    <div class="turn-timer-container">
-                        <div class="turn-timer-bar" id="turn-timer-bar"></div>
-                    </div>
-                    <button class="btn-turn" id="btn-pass-turn" onclick="passTurn()">
-                        ✋ Pasar Turno
-                    </button>
-                    <p class="turn-warning" id="turn-warning">⚠️ ¡Presiona antes de que se acabe el tiempo!</p>
-                </div>
-                
+
                 <div class="voting-section">
                     <h3>🗳️ ¡Hora de Votar!</h3>
                     <p>¿Quién creen que es el impostor?</p>
-                    <button class="btn-primary" onclick="revealImpostors()">
+                    <div class="vote-buttons" id="vote-buttons">
+                        <!-- Se llena dinámicamente con botones de votación -->
+                    </div>
+                    <button class="btn-primary" onclick="revealImpostors()" style="margin-top: 15px;">
                         👁️ Revelar Impostores
                     </button>
                 </div>

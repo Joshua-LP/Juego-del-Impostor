@@ -442,14 +442,15 @@ body::after {
 .theme-label {
     display: block;
     padding: 14px 16px;
-    background: rgba(255, 255, 255, 0.03);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.08));
     border-radius: 14px;
     text-align: center;
     font-size: 0.9rem;
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(139, 92, 246, 0.2);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.15);
 }
 
 .theme-label::before {
@@ -457,15 +458,15 @@ body::after {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.05));
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
 .theme-checkbox input:checked + .theme-label {
-    background: linear-gradient(135deg, rgba(0, 210, 106, 0.15), rgba(6, 182, 212, 0.1));
+    background: linear-gradient(135deg, rgba(0, 210, 106, 0.2), rgba(6, 182, 212, 0.15));
     border-color: var(--primary-green);
     box-shadow: 
-        0 0 20px rgba(0, 210, 106, 0.25),
+        0 0 25px rgba(0, 210, 106, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: scale(1.02);
 }
@@ -475,8 +476,9 @@ body::after {
     position: absolute;
     top: 5px;
     right: 8px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--primary-green);
+    font-weight: bold;
     animation: checkPop 0.3s ease-out;
 }
 
@@ -487,13 +489,239 @@ body::after {
 }
 
 .theme-checkbox:hover .theme-label {
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.15));
     transform: translateY(-2px);
-    border-color: rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.25);
 }
 
 .theme-checkbox:hover .theme-label::before {
     opacity: 1;
+}
+
+/* ========================================
+   TOGGLE MODO DE JUEGO - DISEÑO NEÓN LUMINOSO
+   ======================================== */
+
+.mode-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(20, 20, 30, 0.6));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.mode-label-left,
+.mode-label-right {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    min-width: 110px;
+    text-align: center;
+}
+
+.mode-label-left {
+    color: #4ade80;
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.8), 0 0 40px rgba(74, 222, 128, 0.4);
+    background: rgba(74, 222, 128, 0.15);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    box-shadow: 0 0 25px rgba(74, 222, 128, 0.3);
+}
+
+.mode-label-right {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.mode-label-left.inactive {
+    color: var(--text-muted);
+    text-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+.mode-label-right.active {
+    color: #ff6b81;
+    text-shadow: 0 0 20px rgba(255, 107, 129, 0.8), 0 0 40px rgba(255, 107, 129, 0.4);
+    background: rgba(255, 107, 129, 0.15);
+    border: 1px solid rgba(255, 107, 129, 0.3);
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.3);
+    opacity: 1;
+}
+
+/* Toggle Neón Principal */
+.neon-toggle {
+    position: relative;
+    cursor: pointer;
+    display: block;
+}
+
+.neon-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.neon-slider {
+    display: block;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(135deg, #0d4d2a 0%, #166534 50%, #22c55e 100%);
+    border-radius: 50px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid #4ade80;
+    box-shadow: 
+        0 0 20px rgba(74, 222, 128, 0.6),
+        0 0 40px rgba(74, 222, 128, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.neon-knob {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(145deg, #ffffff 0%, #e0ffe8 100%);
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(74, 222, 128, 0.8),
+        inset 0 2px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.neon-knob::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #22c55e;
+    text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
+
+.glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(74, 222, 128, 0.4) 0%, transparent 50%);
+    transition: all 0.5s ease;
+    border-radius: 50px;
+}
+
+/* Estado Activado (Invertido = Rojo) */
+.neon-toggle input:checked + .neon-slider {
+    background: linear-gradient(135deg, #4a1515 0%, #991b1b 50%, #dc2626 100%);
+    border-color: #f87171;
+    box-shadow: 
+        0 0 20px rgba(248, 113, 113, 0.6),
+        0 0 40px rgba(248, 113, 113, 0.3),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.neon-toggle input:checked + .neon-slider .neon-knob {
+    transform: translateX(40px);
+    background: linear-gradient(145deg, #ffffff 0%, #ffe0e0 100%);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(248, 113, 113, 0.8),
+        inset 0 2px 2px rgba(255, 255, 255, 0.9),
+        inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.neon-toggle input:checked + .neon-slider .neon-knob::before {
+    content: '✕';
+    color: #dc2626;
+    text-shadow: 0 0 5px rgba(220, 38, 38, 0.5);
+}
+
+.neon-toggle input:checked + .neon-slider .glow-effect {
+    background: radial-gradient(circle at 80% 50%, rgba(248, 113, 113, 0.4) 0%, transparent 50%);
+}
+
+/* Hover Effects */
+.neon-toggle:hover .neon-slider {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 30px rgba(74, 222, 128, 0.8),
+        0 0 60px rgba(74, 222, 128, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.neon-toggle input:checked:hover + .neon-slider {
+    box-shadow: 
+        0 0 30px rgba(248, 113, 113, 0.8),
+        0 0 60px rgba(248, 113, 113, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 -2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.neon-toggle:active .neon-slider {
+    transform: scale(0.98);
+}
+
+/* Descripción del modo */
+.mode-description {
+    margin-top: 15px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--primary-green);
+    transition: all 0.3s ease;
+}
+
+.mode-description.inverted-active {
+    border-left-color: var(--primary-red);
+}
+
+/* Animación de pulso para el toggle */
+@keyframes neonPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(74, 222, 128, 0.6),
+            0 0 40px rgba(74, 222, 128, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(74, 222, 128, 0.8),
+            0 0 60px rgba(74, 222, 128, 0.5);
+    }
+}
+
+@keyframes neonPulseRed {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(248, 113, 113, 0.6),
+            0 0 40px rgba(248, 113, 113, 0.3);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(248, 113, 113, 0.8),
+            0 0 60px rgba(248, 113, 113, 0.5);
+    }
 }
 
 /* ========================================
@@ -1016,6 +1244,56 @@ body::after {
         box-shadow: 
             0 20px 60px rgba(0, 0, 0, 0.5),
             0 0 80px var(--glow-red);
+    }
+}
+
+/* ========================================
+   CARTAS MODO INVERTIDO
+   ======================================== */
+
+/* Quien conoce la palabra real (VERDE) */
+.card-back.inverted-knows {
+    background: linear-gradient(145deg, #22c55e 0%, #15803d 50%, #166534 100%);
+    border-color: #4ade80;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(34, 197, 94, 0.4);
+    animation: knowsCardGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes knowsCardGlow {
+    from {
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(34, 197, 94, 0.5);
+    }
+    to {
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.5),
+            0 0 80px rgba(34, 197, 94, 0.7);
+    }
+}
+
+/* Quien tiene palabra señuelo (ROJO) */
+.card-back.inverted-decoy {
+    background: linear-gradient(145deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+    border-color: #f87171;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(220, 38, 38, 0.4);
+    animation: decoyCardGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes decoyCardGlow {
+    from {
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(220, 38, 38, 0.5);
+    }
+    to {
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.5),
+            0 0 80px rgba(220, 38, 38, 0.7);
     }
 }
 
@@ -1932,3 +2210,600 @@ body::after {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-green);
 }
+
+/* ========================================
+   🤖 SISTEMA DE BOTS CON CHAT
+   ======================================== */
+
+.config-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    text-align: center;
+    font-style: italic;
+}
+
+/* --- Tarjetas de Bots en los bordes --- */
+
+.bot-cards-top,
+.bot-cards-bottom {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap;
+}
+
+.bot-cards-top {
+    margin-bottom: 5px;
+}
+
+.bot-cards-bottom {
+    margin-top: 5px;
+}
+
+.bot-cards-left,
+.bot-cards-right {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    padding: 10px;
+}
+
+.bot-cards-left {
+    left: 10px;
+}
+
+.bot-cards-right {
+    right: 10px;
+}
+
+.bot-card {
+    width: 80px;
+    height: 95px;
+    perspective: 600px;
+    cursor: default;
+    transition: transform 0.3s ease;
+}
+
+.bot-card:hover {
+    transform: translateY(-5px);
+}
+
+.bot-card.speaking {
+    animation: botCardPulse 0.6s ease-in-out;
+}
+
+@keyframes botCardPulse {
+    0%, 100% { transform: scale(1); }
+    30% { transform: scale(1.15) translateY(-8px); }
+    60% { transform: scale(1.05) translateY(-3px); }
+}
+
+.bot-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bot-card.revealed .bot-card-inner {
+    transform: rotateY(180deg);
+}
+
+.bot-card-front,
+.bot-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bot-card-front {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.bot-card-front .bot-card-avatar {
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.bot-card-back {
+    background: linear-gradient(145deg, #1e1e2e, #12121a);
+    border: 2px solid rgba(6, 182, 212, 0.5);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.2);
+    transform: rotateY(180deg);
+    padding: 6px;
+    gap: 3px;
+}
+
+.bot-card-avatar-small {
+    font-size: 1.5rem;
+}
+
+.bot-card-name {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.bot-card-status {
+    font-size: 0.5rem;
+    color: var(--text-muted);
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.bot-card-status.active {
+    color: var(--primary-green);
+    animation: statusBlink 0.8s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+.bot-card.speaking .bot-card-back {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 20px var(--glow-green), 0 4px 20px rgba(0, 210, 106, 0.3);
+}
+
+/* --- Layout de Discusión --- */
+
+.discussion-layout {
+    width: 100%;
+    max-width: 700px;
+}
+
+.discussion-top-bar {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.timer-container-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.timer-circle-mini {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(165deg, #1e1e2e, #12121a);
+    border: 3px solid var(--accent-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px var(--glow-purple), inset 0 0 20px rgba(139, 92, 246, 0.1);
+    position: relative;
+    animation: timerBreath 3s ease-in-out infinite;
+}
+
+.timer-circle-mini::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: linear-gradient(165deg, #1e1e2e, #12121a);
+}
+
+.timer-circle-mini #timer {
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 15px var(--glow-purple);
+}
+
+.turn-system-mini {
+    flex: 1;
+    min-width: 200px;
+    max-width: 350px;
+    padding: 15px;
+    background: rgba(139, 92, 246, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    text-align: center;
+}
+
+.turn-header-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.turn-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.turn-player-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-green);
+}
+
+.btn-turn-mini {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--primary-green), #4ade80);
+    color: var(--bg-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--glow-green);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 8px;
+}
+
+.btn-turn-mini:hover {
+    transform: scale(1.05);
+}
+
+.btn-turn-mini.skipped {
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    box-shadow: 0 4px 15px var(--glow-red);
+    pointer-events: none;
+}
+
+/* --- Chat del Juego --- */
+
+.game-chat {
+    background: rgba(18, 18, 26, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.chat-header {
+    padding: 12px 18px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1));
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header h3 {
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.chat-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.chat-messages {
+    height: 280px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+}
+
+.chat-system-msg {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 20px;
+    align-self: center;
+    max-width: 80%;
+}
+
+.chat-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out;
+    max-width: 85%;
+}
+
+.chat-msg.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.chat-msg-human {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.chat-msg-bot,
+.chat-msg-bot-accusation {
+    align-self: flex-start;
+}
+
+.chat-msg-avatar {
+    font-size: 1.4rem;
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.chat-msg-human .chat-msg-avatar {
+    background: linear-gradient(135deg, var(--primary-green), #4ade80);
+    box-shadow: 0 3px 10px var(--glow-green);
+}
+
+.chat-msg-bot .chat-msg-avatar {
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    box-shadow: 0 3px 10px var(--glow-purple);
+}
+
+.chat-msg-bot-accusation .chat-msg-avatar {
+    background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+    box-shadow: 0 3px 10px var(--glow-red);
+}
+
+.chat-msg-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.chat-msg-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.chat-msg-human .chat-msg-name {
+    color: var(--primary-green-light);
+    text-align: right;
+}
+
+.chat-msg-bot .chat-msg-name {
+    color: var(--accent-cyan);
+}
+
+.chat-msg-bot-accusation .chat-msg-name {
+    color: var(--primary-red-light);
+}
+
+.chat-msg-text {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.chat-msg-human .chat-msg-text {
+    background: linear-gradient(135deg, rgba(0, 210, 106, 0.2), rgba(74, 222, 128, 0.1));
+    border: 1px solid rgba(0, 210, 106, 0.3);
+    border-top-right-radius: 4px;
+    color: var(--text-light);
+}
+
+.chat-msg-bot .chat-msg-text {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.08));
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-top-left-radius: 4px;
+    color: var(--text-light);
+}
+
+.chat-msg-bot-accusation .chat-msg-text {
+    background: linear-gradient(135deg, rgba(255, 71, 87, 0.15), rgba(249, 115, 22, 0.08));
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    border-top-left-radius: 4px;
+    color: var(--text-light);
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    padding: 12px 15px;
+    background: rgba(18, 18, 26, 0.95);
+    border-top: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.chat-input {
+    flex: 1;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-radius: 25px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.chat-input::placeholder {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.chat-send-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--glow-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px var(--glow-purple);
+}
+
+.chat-send-btn:active {
+    transform: scale(0.95);
+}
+
+/* --- Botones de votación --- */
+
+.vote-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.vote-btn {
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vote-btn:hover {
+    background: rgba(139, 92, 246, 0.25);
+    border-color: var(--accent-purple);
+    transform: translateY(-2px);
+}
+
+.vote-btn.selected {
+    background: linear-gradient(135deg, var(--primary-red), var(--accent-orange));
+    border-color: var(--primary-red);
+    color: white;
+    box-shadow: 0 4px 20px var(--glow-red);
+    transform: translateY(-2px);
+}
+
+/* --- Compatibilidad con estilos viejos de bot --- */
+
+.bot-impostor {
+    background: linear-gradient(135deg, var(--primary-red), var(--accent-orange)) !important;
+    animation: botImpostorPulse 2s ease-in-out infinite;
+}
+
+@keyframes botImpostorPulse {
+    0%, 100% { box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4); }
+    50% { box-shadow: 0 5px 30px rgba(255, 71, 87, 0.7); }
+}
+
+/* Responsive para bots y chat */
+@media (max-width: 600px) {
+    .bot-card {
+        width: 60px;
+        height: 75px;
+    }
+    
+    .bot-card-avatar-small {
+        font-size: 1.2rem;
+    }
+    
+    .bot-card-name {
+        font-size: 0.5rem;
+    }
+    
+    .chat-messages {
+        height: 220px;
+    }
+    
+    .discussion-top-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .turn-system-mini {
+        max-width: 100%;
+    }
+    
+    .timer-circle-mini {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .timer-circle-mini #timer {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .bot-card {
+        width: 50px;
+        height: 65px;
+    }
+    
+    .bot-card-avatar-small {
+        font-size: 1rem;
+    }
+    
+    .chat-messages {
+        height: 180px;
+    }
+    
+    .chat-msg-text {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
+
