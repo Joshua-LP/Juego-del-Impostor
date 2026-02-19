@@ -750,233 +750,6 @@ const THEMES = {
             { word: "Cámara", emoji: "📷" },
             { word: "Guitarra", emoji: "🎸" }
         ]
-    },
-    dc: {
-        name: "DC Comics",
-        emoji: "🦸‍♂️",
-        words: [
-            { word: "Batman", emoji: "🦇" },
-            { word: "Superman", emoji: "🔵" },
-            { word: "Wonder Woman", emoji: "⚔️" },
-            { word: "The Flash", emoji: "⚡" },
-            { word: "Green Lantern", emoji: "💚" },
-            { word: "Aquaman", emoji: "🔱" },
-            { word: "Cyborg", emoji: "🤖" },
-            { word: "Joker", emoji: "🃏" },
-            { word: "Harley Quinn", emoji: "🎭" },
-            { word: "Lex Luthor", emoji: "👨‍💼" },
-            { word: "Catwoman", emoji: "🐱" },
-            { word: "Robin", emoji: "🐦" },
-            { word: "Nightwing", emoji: "🌙" },
-            { word: "Batgirl", emoji: "🦇" },
-            { word: "Green Arrow", emoji: "🏹" },
-            { word: "Supergirl", emoji: "💙" },
-            { word: "Shazam", emoji: "⚡" },
-            { word: "Zatanna", emoji: "🎩" },
-            { word: "Constantine", emoji: "🚬" },
-            { word: "Deathstroke", emoji: "⚔️" },
-            { word: "Poison Ivy", emoji: "🌿" },
-            { word: "Two-Face", emoji: "🎭" },
-            { word: "Penguin", emoji: "🐧" },
-            { word: "Riddler", emoji: "❓" },
-            { word: "Doomsday", emoji: "💀" }
-        ]
-    },
-    presidentes_vacados: {
-        name: "Presidentes Vacados del Perú",
-        emoji: "🇵🇪",
-        words: [
-            { word: "Alberto Fujimori", emoji: "👔" },
-            { word: "Pedro Pablo Kuczynski", emoji: "📊" },
-            { word: "Martín Vizcarra", emoji: "🏗️" },
-            { word: "Manuel Merino", emoji: "⚖️" },
-            { word: "Pedro Castillo", emoji: "👨‍🏫" },
-            { word: "Dina Boluarte", emoji: "👩‍💼" },
-            { word: "Alejandro Toledo", emoji: "📈" },
-            { word: "Ollanta Humala", emoji: "⚔️" },
-            { word: "Alan García", emoji: "🎤" },
-            { word: "Valentín Paniagua", emoji: "📜" },
-            { word: "Francisco Sagasti", emoji: "🎓" },
-            { word: "Mercedes Aráoz", emoji: "💼" },
-            { word: "Segundo Gobierno de Alan", emoji: "🔄" },
-            { word: "Gobierno de Transición", emoji: "⏳" },
-            { word: "Crisis Política Peruana", emoji: "⚡" },
-            { word: "Vacancia Presidencial", emoji: "📋" },
-            { word: "Incapacidad Moral", emoji: "⚖️" },
-            { word: "Congreso de la República", emoji: "🏛️" },
-            { word: "Moción de Censura", emoji: "📝" },
-            { word: "Estado de Emergencia", emoji: "🚨" }
-        ]
-    },
-    palabras_sexo: {
-        name: "Palabras Durante el Sexo",
-        emoji: "🔥",
-        words: [
-            { word: "Sí baby", emoji: "😍" },
-            { word: "Más rápido", emoji: "💨" },
-            { word: "Más despacio", emoji: "🐌" },
-            { word: "Ay que rico", emoji: "😋" },
-            { word: "No pares", emoji: "🔄" },
-            { word: "Así me gusta", emoji: "👌" },
-            { word: "Ven acá", emoji: "👋" },
-            { word: "Dame más", emoji: "🙏" },
-            { word: "Qué delicioso", emoji: "🤤" },
-            { word: "Me encantas", emoji: "💕" },
-            { word: "Eres increíble", emoji: "⭐" },
-            { word: "Me vuelves loco", emoji: "🤪" },
-            { word: "Estoy llegando", emoji: "🎯" },
-            { word: "Ya casi", emoji: "⏰" },
-            { word: "Espérame", emoji: "✋" },
-            { word: "Juntos", emoji: "🤝" },
-            { word: "Te amo", emoji: "❤️" },
-            { word: "Uff qué bueno", emoji: "🏆" },
-            { word: "Otra vez", emoji: "🔁" },
-            { word: "Me fascinas", emoji: "✨" },
-            { word: "Qué sabroso", emoji: "😘" },
-            { word: "Más fuerte", emoji: "💪" },
-            { word: "Suavecito", emoji: "🪶" },
-            { word: "Ay dios mío", emoji: "😇" },
-            { word: "Increíble", emoji: "🤯" }
-        ]
-    },
-    palabras_comida: {
-        name: "Palabras Cuando Comes",
-        emoji: "🍽️",
-        words: [
-            { word: "Está delicioso", emoji: "😋" },
-            { word: "Qué rico", emoji: "👌" },
-            { word: "Mmm sabroso", emoji: "🤤" },
-            { word: "Está exquisito", emoji: "👨‍🍳" },
-            { word: "Me encanta", emoji: "❤️" },
-            { word: "Está perfecto", emoji: "💯" },
-            { word: "Qué sabor", emoji: "👅" },
-            { word: "Está buenazo", emoji: "🔥" },
-            { word: "Más por favor", emoji: "🙏" },
-            { word: "Está picante", emoji: "🌶️" },
-            { word: "Está salado", emoji: "🧂" },
-            { word: "Está dulce", emoji: "🍯" },
-            { word: "Está amargo", emoji: "😖" },
-            { word: "Está frío", emoji: "🧊" },
-            { word: "Está caliente", emoji: "🔥" },
-            { word: "Me quemé", emoji: "🥵" },
-            { word: "Agua por favor", emoji: "💧" },
-            { word: "Está crujiente", emoji: "🥖" },
-            { word: "Está suave", emoji: "☁️" },
-            { word: "Está duro", emoji: "🪨" },
-            { word: "Ya no puedo más", emoji: "🤰" },
-            { word: "Un poquito más", emoji: "🤏" },
-            { word: "La receta secreta", emoji: "🤫" },
-            { word: "Como la abuela", emoji: "👵" },
-            { word: "Está fresco", emoji: "🌿" }
-        ]
-    },
-    novelas: {
-        name: "Novelas Famosas",
-        emoji: "📺",
-        words: [
-            { word: "Pasión de Gavilanes", emoji: "🔥" },
-            { word: "Betty la Fea", emoji: "👓" },
-            { word: "Café con Aroma de Mujer", emoji: "☕" },
-            { word: "La Reina del Flow", emoji: "🎤" },
-            { word: "El Patrón del Mal", emoji: "💰" },
-            { word: "Sin Senos Sí Hay Paraíso", emoji: "💎" },
-            { word: "La Casa de las Flores", emoji: "🌺" },
-            { word: "Élite", emoji: "🎓" },
-            { word: "Money Heist", emoji: "💰" },
-            { word: "Narcos", emoji: "🚁" },
-            { word: "Rosario Tijeras", emoji: "🌹" },
-            { word: "El Señor de los Cielos", emoji: "✈️" },
-            { word: "La Doña", emoji: "👑" },
-            { word: "Imperio de Mentiras", emoji: "🎭" },
-            { word: "Corazón Salvaje", emoji: "🦁" },
-            { word: "María la del Barrio", emoji: "🏘️" },
-            { word: "Marimar", emoji: "🌊" },
-            { word: "Teresa", emoji: "💍" },
-            { word: "Rebelde", emoji: "🎸" },
-            { word: "Avenida Brasil", emoji: "🇧🇷" },
-            { word: "El Clon", emoji: "👥" },
-            { word: "Destilando Amor", emoji: "🌵" },
-            { word: "Rubí", emoji: "💎" },
-            { word: "Sortilegio", emoji: "🔮" },
-            { word: "Al Diablo con los Guapos", emoji: "😈" }
-        ]
-    },
-    pokemon: {
-        name: "Pokémon",
-        emoji: "⚡",
-        words: [
-            { word: "Pikachu", emoji: "⚡" },
-            { word: "Charizard", emoji: "🔥" },
-            { word: "Blastoise", emoji: "💧" },
-            { word: "Venusaur", emoji: "🌱" },
-            { word: "Mewtwo", emoji: "🧠" },
-            { word: "Mew", emoji: "🌸" },
-            { word: "Lucario", emoji: "🥊" },
-            { word: "Garchomp", emoji: "🦈" },
-            { word: "Rayquaza", emoji: "🐉" },
-            { word: "Arceus", emoji: "🌟" },
-            { word: "Dialga", emoji: "⏰" },
-            { word: "Palkia", emoji: "🌌" },
-            { word: "Giratina", emoji: "👻" },
-            { word: "Kyogre", emoji: "🌊" },
-            { word: "Groudon", emoji: "🌋" },
-            { word: "Ho-Oh", emoji: "🦅" },
-            { word: "Lugia", emoji: "🦢" },
-            { word: "Celebi", emoji: "🧚" },
-            { word: "Jirachi", emoji: "⭐" },
-            { word: "Deoxys", emoji: "👽" },
-            { word: "Darkrai", emoji: "🌙" },
-            { word: "Shaymin", emoji: "🌺" },
-            { word: "Victini", emoji: "🏆" },
-            { word: "Reshiram", emoji: "🤍" },
-            { word: "Zekrom", emoji: "⚫" },
-            { word: "Kyurem", emoji: "❄️" },
-            { word: "Xerneas", emoji: "🦌" },
-            { word: "Yveltal", emoji: "🦅" },
-            { word: "Zygarde", emoji: "🐍" },
-            { word: "Necrozma", emoji: "💠" }
-        ]
-    },
-    cartoon_network: {
-        name: "Cartoon Network",
-        emoji: "📺",
-        words: [
-            { word: "Finn", emoji: "🎒" },
-            { word: "Jake", emoji: "🐶" },
-            { word: "Mordecai", emoji: "🐦" },
-            { word: "Rigby", emoji: "🦝" },
-            { word: "Gumball", emoji: "🐱" },
-            { word: "Darwin", emoji: "🐟" },
-            { word: "Ben 10", emoji: "⌚" },
-            { word: "Bellota", emoji: "💚" },
-            { word: "Bombón", emoji: "💗" },
-            { word: "Burbuja", emoji: "💙" },
-            { word: "Dexter", emoji: "🔬" },
-            { word: "Dee Dee", emoji: "👧" },
-            { word: "Johnny Bravo", emoji: "😎" },
-            { word: "Coraje", emoji: "🐕" },
-            { word: "Ed", emoji: "🤪" },
-            { word: "Edd", emoji: "🎩" },
-            { word: "Eddy", emoji: "😏" },
-            { word: "Steven Universe", emoji: "💎" },
-            { word: "Garnet", emoji: "👓" },
-            { word: "Amethyst", emoji: "💜" },
-            { word: "Pearl", emoji: "🌟" },
-            { word: "Samurai Jack", emoji: "⚔️" },
-            { word: "Marceline", emoji: "🎸" },
-            { word: "Princesa Dulce", emoji: "🍬" },
-            { word: "BMO", emoji: "🎮" },
-            { word: "Mojo Jojo", emoji: "🐵" },
-            { word: "Him", emoji: "😈" },
-            { word: "Robin", emoji: "🦸" },
-            { word: "Starfire", emoji: "⭐" },
-            { word: "Raven", emoji: "🌑" },
-            { word: "Beast Boy", emoji: "💚" },
-            { word: "Cyborg", emoji: "🤖" },
-            { word: "Cartoon Network", emoji: "📺" },
-            { word: "Regular Show", emoji: "🎪" },
-            { word: "Adventure Time", emoji: "🗡️" }
-        ]
     }
 };
 
@@ -2139,6 +1912,40 @@ function stopTurnSystem() {
 // RESULTADOS
 // ========================================
 
+function revealImpostors() {
+    pauseTimer();
+    stopTurnSystem();
+    showScreen('screen-results');
+    
+    // Actualizar título según cantidad de impostores
+    const resultsTitle = document.getElementById('results-title');
+    if (gameState.impostorIndices.length === 1) {
+        resultsTitle.textContent = '🎭 El Impostor Era...';
+    } else {
+        resultsTitle.textContent = '🎭 Los Impostores Eran...';
+    }
+    
+    // Mostrar impostores
+    const impostorsList = document.getElementById('impostors-list');
+    impostorsList.innerHTML = '';
+    
+    gameState.impostorIndices.forEach((playerNum, index) => {
+        setTimeout(() => {
+            const badge = document.createElement('div');
+            badge.className = 'impostor-badge';
+            badge.textContent = `🎭 Jugador ${playerNum}`;
+            impostorsList.appendChild(badge);
+        }, index * 300);
+    });
+    
+    // Mostrar palabra secreta
+    document.getElementById('secret-word').textContent = 
+        `${gameState.secretEmoji} ${gameState.secretWord}`;
+    
+    // Crear confeti
+    createConfetti();
+}
+
 function createConfetti() {
     const colors = [
         '#00d26a', '#ff4757', '#6c5ce7', '#0984e3', '#ffa502', '#ff6b81',
@@ -2313,6 +2120,7 @@ function startDiscussion() {
 function revealImpostors() {
     pauseTimer();
     stopTurnSystem();
+    chatState.enabled = false;
     showScreen('screen-results');
     
     const resultsTitle = document.getElementById('results-title');
