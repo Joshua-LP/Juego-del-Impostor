@@ -2139,40 +2139,6 @@ function stopTurnSystem() {
 // RESULTADOS
 // ========================================
 
-function revealImpostors() {
-    pauseTimer();
-    stopTurnSystem();
-    showScreen('screen-results');
-    
-    // Actualizar título según cantidad de impostores
-    const resultsTitle = document.getElementById('results-title');
-    if (gameState.impostorIndices.length === 1) {
-        resultsTitle.textContent = '🎭 El Impostor Era...';
-    } else {
-        resultsTitle.textContent = '🎭 Los Impostores Eran...';
-    }
-    
-    // Mostrar impostores
-    const impostorsList = document.getElementById('impostors-list');
-    impostorsList.innerHTML = '';
-    
-    gameState.impostorIndices.forEach((playerNum, index) => {
-        setTimeout(() => {
-            const badge = document.createElement('div');
-            badge.className = 'impostor-badge';
-            badge.textContent = `🎭 Jugador ${playerNum}`;
-            impostorsList.appendChild(badge);
-        }, index * 300);
-    });
-    
-    // Mostrar palabra secreta
-    document.getElementById('secret-word').textContent = 
-        `${gameState.secretEmoji} ${gameState.secretWord}`;
-    
-    // Crear confeti
-    createConfetti();
-}
-
 function createConfetti() {
     const colors = [
         '#00d26a', '#ff4757', '#6c5ce7', '#0984e3', '#ffa502', '#ff6b81',
@@ -2347,7 +2313,6 @@ function startDiscussion() {
 function revealImpostors() {
     pauseTimer();
     stopTurnSystem();
-    chatState.enabled = false;
     showScreen('screen-results');
     
     const resultsTitle = document.getElementById('results-title');
