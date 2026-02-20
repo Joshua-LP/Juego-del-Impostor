@@ -176,6 +176,74 @@ const PISTAS_RELACIONADAS = {
     "Despacito": ["Puerto Rico", "Luis Fonsi", "lento", "verano", "playa"],
     "Thriller": ["zombies", "noche", "baile", "Michael", "terror"],
     "Gangnam Style": ["caballo", "baile", "coreano", "PSY", "viral"],
+    // DC Comics
+    "Batman": ["murciélago", "Gotham", "noche", "detective", "millonario"],
+    "Superman": ["Krypton", "volar", "capa", "Clark", "invencible"],
+    "Wonder Woman": ["amazona", "lazo", "verdad", "Diana", "guerrera"],
+    "The Flash": ["velocidad", "rayo", "correr", "Barry", "tiempo"],
+    "Green Lantern": ["anillo", "verde", "voluntad", "espacio", "cuerpo"],
+    "Aquaman": ["mar", "tridente", "Atlantis", "peces", "rey"],
+    "Joker": ["payaso", "locura", "risa", "maquillaje", "caos"],
+    "Harley Quinn": ["payasa", "loca", "bate", "Joker", "Gotham"],
+    "Catwoman": ["gata", "látigo", "ladrona", "noche", "sexy"],
+    "Robin": ["pájaro", "joven", "compañero", "acróbata", "Dick"],
+    "Nightwing": ["acróbata", "bastones", "noche", "ex-Robin", "azul"],
+    "Batgirl": ["Barbara", "murciélago", "bibliotecaria", "Oracle", "Gotham"],
+    "Cyborg": ["robot", "tecnología", "Titans", "mitad", "metal"],
+    "Shazam": ["rayo", "niño", "Billy", "magia", "poder"],
+    "Lex Luthor": ["calvo", "empresario", "genio", "enemigo", "Metropolis"],
+    // Cartoon Network
+    "Finn": ["humano", "espada", "aventura", "último", "Jake"],
+    "Jake": ["perro", "elástico", "Finn", "amarillo", "mágico"],
+    "Mordecai": ["pájaro azul", "Rigby", "parque", "flojo", "videojuegos"],
+    "Rigby": ["mapache", "Mordecai", "parque", "peleador", "hambre"],
+    "Gumball": ["gato azul", "Darwin", "escuela", "problemas", "Elmore"],
+    "Darwin": ["pez", "piernas", "Gumball", "hermano", "naranja"],
+    "Ben 10": ["reloj", "aliens", "transformar", "omnitrix", "diez"],
+    "Bellota": ["verde", "ruda", "superpoder", "Townsville", "niña"],
+    "Bombón": ["rosa", "líder", "inteligente", "superpoderosa", "pelirroja"],
+    "Burbuja": ["azul", "tierna", "dulce", "llorar", "rubia"],
+    "Dexter": ["laboratorio", "genio", "pequeño", "ciencia", "hermana"],
+    "Dee Dee": ["ballet", "rubia", "molesta", "Dexter", "alta"],
+    "Johnny Bravo": ["músculos", "rubio", "lentes", "mamá", "Elvis"],
+    "Coraje": ["perro", "miedoso", "rosa", "ancianos", "granja"],
+    "Steven Universe": ["gema", "cuarzo", "escudo", "Beach City", "rosa"],
+    "Samurai Jack": ["samurái", "espada", "Aku", "futuro", "honor"],
+    "Marceline": ["vampira", "bajo", "roja", "inmortal", "música"],
+    // Novelas
+    "Pasión de Gavilanes": ["hermanos", "venganza", "Elizondo", "Reyes", "amor"],
+    "Betty la Fea": ["secretaria", "fea", "Don Armando", "moda", "Colombia"],
+    "Café con Aroma de Mujer": ["café", "Colombia", "amor", "hacienda", "Gaviota"],
+    "La Reina del Flow": ["reggaeion", "cárcel", "venganza", "Yeimy", "música"],
+    "Rebelde": ["RBD", "colegio", "música", "Elite Way", "banda"],
+    "Marímar": ["playa", "pobre", "Thalia", "rica", "amor"],
+    "María la del Barrio": ["pobre", "Thalia", "rica", "venganza", "sordomuda"],
+    "Teresa": ["ambiciosa", "belleza", "dinero", "malo", "Arturo"],
+    // Pokemon
+    "Pikachu": ["eléctrico", "Ash", "amarillo", "mejillas", "rayo"],
+    "Charizard": ["fuego", "dragón", "volar", "naranja", "poderoso"],
+    "Mewtwo": ["clon", "psíquico", "legendario", "laboratorio", "Mew"],
+    "Lucario": ["aura", "lucha", "acero", "fiel", "psíquico"],
+    "Rayquaza": ["cielo", "verde", "legendario", "dragón", "espacio"],
+    "Arceus": ["dios", "creador", "legendario", "anillo", "todos"],
+    // Doble Sentido
+    "Está delicioso": ["sabor", "momento", "disfrutar", "bueno", "gusto"],
+    "Dame más": ["servir", "cantidad", "repetir", "hambre", "querer"],
+    "Qué rico": ["placer", "disfrutar", "bueno", "sabor", "momento"],
+    "Está caliente": ["temperatura", "cuidado", "esperar", "quema", "vapor"],
+    "Más rápido": ["velocidad", "tiempo", "prisa", "apurar", "ritmo"],
+    "Ya casi": ["terminar", "final", "cerca", "momento", "llegar"],
+    "Estoy llegando": ["final", "cerca", "pronto", "momento", "ya"],
+    "Ya no puedo más": ["lleno", "satisfecho", "límite", "basta", "fin"],
+    "Está jugoso": ["humedad", "fresco", "tierno", "sabor", "textura"],
+    "Más fuerte": ["intensidad", "fuerza", "potencia", "duro", "presion"],
+    // Presidentes Vacados
+    "Alberto Fujimori": ["autogolpe", "93", "dictador", "Keiko", "prisión"],
+    "Pedro Castillo": ["sombrero", "maestro", "Cajamarca", "golpe", "lápiz"],
+    "Martín Vizcarra": ["lagarto", "ingeniero", "vacunagate", "Moquegua", "constructor"],
+    "Pedro Pablo Kuczynski": ["PPK", "economista", "Odebrecht", "anciano", "indulto"],
+    "Alan García": ["caballo loco", "aprista", "inflación", "Mercedes", "suicidio"],
+    "Alejandro Toledo": ["cholo", "Stanford", "elefante", "Eliane", "prófugo"]
 };
 
 // ========================================
@@ -750,6 +818,264 @@ const THEMES = {
             { word: "Cámara", emoji: "📷" },
             { word: "Guitarra", emoji: "🎸" }
         ]
+    },
+    dc: {
+        name: "DC Comics",
+        emoji: "🦸‍♂️",
+        words: [
+            { word: "Batman", emoji: "🦇" },
+            { word: "Superman", emoji: "🔵" },
+            { word: "Wonder Woman", emoji: "⚔️" },
+            { word: "The Flash", emoji: "⚡" },
+            { word: "Green Lantern", emoji: "💚" },
+            { word: "Aquaman", emoji: "🔱" },
+            { word: "Cyborg", emoji: "🤖" },
+            { word: "Joker", emoji: "🃏" },
+            { word: "Harley Quinn", emoji: "🎭" },
+            { word: "Lex Luthor", emoji: "👨‍💼" },
+            { word: "Catwoman", emoji: "🐱" },
+            { word: "Robin", emoji: "🐦" },
+            { word: "Nightwing", emoji: "🌙" },
+            { word: "Batgirl", emoji: "🦇" },
+            { word: "Green Arrow", emoji: "🏹" },
+            { word: "Supergirl", emoji: "💙" },
+            { word: "Shazam", emoji: "⚡" },
+            { word: "Zatanna", emoji: "🎩" },
+            { word: "Constantine", emoji: "🚬" },
+            { word: "Deathstroke", emoji: "⚔️" },
+            { word: "Poison Ivy", emoji: "🌿" },
+            { word: "Two-Face", emoji: "🎭" },
+            { word: "Penguin", emoji: "🐧" },
+            { word: "Riddler", emoji: "❓" },
+            { word: "Doomsday", emoji: "💀" }
+        ]
+    },
+    presidentes_vacados: {
+        name: "Presidentes Vacados del Perú",
+        emoji: "🇵🇪",
+        words: [
+            { word: "Alberto Fujimori", emoji: "👔" },
+            { word: "Pedro Pablo Kuczynski", emoji: "📊" },
+            { word: "Martín Vizcarra", emoji: "🏗️" },
+            { word: "Manuel Merino", emoji: "⚖️" },
+            { word: "Pedro Castillo", emoji: "👨‍🏫" },
+            { word: "Dina Boluarte", emoji: "👩‍💼" },
+            { word: "Alejandro Toledo", emoji: "📈" },
+            { word: "Ollanta Humala", emoji: "⚔️" },
+            { word: "Alan García", emoji: "🎤" },
+            { word: "Valentín Paniagua", emoji: "📜" },
+            { word: "Francisco Sagasti", emoji: "🎓" },
+            { word: "Mercedes Aráoz", emoji: "💼" },
+            { word: "Segundo Gobierno de Alan", emoji: "🔄" },
+            { word: "Gobierno de Transición", emoji: "⏳" },
+            { word: "Crisis Política Peruana", emoji: "⚡" },
+            { word: "Vacancia Presidencial", emoji: "📋" },
+            { word: "Incapacidad Moral", emoji: "⚖️" },
+            { word: "Congreso de la República", emoji: "🏛️" },
+            { word: "Moción de Censura", emoji: "📝" },
+            { word: "Estado de Emergencia", emoji: "🚨" }
+        ]
+    },
+    palabras_sexo: {
+        name: "Palabras Durante el Sexo",
+        emoji: "🔥",
+        words: [
+            { word: "Sí baby", emoji: "😍" },
+            { word: "Más rápido", emoji: "💨" },
+            { word: "Más despacio", emoji: "🐌" },
+            { word: "Ay que rico", emoji: "😋" },
+            { word: "No pares", emoji: "🔄" },
+            { word: "Así me gusta", emoji: "👌" },
+            { word: "Ven acá", emoji: "👋" },
+            { word: "Dame más", emoji: "🙏" },
+            { word: "Qué delicioso", emoji: "🤤" },
+            { word: "Me encantas", emoji: "💕" },
+            { word: "Eres increíble", emoji: "⭐" },
+            { word: "Me vuelves loco", emoji: "🤪" },
+            { word: "Estoy llegando", emoji: "🎯" },
+            { word: "Ya casi", emoji: "⏰" },
+            { word: "Espérame", emoji: "✋" },
+            { word: "Juntos", emoji: "🤝" },
+            { word: "Te amo", emoji: "❤️" },
+            { word: "Uff qué bueno", emoji: "🏆" },
+            { word: "Otra vez", emoji: "🔁" },
+            { word: "Me fascinas", emoji: "✨" },
+            { word: "Qué sabroso", emoji: "😘" },
+            { word: "Más fuerte", emoji: "💪" },
+            { word: "Suavecito", emoji: "🪶" },
+            { word: "Ay dios mío", emoji: "😇" },
+            { word: "Increíble", emoji: "🤯" }
+        ]
+    },
+    palabras_comida: {
+        name: "Palabras Cuando Comes",
+        emoji: "🍽️",
+        words: [
+            { word: "Está delicioso", emoji: "😋" },
+            { word: "Qué rico", emoji: "👌" },
+            { word: "Mmm sabroso", emoji: "🤤" },
+            { word: "Está exquisito", emoji: "👨‍🍳" },
+            { word: "Me encanta", emoji: "❤️" },
+            { word: "Está perfecto", emoji: "💯" },
+            { word: "Qué sabor", emoji: "👅" },
+            { word: "Está buenazo", emoji: "🔥" },
+            { word: "Más por favor", emoji: "🙏" },
+            { word: "Está picante", emoji: "🌶️" },
+            { word: "Está salado", emoji: "🧂" },
+            { word: "Está dulce", emoji: "🍯" },
+            { word: "Está amargo", emoji: "😖" },
+            { word: "Está frío", emoji: "🧊" },
+            { word: "Está caliente", emoji: "🔥" },
+            { word: "Me quemé", emoji: "🥵" },
+            { word: "Agua por favor", emoji: "💧" },
+            { word: "Está crujiente", emoji: "🥖" },
+            { word: "Está suave", emoji: "☁️" },
+            { word: "Está duro", emoji: "🪨" },
+            { word: "Ya no puedo más", emoji: "🤰" },
+            { word: "Un poquito más", emoji: "🤏" },
+            { word: "La receta secreta", emoji: "🤫" },
+            { word: "Como la abuela", emoji: "👵" },
+            { word: "Está fresco", emoji: "🌿" }
+        ]
+    },
+    doble_sentido: {
+        name: "Almuerzo y Sexo",
+        emoji: "😏",
+        words: [
+            { word: "Está delicioso", emoji: "😋" },
+            { word: "Dame más", emoji: "🙏" },
+            { word: "Qué rico", emoji: "🤤" },
+            { word: "Está caliente", emoji: "🔥" },
+            { word: "Más rápido", emoji: "💨" },
+            { word: "Más despacio", emoji: "🐌" },
+            { word: "Ya casi", emoji: "⏰" },
+            { word: "Estoy llegando", emoji: "🎯" },
+            { word: "Espérame", emoji: "✋" },
+            { word: "Ya no puedo más", emoji: "😫" },
+            { word: "Está jugoso", emoji: "💧" },
+            { word: "Me encanta", emoji: "❤️" },
+            { word: "Eres increíble", emoji: "⭐" },
+            { word: "Está suave", emoji: "☁️" },
+            { word: "Está duro", emoji: "🪨" },
+            { word: "Un poquito más", emoji: "🤏" },
+            { word: "Qué sabroso", emoji: "😘" },
+            { word: "Más fuerte", emoji: "💪" },
+            { word: "Así me gusta", emoji: "👌" },
+            { word: "No pares", emoji: "🔄" },
+            { word: "Está exquisito", emoji: "👨‍🍳" },
+            { word: "Quiero probar", emoji: "👅" },
+            { word: "Está húmedo", emoji: "💦" },
+            { word: "Terminé", emoji: "✅" },
+            { word: "Otra vez", emoji: "🔁" }
+        ]
+    },
+    novelas: {
+        name: "Novelas Famosas",
+        emoji: "📺",
+        words: [
+            { word: "Pasión de Gavilanes", emoji: "🔥" },
+            { word: "Betty la Fea", emoji: "👓" },
+            { word: "Café con Aroma de Mujer", emoji: "☕" },
+            { word: "La Reina del Flow", emoji: "🎤" },
+            { word: "El Patrón del Mal", emoji: "💰" },
+            { word: "Sin Senos Sí Hay Paraíso", emoji: "💎" },
+            { word: "La Casa de las Flores", emoji: "🌺" },
+            { word: "Élite", emoji: "🎓" },
+            { word: "Money Heist", emoji: "💰" },
+            { word: "Narcos", emoji: "🚁" },
+            { word: "Rosario Tijeras", emoji: "🌹" },
+            { word: "El Señor de los Cielos", emoji: "✈️" },
+            { word: "La Doña", emoji: "👑" },
+            { word: "Imperio de Mentiras", emoji: "🎭" },
+            { word: "Corazón Salvaje", emoji: "🦁" },
+            { word: "María la del Barrio", emoji: "🏘️" },
+            { word: "Marimar", emoji: "🌊" },
+            { word: "Teresa", emoji: "💍" },
+            { word: "Rebelde", emoji: "🎸" },
+            { word: "Avenida Brasil", emoji: "🇧🇷" },
+            { word: "El Clon", emoji: "👥" },
+            { word: "Destilando Amor", emoji: "🌵" },
+            { word: "Rubí", emoji: "💎" },
+            { word: "Sortilegio", emoji: "🔮" },
+            { word: "Al Diablo con los Guapos", emoji: "😈" }
+        ]
+    },
+    pokemon: {
+        name: "Pokémon",
+        emoji: "⚡",
+        words: [
+            { word: "Pikachu", emoji: "⚡" },
+            { word: "Charizard", emoji: "🔥" },
+            { word: "Blastoise", emoji: "💧" },
+            { word: "Venusaur", emoji: "🌱" },
+            { word: "Mewtwo", emoji: "🧠" },
+            { word: "Mew", emoji: "🌸" },
+            { word: "Lucario", emoji: "🥊" },
+            { word: "Garchomp", emoji: "🦈" },
+            { word: "Rayquaza", emoji: "🐉" },
+            { word: "Arceus", emoji: "🌟" },
+            { word: "Dialga", emoji: "⏰" },
+            { word: "Palkia", emoji: "🌌" },
+            { word: "Giratina", emoji: "👻" },
+            { word: "Kyogre", emoji: "🌊" },
+            { word: "Groudon", emoji: "🌋" },
+            { word: "Ho-Oh", emoji: "🦅" },
+            { word: "Lugia", emoji: "🦢" },
+            { word: "Celebi", emoji: "🧚" },
+            { word: "Jirachi", emoji: "⭐" },
+            { word: "Deoxys", emoji: "👽" },
+            { word: "Darkrai", emoji: "🌙" },
+            { word: "Shaymin", emoji: "🌺" },
+            { word: "Victini", emoji: "🏆" },
+            { word: "Reshiram", emoji: "🤍" },
+            { word: "Zekrom", emoji: "⚫" },
+            { word: "Kyurem", emoji: "❄️" },
+            { word: "Xerneas", emoji: "🦌" },
+            { word: "Yveltal", emoji: "🦅" },
+            { word: "Zygarde", emoji: "🐍" },
+            { word: "Necrozma", emoji: "💠" }
+        ]
+    },
+    cartoon_network: {
+        name: "Cartoon Network",
+        emoji: "📺",
+        words: [
+            { word: "Finn", emoji: "🎒" },
+            { word: "Jake", emoji: "🐶" },
+            { word: "Mordecai", emoji: "🐦" },
+            { word: "Rigby", emoji: "🦝" },
+            { word: "Gumball", emoji: "🐱" },
+            { word: "Darwin", emoji: "🐟" },
+            { word: "Ben 10", emoji: "⌚" },
+            { word: "Bellota", emoji: "💚" },
+            { word: "Bombón", emoji: "💗" },
+            { word: "Burbuja", emoji: "💙" },
+            { word: "Dexter", emoji: "🔬" },
+            { word: "Dee Dee", emoji: "👧" },
+            { word: "Johnny Bravo", emoji: "😎" },
+            { word: "Coraje", emoji: "🐕" },
+            { word: "Ed", emoji: "🤪" },
+            { word: "Edd", emoji: "🎩" },
+            { word: "Eddy", emoji: "😏" },
+            { word: "Steven Universe", emoji: "💎" },
+            { word: "Garnet", emoji: "👓" },
+            { word: "Amethyst", emoji: "💜" },
+            { word: "Pearl", emoji: "🌟" },
+            { word: "Samurai Jack", emoji: "⚔️" },
+            { word: "Marceline", emoji: "🎸" },
+            { word: "Princesa Dulce", emoji: "🍬" },
+            { word: "BMO", emoji: "🎮" },
+            { word: "Mojo Jojo", emoji: "🐵" },
+            { word: "Him", emoji: "😈" },
+            { word: "Robin", emoji: "🦸" },
+            { word: "Starfire", emoji: "⭐" },
+            { word: "Raven", emoji: "🌑" },
+            { word: "Beast Boy", emoji: "💚" },
+            { word: "Cyborg", emoji: "🤖" },
+            { word: "Cartoon Network", emoji: "📺" },
+            { word: "Regular Show", emoji: "🎪" },
+            { word: "Adventure Time", emoji: "🗡️" }
+        ]
     }
 };
 
@@ -1012,7 +1338,7 @@ function assignPowerToConvertedImpostor(playerIndex) {
 function recalculateSensitivePowers() {
     // Recalcular información de poderes sensibles a posición del impostor
     gameState.playersWithPowers.forEach(playerPower => {
-        if (playerPower.power.id === 'medium' || playerPower.power.id === 'detective') {
+        if (playerPower.power.id === 'medium' || playerPower.power.id === 'detective' || playerPower.power.id === 'policia') {
             playerPower.info = generatePowerInfo(playerPower.playerIndex, playerPower.power);
         }
     });
@@ -1292,6 +1618,7 @@ function generateHintForWord(word, category) {
         "Marvel": ["héroe", "villano", "poderes", "traje", "batalla"],
         "Disney": ["magia", "aventura", "animación", "princesa", "fantasía"],
         "Princesas": ["corona", "vestido", "castillo", "príncipe", "reino"],
+        "Princesas Disney": ["corona", "vestido", "castillo", "príncipe", "reino"],
         "Mágicos": ["hechizo", "varita", "encanto", "místico", "sobrenatural"],
         "Películas": ["cine", "actor", "escena", "taquilla", "estreno"],
         "Animales": ["naturaleza", "salvaje", "instinto", "criatura", "especie"],
@@ -1300,7 +1627,21 @@ function generateHintForWord(word, category) {
         "Profesiones": ["trabajo", "oficio", "especialista", "carrera", "experto"],
         "Lugares": ["destino", "viaje", "ubicación", "geografía", "turismo"],
         "Farándula Peruana": ["fama", "televisión", "espectáculo", "celebridad", "Perú"],
-        "Acciones": ["movimiento", "actividad", "hacer", "verbo", "ejecutar"]
+        "Acciones": ["movimiento", "actividad", "hacer", "verbo", "ejecutar"],
+        "DC Comics": ["héroe", "villano", "Gotham", "justicia", "poder"],
+        "Cartoon Network": ["dibujo", "animado", "serie", "personaje", "TV"],
+        "Novelas Famosas": ["amor", "drama", "televisión", "protagonista", "pareja"],
+        "Pokémon": ["capturar", "entrenador", "batalla", "evolución", "pokeball"],
+        "Almuerzo y Sexo": ["frase", "expresión", "doble", "momento", "sentir"],
+        "Palabras Durante el Sexo": ["momento", "pasión", "expresión", "placer", "sentir"],
+        "Palabras Cuando Comes": ["mesa", "comida", "sabor", "boca", "hambre"],
+        "Presidentes Vacados del Perú": ["política", "congreso", "vacancia", "gobierno", "presidente"],
+        "Anime": ["japonés", "manga", "personaje", "poder", "historia"],
+        "Música": ["canción", "ritmo", "cantante", "baile", "letra"],
+        "Videojuegos": ["jugar", "consola", "personaje", "nivel", "boss"],
+        "Famosos": ["celebridad", "fama", "artista", "fan", "famoso"],
+        "Villanos Disney": ["malvado", "plan", "castigo", "enemigo", "oscuro"],
+        "Objetos": ["cosa", "uso", "material", "forma", "función"]
     };
     
     const hints = categoryHints[category] || ["misterio", "secreto", "oculto", "enigma", "desconocido"];
@@ -1414,21 +1755,66 @@ function generatePowerInfo(playerIndex, power) {
     let info = '';
 
     if (power.id === 'policia') {
-        // Genera 3 sospechosos (puede incluir al impostor o no)
-        const suspects = [];
-        const allPlayers = Array.from({ length: gameState.numPlayers }, (_, i) => i + 1)
+        // Genera sospechosos que incluyen al impostor Y posibles futuros impostores
+        // (jugadores que aún no vieron su carta y podrían recibir el rol)
+        
+        // Obtener impostores actuales
+        const currentImpostors = [...gameState.impostorIndices];
+        
+        // Obtener posibles futuros impostores (jugadores que no han visto su carta)
+        // y que vienen después de algún impostor actual
+        const potentialFutureImpostors = [];
+        for (const impostorIdx of currentImpostors) {
+            for (let i = impostorIdx + 1; i <= gameState.numPlayers; i++) {
+                if (!gameState.playersWhoSawCard.includes(i) && 
+                    !currentImpostors.includes(i) &&
+                    !potentialFutureImpostors.includes(i) &&
+                    i !== playerIndex) {
+                    potentialFutureImpostors.push(i);
+                }
+            }
+        }
+        
+        // Combinar impostores actuales + posibles futuros (garantizados en la lista)
+        const guaranteedSuspects = [...currentImpostors, ...potentialFutureImpostors]
             .filter(p => p !== playerIndex);
-
-        // Mezclar y tomar 3
-        const shuffled = [...allPlayers];
-        for (let i = shuffled.length - 1; i > 0; i--) {
+        
+        // Obtener otros jugadores para rellenar
+        const otherPlayers = Array.from({ length: gameState.numPlayers }, (_, i) => i + 1)
+            .filter(p => p !== playerIndex && !guaranteedSuspects.includes(p));
+        
+        // Mezclar los otros jugadores
+        for (let i = otherPlayers.length - 1; i > 0; i--) {
             const randomArray = new Uint32Array(1);
             crypto.getRandomValues(randomArray);
             const j = randomArray[0] % (i + 1);
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            [otherPlayers[i], otherPlayers[j]] = [otherPlayers[j], otherPlayers[i]];
         }
-
-        const selectedSuspects = shuffled.slice(0, 3);
+        
+        // Calcular cuántos sospechosos necesitamos (mínimo 3, pero extendido si hay más garantizados)
+        const minSuspects = Math.max(3, guaranteedSuspects.length);
+        const maxSuspects = Math.min(5, gameState.numPlayers - 1); // Máximo 5 sospechosos
+        const targetSuspects = Math.min(minSuspects, maxSuspects);
+        
+        // Construir lista final: garantizados + relleno aleatorio
+        let selectedSuspects = [...guaranteedSuspects];
+        const neededFillers = targetSuspects - selectedSuspects.length;
+        
+        if (neededFillers > 0) {
+            selectedSuspects = selectedSuspects.concat(otherPlayers.slice(0, neededFillers));
+        }
+        
+        // Mezclar la lista final para no revelar quiénes son los garantizados
+        for (let i = selectedSuspects.length - 1; i > 0; i--) {
+            const randomArray = new Uint32Array(1);
+            crypto.getRandomValues(randomArray);
+            const j = randomArray[0] % (i + 1);
+            [selectedSuspects[i], selectedSuspects[j]] = [selectedSuspects[j], selectedSuspects[i]];
+        }
+        
+        // Ordenar numéricamente para mayor claridad
+        selectedSuspects.sort((a, b) => a - b);
+        
         info = `Sospechosos: Jugadores ${selectedSuspects.join(', ')}`;
 
     } else if (power.id === 'detective') {
@@ -1599,9 +1985,20 @@ function updateGameUI() {
     document.getElementById('progress-text').textContent =
         `Jugador ${gameState.currentPlayer} - ${humansSeen}/${totalHumans}`;
 
-    // Ocultar botones
-    document.getElementById('btn-next').style.display = 'none';
-    document.getElementById('btn-play').style.display = 'none';
+    // Si la carta ya está volteada, mostrar el botón apropiado
+    if (gameState.cardFlipped) {
+        if (gameState.currentPlayer < gameState.numPlayers) {
+            document.getElementById('btn-next').style.display = 'inline-block';
+            document.getElementById('btn-play').style.display = 'none';
+        } else {
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('btn-play').style.display = 'inline-block';
+        }
+    } else {
+        // Ocultar botones si la carta no está volteada
+        document.getElementById('btn-next').style.display = 'none';
+        document.getElementById('btn-play').style.display = 'none';
+    }
 }
 
 function flipCard() {
@@ -1722,12 +2119,6 @@ function nextPlayer() {
         container.style.opacity = '1';
         container.style.transform = 'translateX(0)';
     }, 300);
-}
-
-function startDiscussion() {
-    showScreen('screen-discussion');
-    resetTimer();
-    initializeTurnSystem();
 }
 
 // ========================================
