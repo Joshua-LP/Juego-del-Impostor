@@ -499,6 +499,107 @@ body::after {
     opacity: 1;
 }
 
+/* Botón Más Categorías */
+.btn-more-categories {
+    width: 100%;
+    padding: 16px 24px;
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(20, 20, 35, 0.9), rgba(30, 30, 50, 0.95));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.btn-more-categories::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-more-categories:hover::before {
+    left: 100%;
+}
+
+.btn-more-categories:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15));
+    border-color: rgba(139, 92, 246, 0.6);
+    box-shadow: 
+        0 8px 25px rgba(139, 92, 246, 0.25),
+        0 0 30px rgba(139, 92, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.btn-more-categories.active {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(236, 72, 153, 0.2));
+    border-color: rgba(139, 92, 246, 0.7);
+    box-shadow: 
+        0 0 20px rgba(139, 92, 246, 0.3),
+        inset 0 0 15px rgba(139, 92, 246, 0.1);
+}
+
+.btn-more-categories .btn-icon {
+    font-size: 1.2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.btn-more-categories .btn-text {
+    letter-spacing: 0.5px;
+}
+
+.btn-more-categories .btn-arrow {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.btn-more-categories.active .btn-arrow {
+    transform: rotate(180deg);
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.hidden-categories {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.08));
+    border-radius: 16px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    animation: fadeSlideIn 0.3s ease-out;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ========================================
    TOGGLE MODO DE JUEGO - DISEÑO NEÓN LUMINOSO
    ======================================== */

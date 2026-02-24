@@ -18,10 +18,10 @@
             
             <div class="config-panel">
                 <div class="config-group">
-                    <label for="numPlayers">👥 Jugadores Humanos</label>
+                    <label for="numPlayers">👥 Jugadores (sin contar impostores)</label>
                     <div class="counter">
                         <button class="counter-btn" onclick="changeValue('numPlayers', -1)">-</button>
-                        <input type="number" id="numPlayers" value="2" min="1" max="20">
+                        <input type="number" id="numPlayers" value="4" min="1" max="20">
                         <button class="counter-btn" onclick="changeValue('numPlayers', 1)">+</button>
                     </div>
                 </div>
@@ -39,75 +39,71 @@
                     <label>🎨 Selecciona los Temas</label>
                     <div class="themes-grid">
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="marvel" checked>
+                            <input type="checkbox" value="marvel">
                             <span class="theme-label">🦸 Marvel</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="disney" checked>
+                            <input type="checkbox" value="disney">
                             <span class="theme-label">🏰 Disney</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="princesas" checked>
+                            <input type="checkbox" value="princesas">
                             <span class="theme-label">👸 Princesas Disney</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="magicos" checked>
+                            <input type="checkbox" value="magicos">
                             <span class="theme-label">✨ Mágicos</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="peliculas" checked>
+                            <input type="checkbox" value="peliculas">
                             <span class="theme-label">🎬 Películas</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="animales" checked>
+                            <input type="checkbox" value="animales">
                             <span class="theme-label">🐾 Animales</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="comida" checked>
+                            <input type="checkbox" value="comida">
                             <span class="theme-label">🍕 Comida</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="deportes" checked>
+                            <input type="checkbox" value="deportes">
                             <span class="theme-label">⚽ Deportes</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="profesiones" checked>
+                            <input type="checkbox" value="profesiones">
                             <span class="theme-label">👨‍⚕️ Profesiones</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="lugares" checked>
+                            <input type="checkbox" value="lugares">
                             <span class="theme-label">🌍 Lugares</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="farandula" checked>
+                            <input type="checkbox" value="farandula">
                             <span class="theme-label">🇵🇪 Farándula Peruana</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="acciones" checked>
+                            <input type="checkbox" value="acciones">
                             <span class="theme-label">🎬 Acciones</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="villanos" checked>
-                            <span class="theme-label">😈 Villanos Disney</span>
-                        </label>
-                        <label class="theme-checkbox">
-                            <input type="checkbox" value="famosos" checked>
+                            <input type="checkbox" value="famosos">
                             <span class="theme-label">🌟 Famosos</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="videojuegos" checked>
+                            <input type="checkbox" value="videojuegos">
                             <span class="theme-label">🎮 Videojuegos</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="musica" checked>
+                            <input type="checkbox" value="musica">
                             <span class="theme-label">🎵 Música</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="anime" checked>
+                            <input type="checkbox" value="anime">
                             <span class="theme-label">🎌 Anime</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="objetos" checked>
+                            <input type="checkbox" value="objetos">
                             <span class="theme-label">📦 Objetos</span>
                         </label>
                         <label class="theme-checkbox">
@@ -118,6 +114,29 @@
                             <input type="checkbox" value="presidentes_vacados">
                             <span class="theme-label">🇵🇪 Presidentes Vacados</span>
                         </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="novelas">
+                            <span class="theme-label">📺 Novelas Famosas</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="pokemon">
+                            <span class="theme-label">⚡ Pokémon</span>
+                        </label>
+                        <label class="theme-checkbox">
+                            <input type="checkbox" value="cartoon_network">
+                            <span class="theme-label">📺 Cartoon Network</span>
+                        </label>
+                    </div>
+                    
+                    <!-- Botón para mostrar categorías ocultas -->
+                    <button type="button" class="btn-more-categories" id="btn-more-categories" onclick="toggleHiddenCategories()">
+                        <span class="btn-icon">✨</span>
+                        <span class="btn-text">Más Categorías</span>
+                        <span class="btn-arrow">▼</span>
+                    </button>
+                    
+                    <!-- Categorías ocultas -->
+                    <div class="themes-grid hidden-categories" id="hidden-categories" style="display: none;">
                         <label class="theme-checkbox">
                             <input type="checkbox" value="palabras_sexo">
                             <span class="theme-label">🔥 Palabras Durante el Sexo</span>
@@ -131,16 +150,8 @@
                             <span class="theme-label">😏 Doble Sentido</span>
                         </label>
                         <label class="theme-checkbox">
-                            <input type="checkbox" value="novelas">
-                            <span class="theme-label">📺 Novelas Famosas</span>
-                        </label>
-                        <label class="theme-checkbox">
-                            <input type="checkbox" value="pokemon">
-                            <span class="theme-label">⚡ Pokémon</span>
-                        </label>
-                        <label class="theme-checkbox">
-                            <input type="checkbox" value="cartoon_network">
-                            <span class="theme-label">📺 Cartoon Network</span>
+                            <input type="checkbox" value="villanos">
+                            <span class="theme-label">😈 Villanos Disney</span>
                         </label>
                     </div>
                 </div>
@@ -260,8 +271,8 @@
                     <div class="vote-buttons" id="vote-buttons">
                         <!-- Se llena dinámicamente con botones de votación -->
                     </div>
-                    <button class="btn-primary" onclick="revealImpostors()" style="margin-top: 15px;">
-                        👁️ Revelar Impostores
+                    <button class="btn-primary btn-reveal" onclick="revealImpostors()" style="margin-top: 15px;">
+                        👁️ Revelar Impostor
                     </button>
                 </div>
             </div>

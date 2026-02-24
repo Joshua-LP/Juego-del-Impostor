@@ -738,7 +738,25 @@ const THEMES = {
             { word: "Animal Crossing", emoji: "🏝️" },
             { word: "Kirby", emoji: "🩷" },
             { word: "Yoshi", emoji: "🦕" },
-            { word: "Donkey Kong", emoji: "🦍" }
+            { word: "Donkey Kong", emoji: "🦍" },
+            { word: "Tetris", emoji: "🟦" },
+            { word: "Street Fighter", emoji: "👊" },
+            { word: "Mortal Kombat", emoji: "🐉" },
+            { word: "Resident Evil", emoji: "🧟" },
+            { word: "Final Fantasy", emoji: "⚔️" },
+            { word: "Kingdom Hearts", emoji: "🗝️" },
+            { word: "Apex Legends", emoji: "🎯" },
+            { word: "League of Legends", emoji: "⚔️" },
+            { word: "Valorant", emoji: "🎯" },
+            { word: "Overwatch", emoji: "🦸" },
+            { word: "Elden Ring", emoji: "💍" },
+            { word: "God of War", emoji: "⚔️" },
+            { word: "The Last of Us", emoji: "🍄" },
+            { word: "Hollow Knight", emoji: "🦋" },
+            { word: "Cuphead", emoji: "☕" },
+            { word: "Undertale", emoji: "❤️" },
+            { word: "Stardew Valley", emoji: "🌾" },
+            { word: "Terraria", emoji: "🌳" }
         ]
     },
     musica: {
@@ -764,7 +782,25 @@ const THEMES = {
             { word: "Happy", emoji: "😊" },
             { word: "Havana", emoji: "🌴" },
             { word: "Señorita", emoji: "💕" },
-            { word: "Blinding Lights", emoji: "✨" }
+            { word: "Blinding Lights", emoji: "✨" },
+            { word: "Dance Monkey", emoji: "🐒" },
+            { word: "Old Town Road", emoji: "🐴" },
+            { word: "Levitating", emoji: "🌙" },
+            { word: "Watermelon Sugar", emoji: "🍉" },
+            { word: "Savage Love", emoji: "💘" },
+            { word: "Drivers License", emoji: "🚗" },
+            { word: "Stay", emoji: "💖" },
+            { word: "Peaches", emoji: "🍑" },
+            { word: "Kiss Me More", emoji: "💋" },
+            { word: "Montero", emoji: "😈" },
+            { word: "Industry Baby", emoji: "👶" },
+            { word: "Easy On Me", emoji: "🎹" },
+            { word: "Butter", emoji: "🧈" },
+            { word: "Permission to Dance", emoji: "💃" },
+            { word: "Thinking Out Loud", emoji: "💭" },
+            { word: "Shallow", emoji: "🌊" },
+            { word: "Perfect", emoji: "💍" },
+            { word: "Someone Like You", emoji: "💔" }
         ]
     },
     anime: {
@@ -790,7 +826,25 @@ const THEMES = {
             { word: "Sasuke", emoji: "⚡" },
             { word: "Eren Yeager", emoji: "⚔️" },
             { word: "Vegeta", emoji: "👑" },
-            { word: "Itachi", emoji: "🌀" }
+            { word: "Itachi", emoji: "🌀" },
+            { word: "Zoro", emoji: "⚔️" },
+            { word: "Tanjiro", emoji: "🔥" },
+            { word: "Gojo Satoru", emoji: "👁️" },
+            { word: "Sukuna", emoji: "😈" },
+            { word: "Levi Ackerman", emoji: "⚔️" },
+            { word: "Mikasa", emoji: "🧣" },
+            { word: "Light Yagami", emoji: "📓" },
+            { word: "L", emoji: "🍬" },
+            { word: "Saitama", emoji: "👨‍🦲" },
+            { word: "Genos", emoji: "🤖" },
+            { word: "Nezuko", emoji: "🎀" },
+            { word: "Zenitsu", emoji: "⚡" },
+            { word: "Todoroki", emoji: "🔥" },
+            { word: "Bakugo", emoji: "💥" },
+            { word: "Deku", emoji: "💚" },
+            { word: "Kakashi", emoji: "📖" },
+            { word: "Hinata", emoji: "🏐" },
+            { word: "Killua", emoji: "⚡" }
         ]
     },
     objetos: {
@@ -859,21 +913,10 @@ const THEMES = {
             { word: "Martín Vizcarra", emoji: "🏗️" },
             { word: "Manuel Merino", emoji: "⚖️" },
             { word: "Pedro Castillo", emoji: "👨‍🏫" },
-            { word: "Dina Boluarte", emoji: "👩‍💼" },
             { word: "Alejandro Toledo", emoji: "📈" },
-            { word: "Ollanta Humala", emoji: "⚔️" },
             { word: "Alan García", emoji: "🎤" },
             { word: "Valentín Paniagua", emoji: "📜" },
-            { word: "Francisco Sagasti", emoji: "🎓" },
-            { word: "Mercedes Aráoz", emoji: "💼" },
-            { word: "Segundo Gobierno de Alan", emoji: "🔄" },
-            { word: "Gobierno de Transición", emoji: "⏳" },
-            { word: "Crisis Política Peruana", emoji: "⚡" },
-            { word: "Vacancia Presidencial", emoji: "📋" },
-            { word: "Incapacidad Moral", emoji: "⚖️" },
-            { word: "Congreso de la República", emoji: "🏛️" },
-            { word: "Moción de Censura", emoji: "📝" },
-            { word: "Estado de Emergencia", emoji: "🚨" }
+            { word: "Francisco Sagasti", emoji: "🎓" }
         ]
     },
     palabras_sexo: {
@@ -1161,105 +1204,29 @@ let gameState = {
 document.addEventListener('DOMContentLoaded', () => {
     createParticles();
     initializeInputListeners();
-    initializeSecretGesture();
 });
 
 // ========================================
-// HACK SECRETO: DETECCIÓN DE CUADRADO EN BORDES DE CARTA
+// TOGGLE CATEGORÍAS OCULTAS
 // ========================================
 
-function initializeSecretGesture() {
-    // Escuchar eventos globales para detectar el dibujo del cuadrado
-    document.addEventListener('mousedown', handleDrawStart);
-    document.addEventListener('mousemove', handleDrawMove);
-    document.addEventListener('mouseup', handleDrawEnd);
-    document.addEventListener('touchstart', handleDrawStart, { passive: false });
-    document.addEventListener('touchmove', handleDrawMove, { passive: false });
-    document.addEventListener('touchend', handleDrawEnd);
-}
-
-function handleDrawStart(e) {
-    const card = document.getElementById('game-card');
-    if (!card) return;
+function toggleHiddenCategories() {
+    const hiddenCategories = document.getElementById('hidden-categories');
+    const btn = document.getElementById('btn-more-categories');
+    const btnText = btn.querySelector('.btn-text');
+    const btnArrow = btn.querySelector('.btn-arrow');
     
-    gameState.isDrawing = true;
-    gameState.drawPoints = [];
-    
-    const point = getEventPoint(e);
-    gameState.drawPoints.push(point);
-}
-
-function handleDrawMove(e) {
-    if (!gameState.isDrawing) return;
-    
-    const point = getEventPoint(e);
-    gameState.drawPoints.push(point);
-}
-
-function handleDrawEnd(e) {
-    if (!gameState.isDrawing) return;
-    gameState.isDrawing = false;
-    
-    // Verificar si el trazo forma un cuadrado en los bordes de la carta
-    if (checkSquareOnCardEdges()) {
-        executeSecretSwap();
+    if (hiddenCategories.style.display === 'none') {
+        hiddenCategories.style.display = 'grid';
+        btn.classList.add('active');
+        if (btnText) btnText.textContent = 'Ocultar Categorías';
+        if (btnArrow) btnArrow.textContent = '▲';
+    } else {
+        hiddenCategories.style.display = 'none';
+        btn.classList.remove('active');
+        if (btnText) btnText.textContent = 'Más Categorías';
+        if (btnArrow) btnArrow.textContent = '▼';
     }
-    
-    gameState.drawPoints = [];
-}
-
-function getEventPoint(e) {
-    if (e.touches && e.touches.length > 0) {
-        return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-    return { x: e.clientX, y: e.clientY };
-}
-
-function checkSquareOnCardEdges() {
-    const card = document.getElementById('game-card');
-    if (!card || gameState.drawPoints.length < 20) return false;
-    
-    const rect = card.getBoundingClientRect();
-    const margin = 30; // Margen de tolerancia para detectar los bordes
-    
-    // Definir las zonas de los 4 bordes de la carta
-    const topEdge = { minY: rect.top - margin, maxY: rect.top + margin };
-    const bottomEdge = { minY: rect.bottom - margin, maxY: rect.bottom + margin };
-    const leftEdge = { minX: rect.left - margin, maxX: rect.left + margin };
-    const rightEdge = { minX: rect.right - margin, maxX: rect.right + margin };
-    
-    // Verificar que el trazo pasó por los 4 bordes
-    let touchedTop = false;
-    let touchedBottom = false;
-    let touchedLeft = false;
-    let touchedRight = false;
-    
-    for (const point of gameState.drawPoints) {
-        // Verificar si el punto está cerca de la carta horizontalmente
-        const isNearCardX = point.x >= rect.left - margin && point.x <= rect.right + margin;
-        // Verificar si el punto está cerca de la carta verticalmente
-        const isNearCardY = point.y >= rect.top - margin && point.y <= rect.bottom + margin;
-        
-        // Verificar borde superior
-        if (isNearCardX && point.y >= topEdge.minY && point.y <= topEdge.maxY) {
-            touchedTop = true;
-        }
-        // Verificar borde inferior
-        if (isNearCardX && point.y >= bottomEdge.minY && point.y <= bottomEdge.maxY) {
-            touchedBottom = true;
-        }
-        // Verificar borde izquierdo
-        if (isNearCardY && point.x >= leftEdge.minX && point.x <= leftEdge.maxX) {
-            touchedLeft = true;
-        }
-        // Verificar borde derecho
-        if (isNearCardY && point.x >= rightEdge.minX && point.x <= rightEdge.maxX) {
-            touchedRight = true;
-        }
-    }
-    
-    // El cuadrado se forma si el trazo tocó los 4 bordes
-    return touchedTop && touchedBottom && touchedLeft && touchedRight;
 }
 
 function executeSecretSwap() {
@@ -1526,8 +1493,12 @@ function startGame() {
         return;
     }
 
-    gameState.numPlayers = parseInt(document.getElementById('numPlayers').value);
-    gameState.numImpostors = parseInt(document.getElementById('numImpostors').value);
+    const humanPlayers = parseInt(document.getElementById('numPlayers').value);
+    const numImpostors = parseInt(document.getElementById('numImpostors').value);
+    
+    // El total de jugadores es: jugadores normales + impostores
+    gameState.numPlayers = humanPlayers + numImpostors;
+    gameState.numImpostors = numImpostors;
     gameState.invertedMode = document.getElementById('invertedMode')?.checked || false;
     gameState.selectedThemes = selectedThemes;
     gameState.currentPlayer = 1;
@@ -2300,42 +2271,8 @@ function stopTurnSystem() {
 }
 
 // ========================================
-// RESULTADOS
+// CONFETI
 // ========================================
-
-function revealImpostors() {
-    pauseTimer();
-    stopTurnSystem();
-    showScreen('screen-results');
-    
-    // Actualizar título según cantidad de impostores
-    const resultsTitle = document.getElementById('results-title');
-    if (gameState.impostorIndices.length === 1) {
-        resultsTitle.textContent = '🎭 El Impostor Era...';
-    } else {
-        resultsTitle.textContent = '🎭 Los Impostores Eran...';
-    }
-    
-    // Mostrar impostores
-    const impostorsList = document.getElementById('impostors-list');
-    impostorsList.innerHTML = '';
-    
-    gameState.impostorIndices.forEach((playerNum, index) => {
-        setTimeout(() => {
-            const badge = document.createElement('div');
-            badge.className = 'impostor-badge';
-            badge.textContent = `🎭 Jugador ${playerNum}`;
-            impostorsList.appendChild(badge);
-        }, index * 300);
-    });
-    
-    // Mostrar palabra secreta
-    document.getElementById('secret-word').textContent = 
-        `${gameState.secretEmoji} ${gameState.secretWord}`;
-    
-    // Crear confeti
-    createConfetti();
-}
 
 function createConfetti() {
     const colors = [
@@ -2492,7 +2429,6 @@ function renderVoteButtons() {
         btn.onclick = () => {
             container.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
-            addSystemMessage(`🗳️ Has votado por Jugador ${i}`);
         };
         container.appendChild(btn);
     }
@@ -2504,14 +2440,12 @@ function startDiscussion() {
     resetTimer();
     initializeTurnSystem();
     renderVoteButtons();
-    initializeChat();
 }
 
 // Revelar impostores
 function revealImpostors() {
     pauseTimer();
     stopTurnSystem();
-    chatState.enabled = false;
     showScreen('screen-results');
     
     const resultsTitle = document.getElementById('results-title');
