@@ -2048,6 +2048,14 @@ function flipCard() {
             gameState.playersWhoSawCard.push(gameState.currentPlayer);
         }
 
+        // Actualizar barra de progreso inmediatamente
+        const humansSeen = gameState.playersWhoSawCard.length;
+        const totalHumans = gameState.numPlayers;
+        const progress = (humansSeen / totalHumans) * 100;
+        document.getElementById('progress-bar').style.width = progress + '%';
+        document.getElementById('progress-text').textContent =
+            `Jugador ${gameState.currentPlayer} - ${humansSeen}/${totalHumans}`;
+
         // Mostrar botón apropiado después de voltear
         setTimeout(() => {
             // Verificar si hay más jugadores por ver
