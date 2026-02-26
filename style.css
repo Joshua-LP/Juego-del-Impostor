@@ -2908,3 +2908,294 @@ body::after {
     }
 }
 
+/* ========================================
+   🎭 CORTINAS DE TEATRO
+   ======================================== */
+
+.theater-curtains {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.theater-curtains.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        #8B0000 0%,
+        #A50000 10%,
+        #8B0000 20%,
+        #A50000 30%,
+        #8B0000 40%,
+        #A50000 50%,
+        #8B0000 60%,
+        #A50000 70%,
+        #8B0000 80%,
+        #A50000 90%,
+        #8B0000 100%
+    );
+    box-shadow: 
+        inset 0 0 100px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(0, 0, 0, 0.8);
+    transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    will-change: transform;
+}
+
+.curtain-left {
+    left: 0;
+    transform: translateX(-100%);
+    border-right: 3px solid #5C0000;
+}
+
+.curtain-right {
+    right: 0;
+    transform: translateX(100%);
+    border-left: 3px solid #5C0000;
+}
+
+.theater-curtains.active .curtain-left {
+    transform: translateX(0);
+}
+
+.theater-curtains.active .curtain-right {
+    transform: translateX(0);
+}
+
+/* Pliegues de la cortina */
+.curtain-fold {
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    animation: curtainWave 3s ease-in-out infinite;
+}
+
+.curtain-left .curtain-fold:nth-child(1) { left: 0%; animation-delay: 0s; }
+.curtain-left .curtain-fold:nth-child(2) { left: 20%; animation-delay: 0.2s; }
+.curtain-left .curtain-fold:nth-child(3) { left: 40%; animation-delay: 0.4s; }
+.curtain-left .curtain-fold:nth-child(4) { left: 60%; animation-delay: 0.6s; }
+.curtain-left .curtain-fold:nth-child(5) { left: 80%; animation-delay: 0.8s; }
+
+.curtain-right .curtain-fold:nth-child(1) { right: 0%; animation-delay: 0.8s; }
+.curtain-right .curtain-fold:nth-child(2) { right: 20%; animation-delay: 0.6s; }
+.curtain-right .curtain-fold:nth-child(3) { right: 40%; animation-delay: 0.4s; }
+.curtain-right .curtain-fold:nth-child(4) { right: 60%; animation-delay: 0.2s; }
+.curtain-right .curtain-fold:nth-child(5) { right: 80%; animation-delay: 0s; }
+
+@keyframes curtainWave {
+    0%, 100% {
+        transform: scaleX(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleX(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Borlas decorativas */
+.curtain-tassel {
+    position: absolute;
+    bottom: 20px;
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(
+        180deg,
+        #DAA520 0%,
+        #B8860B 50%,
+        #8B6508 100%
+    );
+    border-radius: 0 0 50% 50%;
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.5),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.curtain-left .curtain-tassel {
+    right: 30px;
+}
+
+.curtain-right .curtain-tassel {
+    left: 30px;
+}
+
+.curtain-tassel::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+    background: #8B6508;
+    border-radius: 5px;
+}
+
+.curtain-tassel::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(
+        circle,
+        #DAA520 0%,
+        #B8860B 60%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+/* Moldura superior */
+.curtain-top-trim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(
+        180deg,
+        #4A2511 0%,
+        #8B4513 50%,
+        #4A2511 100%
+    );
+    box-shadow: 
+        0 5px 20px rgba(0, 0, 0, 0.8),
+        inset 0 2px 5px rgba(218, 165, 32, 0.3);
+    border-bottom: 3px solid #DAA520;
+    z-index: 10;
+}
+
+.curtain-top-trim::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(
+        circle,
+        #DAA520 0%,
+        #B8860B 40%,
+        #8B6508 70%,
+        transparent 100%
+    );
+    border-radius: 50%;
+    box-shadow: 
+        0 0 20px rgba(218, 165, 32, 0.6),
+        inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación de entrada de cortinas */
+@keyframes curtainOpen {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes curtainOpenRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Brillo sutil en las cortinas */
+.curtain::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .curtain-tassel {
+        width: 40px;
+        height: 60px;
+        bottom: 15px;
+    }
+    
+    .curtain-left .curtain-tassel {
+        right: 15px;
+    }
+    
+    .curtain-right .curtain-tassel {
+        left: 15px;
+    }
+    
+    .curtain-top-trim {
+        height: 35px;
+    }
+    
+    .curtain-top-trim::before {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .curtain-tassel {
+        width: 30px;
+        height: 45px;
+        bottom: 10px;
+    }
+    
+    .curtain-left .curtain-tassel {
+        right: 10px;
+    }
+    
+    .curtain-right .curtain-tassel {
+        left: 10px;
+    }
+    
+    .curtain-top-trim {
+        height: 25px;
+    }
+    
+    .curtain-top-trim::before {
+        width: 35px;
+        height: 35px;
+    }
+}
+

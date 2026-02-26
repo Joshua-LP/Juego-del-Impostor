@@ -8,72 +8,72 @@
 
 const PISTAS_RELACIONADAS = {
     // Marvel
-    "Spider-Man": ["telarañas", "Nueva York", "Peter", "araña", "trepar"],
-    "Iron Man": ["armadura", "Stark", "reactor", "millonario", "tecnología"],
-    "Thor": ["martillo", "Asgard", "trueno", "dios", "vikingo"],
-    "Hulk": ["verde", "gigante", "fuerza", "Banner", "transformación"],
-    "Capitán América": ["escudo", "soldado", "patriota", "Steve", "súper suero"],
-    "Black Widow": ["espía", "rusa", "Natasha", "SHIELD", "agente"],
-    "Thanos": ["guantelete", "gemas", "titán", "chasquido", "equilibrio"],
-    "Loki": ["engaño", "cuernos", "hermano", "travesura", "multiverso"],
-    "Doctor Strange": ["magia", "capa", "tiempo", "hechicero", "portal"],
-    "Black Panther": ["Wakanda", "vibranium", "rey", "garras", "pantera"],
-    "Scarlet Witch": ["caos", "rojo", "poderes", "Wanda", "hexágono"],
-    "Vision": ["gema", "androide", "rojo", "atravesar", "mente"],
-    "Ant-Man": ["pequeño", "traje", "hormigas", "partículas", "Scott"],
-    "Groot": ["árbol", "soy", "raíces", "guardián", "madera"],
-    "Deadpool": ["regenerar", "rojo", "espadas", "cuarto muro", "chimichanga"],
-    "Wolverine": ["garras", "adamantium", "regenerar", "Logan", "X-Men"],
+    "Spider-Man": ["héroe", "ciudad", "joven", "ágil", "famoso"],
+    "Iron Man": ["tecnología", "rico", "invento", "líder", "genio"],
+    "Thor": ["antiguo", "poder", "fuerte", "líder", "mítico"],
+    "Hulk": ["fuerza", "cambio", "científico", "poder", "grande"],
+    "Capitán América": ["líder", "clásico", "defensor", "patriota", "símbolo"],
+    "Black Widow": ["hábil", "inteligente", "sigiloso", "entrenado", "estratega"],
+    "Thanos": ["poderoso", "ambicioso", "enemigo", "plan", "grande"],
+    "Loki": ["astuto", "complejo", "mítico", "impredecible", "inteligente"],
+    "Doctor Strange": ["místico", "sabio", "poder", "único", "especial"],
+    "Black Panther": ["líder", "avanzado", "noble", "fuerte", "real"],
+    "Scarlet Witch": ["misterioso", "poder", "complejo", "emocional", "fuerte"],
+    "Vision": ["sintético", "único", "poderoso", "filósofo", "especial"],
+    "Ant-Man": ["ingenioso", "científico", "especial", "único", "hábil"],
+    "Groot": ["naturaleza", "simple", "noble", "fuerte", "leal"],
+    "Deadpool": ["único", "gracioso", "hábil", "especial", "inusual"],
+    "Wolverine": ["veterano", "resistente", "solitario", "feroz", "inmortal"],
     // Disney
-    "El Rey León": ["sabana", "Simba", "rey", "África", "círculo"],
-    "Frozen": ["hielo", "Elsa", "hermanas", "nieve", "canción"],
-    "Toy Story": ["juguetes", "Woody", "niño", "Buzz", "vaquero"],
-    "Buscando a Nemo": ["pez", "océano", "payaso", "Dori", "coral"],
-    "Aladdin": ["lámpara", "deseo", "alfombra", "genio", "palacio"],
-    "La Bella y la Bestia": ["rosa", "castillo", "encantado", "biblioteca", "baile"],
-    "Moana": ["océano", "isla", "Maui", "navegante", "corazón"],
-    "Coco": ["música", "México", "familia", "muertos", "guitarra"],
-    "Up": ["globos", "casa", "aventura", "anciano", "perro"],
-    "WALL-E": ["robot", "basura", "espacio", "amor", "planta"],
-    "Ratatouille": ["cocina", "ratón", "chef", "París", "comida"],
-    "Los Increíbles": ["familia", "poderes", "trajes", "villano", "isla"],
-    "Monsters Inc": ["puertas", "sustos", "niña", "energía", "monstruos"],
-    "Cars": ["autos", "carrera", "rayo", "pista", "ruedas"],
-    "La Sirenita": ["mar", "cola", "príncipe", "Ariel", "voz"],
+    "El Rey León": ["familia", "aventura", "historia", "clásico", "animal"],
+    "Frozen": ["hermanas", "aventura", "popular", "reino", "magia"],
+    "Toy Story": ["amistad", "aventura", "clásico", "infancia", "viaje"],
+    "Buscando a Nemo": ["familia", "océano", "aventura", "búsqueda", "viaje"],
+    "Aladdin": ["aventura", "deseo", "amor", "mágico", "historia"],
+    "La Bella y la Bestia": ["amor", "transformación", "castillo", "clásico", "mágico"],
+    "Moana": ["aventura", "valentía", "océano", "viaje", "cultura"],
+    "Coco": ["familia", "tradición", "música", "recuerdo", "cultura"],
+    "Up": ["aventura", "amistad", "viaje", "sueño", "emotivo"],
+    "WALL-E": ["futuro", "amor", "tecnología", "aventura", "especial"],
+    "Ratatouille": ["sueño", "talento", "ciudad", "arte", "pasión"],
+    "Los Increíbles": ["familia", "acción", "secreto", "poder", "unidos"],
+    "Monsters Inc": ["puertas", "trabajo", "energía", "corporación", "empresa"],
+    "Cars": ["competencia", "velocidad", "viaje", "camino", "aventura"],
+    "La Sirenita": ["océano", "joven", "sueño", "diferente", "amor"],
     // Princesas
-    "Cenicienta": ["zapatilla", "calabaza", "madrastra", "baile", "príncipe"],
-    "Blancanieves": ["manzana", "espejo", "enanitos", "veneno", "bosque"],
-    "Aurora": ["sueño", "huso", "hada", "príncipe", "maldición"],
-    "Ariel": ["sirena", "voz", "mar", "piernas", "Sebastián"],
-    "Bella": ["libros", "rosa", "bestia", "castillo", "pueblo"],
-    "Jasmín": ["alfombra", "tigre", "palacio", "Arabia", "genio"],
-    "Rapunzel": ["cabello", "torre", "sol", "pintura", "Pascal"],
-    "Mérida": ["arco", "oso", "Escocia", "peliroja", "valiente"],
-    "Elsa": ["hielo", "reina", "poderes", "aislada", "Let it go"],
-    "Anna": ["optimista", "hermana", "amor", "Kristoff", "corazón"],
+    "Cenicienta": ["transformación", "baile", "sueño", "realeza", "amor"],
+    "Blancanieves": ["clásico", "bosque", "amigos", "puro", "inocente"],
+    "Aurora": ["clásico", "encantamiento", "sueño", "amor", "real"],
+    "Ariel": ["océano", "rebelde", "sueño", "transformación", "amor"],
+    "Bella": ["inteligente", "amor", "diferente", "valiente", "lectora"],
+    "Jasmín": ["real", "rebelde", "aventura", "independiente", "amor"],
+    "Rapunzel": ["encerrada", "arte", "aventura", "sueño", "valiente"],
+    "Mérida": ["valiente", "independiente", "habilidad", "familia", "rebelde"],
+    "Elsa": ["reina", "especial", "aislada", "fuerte", "hermana"],
+    "Anna": ["optimista", "valiente", "amor", "hermana", "aventura"],
     // Mágicos
-    "Unicornio": ["cuerno", "arcoíris", "mágico", "caballo", "brillante"],
-    "Dragón": ["fuego", "alas", "escamas", "volar", "cueva"],
-    "Fénix": ["fuego", "renacer", "cenizas", "inmortal", "ave"],
-    "Sirena": ["cola", "mar", "cantar", "oceano", "escamas"],
-    "Vampiro": ["sangre", "colmillos", "noche", "murciélago", "inmortal"],
-    "Fantasma": ["invisible", "flotar", "muerto", "asustar", "cadenas"],
-    "Hada": ["alas", "varita", "pequeña", "brillo", "polvo"],
-    "Bruja": ["escoba", "caldero", "hechizo", "negro", "gato"],
+    "Unicornio": ["mítico", "raro", "mágico", "elegante", "leyenda"],
+    "Dragón": ["mítico", "poderoso", "antiguo", "temido", "grande"],
+    "Fénix": ["mítico", "renace", "fuego", "inmortal", "legendario"],
+    "Sirena": ["mítico", "océano", "canto", "belleza", "leyenda"],
+    "Vampiro": ["nocturno", "inmortal", "misterioso", "elegante", "antiguo"],
+    "Fantasma": ["espíritu", "etéreo", "misterioso", "transparente", "sobrenatural"],
+    "Hada": ["mágico", "pequeño", "encanto", "naturaleza", "místico"],
+    "Bruja": ["magia", "misterioso", "poder", "antiguo", "hechizo"],
     // Animales
-    "León": ["melena", "rey", "sabana", "rugido", "manada"],
-    "Elefante": ["trompa", "colmillos", "grande", "memoria", "gris"],
-    "Delfín": ["mar", "inteligente", "salto", "nadar", "eco"],
-    "Tigre": ["rayas", "felino", "cazador", "naranja", "selva"],
-    "Jirafa": ["cuello", "manchas", "alto", "África", "hojas"],
-    "Oso Panda": ["bambú", "China", "blanco y negro", "oso", "adorable"],
-    "Pingüino": ["frío", "polo", "blanco y negro", "nadar", "hielo"],
-    "Águila": ["volar", "garras", "vista", "montaña", "cazador"],
-    "Tiburón": ["dientes", "mar", "aleta", "peligro", "nadar"],
-    "Ballena": ["océano", "grande", "mamífero", "canto", "agua"],
-    "Tortuga": ["caparazón", "lenta", "mar", "longeva", "nadar"],
-    "Mariposa": ["alas", "colores", "flor", "metamorfosis", "volar"],
-    "Búho": ["noche", "ojos", "sabio", "girar", "plumas"],
+    "León": ["felino", "salvaje", "grande", "carnívoro", "africano"],
+    "Elefante": ["grande", "mamífero", "herbívoro", "inteligente", "social"],
+    "Delfín": ["marino", "inteligente", "social", "mamífero", "ágil"],
+    "Tigre": ["felino", "grande", "carnívoro", "solitario", "poderoso"],
+    "Jirafa": ["herbívoro", "alto", "africano", "mamífero", "único"],
+    "Oso Panda": ["herbívoro", "raro", "asiático", "adorable", "protegido"],
+    "Pingüino": ["ave", "acuático", "polar", "social", "nadador"],
+    "Águila": ["ave", "rapaz", "volador", "cazador", "majestuoso"],
+    "Tiburón": ["marino", "carnívoro", "antiguo", "cazador", "eficiente"],
+    "Ballena": ["marino", "mamífero", "grande", "migratorio", "social"],
+    "Tortuga": ["reptil", "lento", "longevo", "tranquilo", "caparazón"],
+    "Mariposa": ["insecto", "volador", "colorido", "transformación", "delicado"],
+    "Búho": ["ave", "nocturno", "cazador", "silencioso", "sabio"],
     // Comida
     "Pizza": ["Italia", "queso", "pepperoni", "redonda", "horno"],
     "Hamburguesa": ["carne", "pan", "americana", "rápida", "papas"],
@@ -85,32 +85,32 @@ const PISTAS_RELACIONADAS = {
     "Hot Dog": ["salchicha", "pan", "mostaza", "americana", "ketchup"],
     "Espagueti": ["pasta", "Italia", "salsa", "largo", "tenedor"],
     // Lugares
-    "París": ["torre", "Francia", "amor", "Eiffel", "baguette"],
-    "Nueva York": ["manzana", "estatua", "rascacielos", "taxi", "Central"],
-    "Tokio": ["Japón", "anime", "tecnología", "templo", "sushi"],
-    "Egipto": ["pirámides", "faraón", "momia", "desierto", "Nilo"],
-    "Playa": ["arena", "mar", "sol", "olas", "vacaciones"],
-    "Montaña": ["nieve", "altura", "escalar", "pico", "frío"],
-    "Castillo": ["rey", "torre", "medieval", "dragón", "princesa"],
+    "París": ["ciudad", "europea", "turismo", "arte", "cultura"],
+    "Nueva York": ["ciudad", "metrópoli", "moderna", "diversa", "icónica"],
+    "Tokio": ["ciudad", "asiática", "moderna", "tecnología", "cultura"],
+    "Egipto": ["país", "antiguo", "historia", "cultura", "África"],
+    "Playa": ["lugar", "agua", "verano", "relajación", "turismo"],
+    "Montaña": ["naturaleza", "alto", "aventura", "frío", "escalar"],
+    "Castillo": ["estructura", "antiguo", "histórico", "grande", "defensivo"],
     // Profesiones
-    "Doctor": ["hospital", "salud", "bata", "estetoscopio", "paciente"],
-    "Bombero": ["fuego", "camión", "rescate", "manguera", "emergencia"],
-    "Policía": ["ley", "placa", "patrulla", "orden", "detective"],
-    "Chef": ["cocina", "restaurante", "gorro", "receta", "sartén"],
-    "Piloto": ["avión", "cielo", "volar", "uniforme", "aeropuerto"],
-    "Astronauta": ["espacio", "cohete", "luna", "traje", "NASA"],
-    "Maestro": ["escuela", "enseñar", "pizarra", "estudiantes", "lección"],
+    "Doctor": ["profesional", "salud", "estudio", "servicio", "experto"],
+    "Bombero": ["servicio", "emergencia", "valiente", "rescate", "protección"],
+    "Policía": ["autoridad", "servicio", "seguridad", "orden", "público"],
+    "Chef": ["profesional", "gastronomía", "creativo", "arte", "servicio"],
+    "Piloto": ["transporte", "responsable", "entrenado", "profesional", "técnico"],
+    "Astronauta": ["explorador", "entrenado", "científico", "valiente", "élite"],
+    "Maestro": ["educador", "formador", "paciente", "dedicado", "importante"],
     // Acciones
-    "Bailar": ["música", "movimiento", "ritmo", "fiesta", "pasos"],
-    "Cantar": ["voz", "micrófono", "melodía", "escenario", "nota"],
-    "Nadar": ["agua", "piscina", "brazadas", "flotador", "mojado"],
-    "Volar": ["cielo", "alas", "avión", "nubes", "alto"],
-    "Correr": ["velocidad", "pies", "maratón", "zapatos", "sudor"],
-    "Saltar": ["altura", "cuerda", "trampolín", "piernas", "impulso"],
-    "Dormir": ["cama", "sueños", "almohada", "noche", "descanso"],
-    "Comer": ["comida", "boca", "hambre", "masticar", "mesa"],
-    "Llorar": ["lágrimas", "tristeza", "ojos", "pañuelo", "emoción"],
-    "Reír": ["felicidad", "sonrisa", "humor", "carcajada", "alegría"],
+    "Bailar": ["movimiento", "ritmo", "actividad", "arte", "expresión"],
+    "Cantar": ["voz", "sonido", "arte", "expresión", "melodía"],
+    "Nadar": ["deporte", "agua", "movimiento", "saludable", "técnica"],
+    "Volar": ["movimiento", "alto", "aire", "rápido", "libertad"],
+    "Correr": ["ejercicio", "rápido", "deporte", "movimiento", "resistencia"],
+    "Saltar": ["movimiento", "impulso", "acción", "energía", "deporte"],
+    "Dormir": ["descanso", "necesario", "nocturno", "reparador", "vital"],
+    "Comer": ["necesidad", "alimentación", "social", "placer", "energía"],
+    "Llorar": ["emoción", "expresión", "tristeza", "lágrimas", "humano"],
+    "Reír": ["emoción", "alegría", "expresión", "social", "contagioso"],
     // Películas
     "Titanic": ["barco", "iceberg", "Rose", "Jack", "hundirse"],
     "Jurassic Park": ["dinosaurios", "isla", "fósil", "T-Rex", "científico"],
@@ -238,12 +238,12 @@ const PISTAS_RELACIONADAS = {
     "Está jugoso": ["humedad", "fresco", "tierno", "sabor", "textura"],
     "Más fuerte": ["intensidad", "fuerza", "potencia", "duro", "presion"],
     // Presidentes Vacados
-    "Alberto Fujimori": ["autogolpe", "93", "dictador", "Keiko", "prisión"],
-    "Pedro Castillo": ["sombrero", "maestro", "Cajamarca", "golpe", "lápiz"],
-    "Martín Vizcarra": ["lagarto", "ingeniero", "vacunagate", "Moquegua", "constructor"],
-    "Pedro Pablo Kuczynski": ["PPK", "economista", "Odebrecht", "anciano", "indulto"],
-    "Alan García": ["caballo loco", "aprista", "inflación", "Mercedes", "suicidio"],
-    "Alejandro Toledo": ["cholo", "Stanford", "elefante", "Eliane", "prófugo"]
+    "Alberto Fujimori": ["político", "líder", "historia", "controversial", "década"],
+    "Pedro Castillo": ["político", "figura", "reciente", "provincia", "educador"],
+    "Martín Vizcarra": ["político", "ingeniero", "regional", "figura", "gobierno"],
+    "Pedro Pablo Kuczynski": ["economista", "político", "empresario", "figura", "internacional"],
+    "Alan García": ["político", "histórico", "partido", "figura", "década"],
+    "Alejandro Toledo": ["político", "académico", "histórico", "figura", "internacional"]
 };
 
 // ========================================
@@ -919,99 +919,6 @@ const THEMES = {
             { word: "Francisco Sagasti", emoji: "🎓" }
         ]
     },
-    palabras_sexo: {
-        name: "Palabras Durante el Sexo",
-        emoji: "🔥",
-        words: [
-            { word: "Sí baby", emoji: "😍" },
-            { word: "Más rápido", emoji: "💨" },
-            { word: "Más despacio", emoji: "🐌" },
-            { word: "Ay que rico", emoji: "😋" },
-            { word: "No pares", emoji: "🔄" },
-            { word: "Así me gusta", emoji: "👌" },
-            { word: "Ven acá", emoji: "👋" },
-            { word: "Dame más", emoji: "🙏" },
-            { word: "Qué delicioso", emoji: "🤤" },
-            { word: "Me encantas", emoji: "💕" },
-            { word: "Eres increíble", emoji: "⭐" },
-            { word: "Me vuelves loco", emoji: "🤪" },
-            { word: "Estoy llegando", emoji: "🎯" },
-            { word: "Ya casi", emoji: "⏰" },
-            { word: "Espérame", emoji: "✋" },
-            { word: "Juntos", emoji: "🤝" },
-            { word: "Te amo", emoji: "❤️" },
-            { word: "Uff qué bueno", emoji: "🏆" },
-            { word: "Otra vez", emoji: "🔁" },
-            { word: "Me fascinas", emoji: "✨" },
-            { word: "Qué sabroso", emoji: "😘" },
-            { word: "Más fuerte", emoji: "💪" },
-            { word: "Suavecito", emoji: "🪶" },
-            { word: "Ay dios mío", emoji: "😇" },
-            { word: "Increíble", emoji: "🤯" }
-        ]
-    },
-    palabras_comida: {
-        name: "Palabras Cuando Comes",
-        emoji: "🍽️",
-        words: [
-            { word: "Está delicioso", emoji: "😋" },
-            { word: "Qué rico", emoji: "👌" },
-            { word: "Mmm sabroso", emoji: "🤤" },
-            { word: "Está exquisito", emoji: "👨‍🍳" },
-            { word: "Me encanta", emoji: "❤️" },
-            { word: "Está perfecto", emoji: "💯" },
-            { word: "Qué sabor", emoji: "👅" },
-            { word: "Está buenazo", emoji: "🔥" },
-            { word: "Más por favor", emoji: "🙏" },
-            { word: "Está picante", emoji: "🌶️" },
-            { word: "Está salado", emoji: "🧂" },
-            { word: "Está dulce", emoji: "🍯" },
-            { word: "Está amargo", emoji: "😖" },
-            { word: "Está frío", emoji: "🧊" },
-            { word: "Está caliente", emoji: "🔥" },
-            { word: "Me quemé", emoji: "🥵" },
-            { word: "Agua por favor", emoji: "💧" },
-            { word: "Está crujiente", emoji: "🥖" },
-            { word: "Está suave", emoji: "☁️" },
-            { word: "Está duro", emoji: "🪨" },
-            { word: "Ya no puedo más", emoji: "🤰" },
-            { word: "Un poquito más", emoji: "🤏" },
-            { word: "La receta secreta", emoji: "🤫" },
-            { word: "Como la abuela", emoji: "👵" },
-            { word: "Está fresco", emoji: "🌿" }
-        ]
-    },
-    doble_sentido: {
-        name: "Almuerzo y Sexo",
-        emoji: "😏",
-        words: [
-            { word: "Está delicioso", emoji: "😋" },
-            { word: "Dame más", emoji: "🙏" },
-            { word: "Qué rico", emoji: "🤤" },
-            { word: "Está caliente", emoji: "🔥" },
-            { word: "Más rápido", emoji: "💨" },
-            { word: "Más despacio", emoji: "🐌" },
-            { word: "Ya casi", emoji: "⏰" },
-            { word: "Estoy llegando", emoji: "🎯" },
-            { word: "Espérame", emoji: "✋" },
-            { word: "Ya no puedo más", emoji: "😫" },
-            { word: "Está jugoso", emoji: "💧" },
-            { word: "Me encanta", emoji: "❤️" },
-            { word: "Eres increíble", emoji: "⭐" },
-            { word: "Está suave", emoji: "☁️" },
-            { word: "Está duro", emoji: "🪨" },
-            { word: "Un poquito más", emoji: "🤏" },
-            { word: "Qué sabroso", emoji: "😘" },
-            { word: "Más fuerte", emoji: "💪" },
-            { word: "Así me gusta", emoji: "👌" },
-            { word: "No pares", emoji: "🔄" },
-            { word: "Está exquisito", emoji: "👨‍🍳" },
-            { word: "Quiero probar", emoji: "👅" },
-            { word: "Está húmedo", emoji: "💦" },
-            { word: "Terminé", emoji: "✅" },
-            { word: "Otra vez", emoji: "🔁" }
-        ]
-    },
     novelas: {
         name: "Novelas Famosas",
         emoji: "📺",
@@ -1209,25 +1116,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 // TOGGLE CATEGORÍAS OCULTAS
 // ========================================
-
-function toggleHiddenCategories() {
-    const hiddenCategories = document.getElementById('hidden-categories');
-    const btn = document.getElementById('btn-more-categories');
-    const btnText = btn.querySelector('.btn-text');
-    const btnArrow = btn.querySelector('.btn-arrow');
-    
-    if (hiddenCategories.style.display === 'none') {
-        hiddenCategories.style.display = 'grid';
-        btn.classList.add('active');
-        if (btnText) btnText.textContent = 'Ocultar Categorías';
-        if (btnArrow) btnArrow.textContent = '▲';
-    } else {
-        hiddenCategories.style.display = 'none';
-        btn.classList.remove('active');
-        if (btnText) btnText.textContent = 'Más Categorías';
-        if (btnArrow) btnArrow.textContent = '▼';
-    }
-}
 
 function executeSecretSwap() {
     // Solo funciona si el jugador actual es impostor y no ha usado el hack antes
@@ -1577,46 +1465,38 @@ function selectSecretWord() {
 }
 
 function generateHintForWord(word, category) {
-    // Buscar pistas predefinidas
-    if (PISTAS_RELACIONADAS[word]) {
-        const hints = PISTAS_RELACIONADAS[word];
-        const randomIndex = Math.floor(Math.random() * hints.length);
-        return hints[randomIndex];
-    }
-    
-    // Si no hay pista predefinida, generar una basada en la categoría
+    // SIEMPRE generar pistas genéricas basadas SOLO en la categoría
+    // Esto hace que el impostor no sea tan fácil de identificar
     const categoryHints = {
-        "Marvel": ["héroe", "villano", "poderes", "traje", "batalla"],
-        "Disney": ["magia", "aventura", "animación", "princesa", "fantasía"],
-        "Princesas": ["corona", "vestido", "castillo", "príncipe", "reino"],
-        "Princesas Disney": ["corona", "vestido", "castillo", "príncipe", "reino"],
-        "Mágicos": ["hechizo", "varita", "encanto", "místico", "sobrenatural"],
-        "Películas": ["cine", "actor", "escena", "taquilla", "estreno"],
-        "Animales": ["naturaleza", "salvaje", "instinto", "criatura", "especie"],
-        "Comida": ["sabor", "cocina", "ingrediente", "delicioso", "plato"],
-        "Deportes": ["competencia", "atleta", "victoria", "entrenamiento", "equipo"],
-        "Profesiones": ["trabajo", "oficio", "especialista", "carrera", "experto"],
-        "Lugares": ["destino", "viaje", "ubicación", "geografía", "turismo"],
-        "Farándula Peruana": ["fama", "televisión", "espectáculo", "celebridad", "Perú"],
-        "Acciones": ["movimiento", "actividad", "hacer", "verbo", "ejecutar"],
-        "DC Comics": ["héroe", "villano", "Gotham", "justicia", "poder"],
-        "Cartoon Network": ["dibujo", "animado", "serie", "personaje", "TV"],
-        "Novelas Famosas": ["amor", "drama", "televisión", "protagonista", "pareja"],
-        "Pokémon": ["capturar", "entrenador", "batalla", "evolución", "pokeball"],
-        "Almuerzo y Sexo": ["frase", "expresión", "doble", "momento", "sentir"],
-        "Palabras Durante el Sexo": ["momento", "pasión", "expresión", "placer", "sentir"],
-        "Palabras Cuando Comes": ["mesa", "comida", "sabor", "boca", "hambre"],
-        "Presidentes Vacados del Perú": ["política", "congreso", "vacancia", "gobierno", "presidente"],
-        "Anime": ["japonés", "manga", "personaje", "poder", "historia"],
-        "Música": ["canción", "ritmo", "cantante", "baile", "letra"],
-        "Videojuegos": ["jugar", "consola", "personaje", "nivel", "boss"],
-        "Famosos": ["celebridad", "fama", "artista", "fan", "famoso"],
-        "Villanos Disney": ["malvado", "plan", "castigo", "enemigo", "oscuro"],
-        "Objetos": ["cosa", "uso", "material", "forma", "función"]
+        "Marvel": ["personaje", "universo", "historia", "ficción", "popular"],
+        "Disney": ["película", "personaje", "historia", "animación", "clásico"],
+        "Princesas": ["personaje", "real", "historia", "romántico", "clásico"],
+        "Princesas Disney": ["personaje", "real", "historia", "romántico", "clásico"],
+        "Mágicos": ["criatura", "mitológico", "fantástico", "leyenda", "imaginario"],
+        "Películas": ["cine", "entretenimiento", "visual", "historia", "popular"],
+        "Animales": ["ser vivo", "naturaleza", "terrestre", "salvaje", "fauna"],
+        "Comida": ["alimento", "sabor", "nutrición", "gastronomía", "consumible"],
+        "Deportes": ["actividad", "competencia", "física", "juego", "recreativo"],
+        "Profesiones": ["ocupación", "trabajo", "carrera", "servicio", "especialización"],
+        "Lugares": ["ubicación", "espacio", "geografía", "destino", "sitio"],
+        "Farándula Peruana": ["personalidad", "nacional", "entretenimiento", "conocido", "popular"],
+        "Acciones": ["verbo", "actividad", "hacer", "acción", "movimiento"],
+        "DC Comics": ["personaje", "historia", "justicia", "ficción", "cómic"],
+        "Cartoon Network": ["animación", "serie", "personaje", "entretenimiento", "televisión"],
+        "Novelas Famosas": ["serie", "drama", "entretenimiento", "televisión", "historia"],
+        "Pokémon": ["criatura", "serie", "batalla", "colección", "evolución"],
+        "Presidentes Vacados del Perú": ["figura", "político", "nacional", "histórico", "controversia"],
+        "Anime": ["animación", "japonés", "serie", "personaje", "género"],
+        "Música": ["arte", "sonido", "melodía", "expresión", "entretenimiento"],
+        "Videojuegos": ["entretenimiento", "digital", "personaje", "interactivo", "virtual"],
+        "Famosos": ["personalidad", "conocido", "internacional", "celebridad", "popular"],
+        "Villanos Disney": ["antagonista", "personaje", "malvado", "historia", "conflicto"],
+        "Objetos": ["cosa", "material", "útil", "tangible", "cotidiano"]
     };
     
-    const hints = categoryHints[category] || ["misterio", "secreto", "oculto", "enigma", "desconocido"];
-    return hints[Math.floor(Math.random() * hints.length)];
+    const hints = categoryHints[category] || ["elemento", "concepto", "cosa", "entidad", "tema"];
+    const randomIndex = Math.floor(Math.random() * hints.length);
+    return hints[randomIndex];
 }
 
 function selectImpostors() {
@@ -2088,16 +1968,35 @@ function nextPlayer() {
     gameState.lastTapTime = 0;
     resetCard();
 
-    // Pequeña animación de transición
+    // Animación de cortinas de teatro
+    const curtains = document.getElementById('theater-curtains');
     const container = document.querySelector('.card-container');
+    
+    if (!curtains) {
+        console.error('No se encontraron las cortinas en el DOM');
+        // Fallback: continuar sin cortinas
+        setTimeout(() => {
+            updateGameUI();
+        }, 300);
+        return;
+    }
+    
+    // Cerrar cortinas
+    curtains.classList.add('active');
     container.style.opacity = '0';
-    container.style.transform = 'translateX(-50px)';
-
+    container.style.transition = 'opacity 0.3s ease';
+    
+    // Esperar a que se cierren las cortinas
     setTimeout(() => {
         updateGameUI();
-        container.style.opacity = '1';
-        container.style.transform = 'translateX(0)';
-    }, 300);
+        
+        // Abrir cortinas después de actualizar
+        setTimeout(() => {
+            curtains.classList.remove('active');
+            container.style.opacity = '1';
+            container.style.transform = 'translateX(0)';
+        }, 500);
+    }, 900);
 }
 
 // ========================================
