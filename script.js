@@ -1790,21 +1790,28 @@ function updateGameUI() {
         if (isImpostor) {
             cardBack.classList.remove('normal', 'power');
             cardBack.classList.add('impostor');
-            
-            // Mostrar emoji protegido (oscurecido) y pista relacionada
-            const protectedEmoji = `<span class="protected-emoji">${gameState.secretEmoji}</span>`;
+
             document.getElementById('card-emoji').innerHTML = '🎭';
             document.getElementById('card-word').textContent = '¡IMPOSTOR!';
-            document.getElementById('card-category').innerHTML = `
-                <div class="impostor-hint">
-                    <span class="hint-label">Pista:</span>
-                    <span class="hint-word">${gameState.secretHint}</span>
-                </div>
-                <div class="protected-container">
-                    ${protectedEmoji}
-                </div>
-                <div class="category-hint">${gameState.secretCategory}</div>
-            `;
+
+            // Solo el jugador 1 (primero en ver) recibe la pista
+            if (gameState.currentPlayer === 1) {
+                const protectedEmoji = `<span class="protected-emoji">${gameState.secretEmoji}</span>`;
+                document.getElementById('card-category').innerHTML = `
+                    <div class="impostor-hint">
+                        <span class="hint-label">Pista:</span>
+                        <span class="hint-word">${gameState.secretHint}</span>
+                    </div>
+                    <div class="protected-container">
+                        ${protectedEmoji}
+                    </div>
+                    <div class="category-hint">${gameState.secretCategory}</div>
+                `;
+            } else {
+                document.getElementById('card-category').innerHTML = `
+                    <div class="category-hint">¡Escucha a los demás y adivina!</div>
+                `;
+            }
         } else if (playerPower) {
             // Jugador con poder (incluye ex-impostores convertidos)
             cardBack.classList.remove('impostor', 'normal');
