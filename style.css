@@ -2977,6 +2977,21 @@ body::after {
     transform: translateX(0);
 }
 
+/* Estado de apertura: cortinas visibles deslizándose hacia afuera */
+.theater-curtains.opening {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.theater-curtains.opening .curtain-left {
+    transform: translateX(-100%);
+}
+
+.theater-curtains.opening .curtain-right {
+    transform: translateX(100%);
+}
+
 /* Pliegues de la cortina */
 .curtain-fold {
     position: absolute;

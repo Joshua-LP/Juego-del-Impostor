@@ -1384,8 +1384,8 @@ function startGame() {
     const humanPlayers = parseInt(document.getElementById('numPlayers').value);
     const numImpostors = parseInt(document.getElementById('numImpostors').value);
     
-    // El total de jugadores es: jugadores normales + impostores
-    gameState.numPlayers = humanPlayers + numImpostors;
+    // El total de jugadores ya incluye al impostor
+    gameState.numPlayers = humanPlayers;
     gameState.numImpostors = numImpostors;
     gameState.invertedMode = document.getElementById('invertedMode')?.checked || false;
     gameState.selectedThemes = selectedThemes;
@@ -1993,8 +1993,14 @@ function nextPlayer() {
         // Abrir cortinas después de actualizar
         setTimeout(() => {
             curtains.classList.remove('active');
+            curtains.classList.add('opening');
             container.style.opacity = '1';
             container.style.transform = 'translateX(0)';
+
+            // Quitar clase opening cuando termine la animación de apertura
+            setTimeout(() => {
+                curtains.classList.remove('opening');
+            }, 950);
         }, 500);
     }, 900);
 }
