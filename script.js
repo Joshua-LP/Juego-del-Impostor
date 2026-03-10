@@ -2266,14 +2266,27 @@ function createConfetti() {
 }
 
 // ========================================
-// NAVEGACIÓN
+// NAVEGACIÓN Y EFECTOS
 // ========================================
 
-function showScreen(screenId) {
-    document.querySelectorAll('.screen').forEach(screen => {
-        screen.classList.remove('active');
+function showScreen(screenId, direction = 'right') {
+    const screens = document.querySelectorAll('.screen');
+    
+    screens.forEach(screen => {
+        // Remover clases previas
+        screen.classList.remove('active', 'slide-in-right', 'slide-in-left');
     });
-    document.getElementById(screenId).classList.add('active');
+
+    const targetScreen = document.getElementById(screenId);
+    
+    // Aplicar dirección de animación
+    if(direction === 'right') {
+        targetScreen.classList.add('slide-in-right');
+    } else if(direction === 'left') {
+        targetScreen.classList.add('slide-in-left');
+    }
+    
+    targetScreen.classList.add('active');
 }
 
 function playAgain() {
@@ -2293,7 +2306,7 @@ function playAgain() {
     gameState.originalImpostorIndices = [...gameState.impostorIndices];
     assignPowers(); // Asignar nuevos poderes
 
-    showScreen('screen-game');
+    showScreen('screen-game', 'left'); // Play again goes "back" logically
     updateGameUI();
     resetCard();
 }
@@ -2421,7 +2434,8 @@ function playAgain() {
     gameState.originalImpostorIndices = [...gameState.impostorIndices];
     assignPowers();
 
-    showScreen('screen-game');
+    // ActualizarUI initial and move to discussion screen
+    showScreen('screen-game', 'right');
     updateGameUI();
     resetCard();
 }
@@ -2431,14 +2445,14 @@ function playAgain() {
 // ========================================
 
 function selectRandomCategories() {
-    // Obtener todos los checkboxes de temas
-    const checkboxes = document.querySelectorAll('.theme-checkbox input');
+    // Obtener todos los checkboxes de temas bajo el nuevo sistema Premium de Tiles
+    const checkboxes = document.querySelectorAll('.theme-tile input');
     
     // Desmarcar todos primero
     checkboxes.forEach(cb => {
         cb.checked = false;
         // Quitar la clase visual si la tuviera
-        cb.closest('.theme-label')?.classList.remove('selected');
+        cb.closest('.tile-content')?.classList.remove('selected');
     });
 
     // Convertir a array para poder sacar elementos aleatorios
