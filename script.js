@@ -2425,3 +2425,65 @@ function playAgain() {
     updateGameUI();
     resetCard();
 }
+
+// ========================================
+// NUEVAS FUNCIONES
+// ========================================
+
+function selectRandomCategories() {
+    // Obtener todos los checkboxes de temas
+    const checkboxes = document.querySelectorAll('.theme-checkbox input');
+    
+    // Desmarcar todos primero
+    checkboxes.forEach(cb => {
+        cb.checked = false;
+        // Quitar la clase visual si la tuviera
+        cb.closest('.theme-label')?.classList.remove('selected');
+    });
+
+    // Convertir a array para poder sacar elementos aleatorios
+    const cbArray = Array.from(checkboxes);
+    
+    // Elegir 4 únicos al azar
+    const selected = [];
+    while (selected.length < 4 && cbArray.length > 0) {
+        const randomIndex = Math.floor(Math.random() * cbArray.length);
+        selected.push(cbArray.splice(randomIndex, 1)[0]);
+    }
+
+    // Marcar los seleccionados
+    selected.forEach(cb => cb.checked = true);
+    
+    // Opcional: Sonido/Vibración suave si estuviera integrado
+    if (navigator.vibrate) {
+        navigator.vibrate([30, 50, 30]);
+    }
+}
+
+// ========================================
+// EFECTO TILT 3D INTERACTIVO PARA LA CARTA
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('game-card');
+    
+    if(card) {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            // Calculate mouse position relative to card center (-1 to 1)
+            const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+            const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+            
+            // Adjust max rotation degrees (15 deg)
+            const maxRotation = 15;
+            const rotateX = y * -maxRotation; 
+            const rotateY = x * maxRotation;
+            
+            card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        });
+    }
+});
