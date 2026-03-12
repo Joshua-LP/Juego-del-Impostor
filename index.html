@@ -1,135 +1,161 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎭 El Impostor - Juego de Cartas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="overrides.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ===== SPLASH SCREEN (sabana / cortina de entrada) ===== -->
+    <div id="splash-screen">
+        <div class="splash-bg-glow"></div>
+
+        <div class="splash-content">
+            <div class="splash-mask-icon">&#127917;</div>
+            <h1 class="splash-title">EL IMPOSTOR</h1>
+            <p class="splash-sub">¿Quién está mintiendo entre ustedes?</p>
+
+            <div class="splash-players-hint">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="splash-footer" id="splash-footer">
+            <div class="splash-swipe-line"></div>
+            <div class="splash-swipe-hint">
+                <span class="splash-arrow">&#8593;</span>
+                <span>Desliza para comenzar</span>
+                <span class="splash-arrow">&#8593;</span>
+            </div>
+        </div>
+    </div>
+    <!-- ===== FIN SPLASH ===== -->
     <!-- Pantalla de Inicio -->
     <div id="screen-home" class="screen active">
-        <div class="container">
+        <div class="container container-home">
             <div class="logo-container">
-                <h1 class="game-title">🎭 EL IMPOSTOR</h1>
-                <p class="subtitle">¿Quién es el impostor entre nosotros?</p>
+                <h1 class="game-title">EL IMPOSTOR</h1>
+                <p class="subtitle">Descubre quién miente entre tus amigos</p>
             </div>
             
-            <div class="config-panel">
-                <div class="config-group">
-                    <label for="numPlayers">👥 Total de Jugadores (incluye al impostor)</label>
-                    <div class="counter">
-                        <button class="counter-btn" onclick="changeValue('numPlayers', -1)">-</button>
-                        <input type="number" id="numPlayers" value="5" min="2" max="20">
-                        <button class="counter-btn" onclick="changeValue('numPlayers', 1)">+</button>
+            <div class="config-panel glass-panel">
+                <div class="config-row-multi">
+                    <div class="config-card">
+                        <label><span aria-hidden="true">&#128101;</span> Jugadores</label>
+                        <div class="counter">
+                            <button class="counter-btn" onclick="changeValue('numPlayers', -1)">-</button>
+                            <input type="number" id="numPlayers" value="5" min="2" max="20">
+                            <button class="counter-btn" onclick="changeValue('numPlayers', 1)">+</button>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="config-group">
-                    <label for="numImpostors">🔴 Número de Impostores</label>
-                    <div class="counter">
-                        <button class="counter-btn" onclick="changeValue('numImpostors', -1)">-</button>
-                        <input type="number" id="numImpostors" value="1" min="1" max="5">
-                        <button class="counter-btn" onclick="changeValue('numImpostors', 1)">+</button>
+                    <div class="config-card">
+                        <label><span aria-hidden="true">&#128308;</span> Impostores</label>
+                        <div class="counter">
+                            <button class="counter-btn" onclick="changeValue('numImpostors', -1)">-</button>
+                            <input type="number" id="numImpostors" value="1" min="1" max="5">
+                            <button class="counter-btn" onclick="changeValue('numImpostors', 1)">+</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="config-group">
                     <div class="themes-header-container">
-                        <label>🎨 Selecciona los Temas</label>
-                        <button class="btn-random-categories" onclick="selectRandomCategories()">
-                            🎲 Elegir 4 al Azar
-                        </button>
+                        <label>🎨 Temas de Juego</label>
+                        <button class="btn-random-categories" onclick="selectRandomCategories()">&#127922; 4 AL AZAR</button>
                     </div>
-                    <div class="themes-grid">
+                    <div class="themes-grid themes-scroll-area">
                         <label class="theme-checkbox">
                             <input type="checkbox" value="marvel">
-                            <span class="theme-label">🦸 Marvel</span>
+                            <span class="theme-label"><span class="t-emoji">🦸</span><span class="t-name">Marvel</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="disney">
-                            <span class="theme-label">🏰 Disney</span>
+                            <span class="theme-label"><span class="t-emoji">🏰</span><span class="t-name">Disney</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="princesas">
-                            <span class="theme-label">👸 Princesas Disney</span>
+                            <span class="theme-label"><span class="t-emoji">👸</span><span class="t-name">Princesas Disney</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="magicos">
-                            <span class="theme-label">✨ Mágicos</span>
+                            <span class="theme-label"><span class="t-emoji">✨</span><span class="t-name">Mágicos</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="peliculas">
-                            <span class="theme-label">🎬 Películas</span>
+                            <span class="theme-label"><span class="t-emoji">🎬</span><span class="t-name">Películas</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="animales">
-                            <span class="theme-label">🐾 Animales</span>
+                            <span class="theme-label"><span class="t-emoji">🐾</span><span class="t-name">Animales</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="comida">
-                            <span class="theme-label">🍕 Comida</span>
+                            <span class="theme-label"><span class="t-emoji">🍕</span><span class="t-name">Comida</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="deportes">
-                            <span class="theme-label">⚽ Deportes</span>
+                            <span class="theme-label"><span class="t-emoji">⚽</span><span class="t-name">Deportes</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="profesiones">
-                            <span class="theme-label">👨‍⚕️ Profesiones</span>
+                            <span class="theme-label"><span class="t-emoji">👨‍⚕️</span><span class="t-name">Profesiones</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="lugares">
-                            <span class="theme-label">🌍 Lugares</span>
+                            <span class="theme-label"><span class="t-emoji">🌍</span><span class="t-name">Lugares</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="farandula">
-                            <span class="theme-label">🇵🇪 Farándula Peruana</span>
+                            <span class="theme-label"><span class="t-emoji">🇵🇪</span><span class="t-name">Farándula Peruana</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="acciones">
-                            <span class="theme-label">🎬 Acciones</span>
+                            <span class="theme-label"><span class="t-emoji">🎬</span><span class="t-name">Acciones</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="famosos">
-                            <span class="theme-label">🌟 Famosos</span>
+                            <span class="theme-label"><span class="t-emoji">🌟</span><span class="t-name">Famosos</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="videojuegos">
-                            <span class="theme-label">🎮 Videojuegos</span>
+                            <span class="theme-label"><span class="t-emoji">🎮</span><span class="t-name">Videojuegos</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="musica">
-                            <span class="theme-label">🎵 Música</span>
+                            <span class="theme-label"><span class="t-emoji">🎵</span><span class="t-name">Música</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="anime">
-                            <span class="theme-label">🎌 Anime</span>
+                            <span class="theme-label"><span class="t-emoji">🎌</span><span class="t-name">Anime</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="objetos">
-                            <span class="theme-label">📦 Objetos</span>
+                            <span class="theme-label"><span class="t-emoji">📦</span><span class="t-name">Objetos</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="dc">
-                            <span class="theme-label">🦸‍♂️ DC Comics</span>
+                            <span class="theme-label"><span class="t-emoji">🦸‍♂️</span><span class="t-name">DC Comics</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="presidentes_vacados">
-                            <span class="theme-label">🇵🇪 Presidentes Vacados</span>
+                            <span class="theme-label"><span class="t-emoji">🇵🇪</span><span class="t-name">Presidentes Vacados</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="novelas">
-                            <span class="theme-label">📺 Novelas Famosas</span>
+                            <span class="theme-label"><span class="t-emoji">📺</span><span class="t-name">Novelas Famosas</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="pokemon">
-                            <span class="theme-label">⚡ Pokémon</span>
+                            <span class="theme-label"><span class="t-emoji">⚡</span><span class="t-name">Pokémon</span></span>
                         </label>
                         <label class="theme-checkbox">
                             <input type="checkbox" value="cartoon_network">
-                            <span class="theme-label">📺 Cartoon Network</span>
+                            <span class="theme-label"><span class="t-emoji">📺</span><span class="t-name">Cartoon Network</span></span>
                         </label>
                     </div>
                 </div>
@@ -137,7 +163,7 @@
                 <div class="config-group">
                     <label>🎮 Modo de Juego</label>
                     <div class="mode-toggle-container">
-                        <span class="mode-label-left" id="mode-label-normal">🔍 Normal</span>
+                        <span class="mode-label-left" id="mode-label-normal">NORMAL</span>
                         <label class="neon-toggle">
                             <input type="checkbox" id="invertedMode">
                             <span class="neon-slider">
@@ -145,13 +171,14 @@
                                 <span class="glow-effect"></span>
                             </span>
                         </label>
-                        <span class="mode-label-right" id="mode-label-inverted">Invertido 🔄</span>
+                        <span class="mode-label-right" id="mode-label-inverted">INVERTIDO</span>
                     </div>
                     <p class="config-hint mode-description" id="mode-hint">🔍 Todos conocen la palabra, encuentra al impostor</p>
                 </div>
                 
-                <button class="btn-primary pulse" onclick="startGame()">
-                    🚀 ¡COMENZAR JUEGO!
+                <button class="btn-mega-play" onclick="startGame()">
+                    <div class="btn-liquid-bg"></div>
+                    <span class="btn-text">&iexcl;JUGAR AHORA!</span>
                 </button>
 
                 <!-- Panel de información de roles -->

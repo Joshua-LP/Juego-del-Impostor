@@ -1,4 +1,4 @@
-// ========================================
+﻿// ========================================
 // 🎭 EL IMPOSTOR - LÓGICA DEL JUEGO
 // ========================================
 
@@ -2446,13 +2446,13 @@ function playAgain() {
 
 function selectRandomCategories() {
     // Obtener todos los checkboxes de temas bajo el nuevo sistema Premium de Tiles
-    const checkboxes = document.querySelectorAll('.theme-tile input');
+    const checkboxes = document.querySelectorAll('.theme-checkbox input[type="checkbox"]');
     
     // Desmarcar todos primero
     checkboxes.forEach(cb => {
         cb.checked = false;
         // Quitar la clase visual si la tuviera
-        cb.closest('.tile-content')?.classList.remove('selected');
+        
     });
 
     // Convertir a array para poder sacar elementos aleatorios
@@ -2501,3 +2501,102 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// ============================================================
+// SPLASH SCREEN  logica de sabana / cortina de entrada
+// ============================================================
+
+(function initSplash() {
+    const splash = document.getElementById('splash-screen');
+    if (!splash) return;
+
+    let dismissed = false;
+    let dragging = false;
+    let startY = 0;
+    let currentTranslate = 0;
+    const dismissThreshold = 90;
+
+    function applyDrag(offsetY) {
+        const clamped = Math.max(0, offsetY);
+        currentTranslate = clamped;
+        splash.style.transform = `translateY(${clamped}px)`;
+    }
+
+    function clearDragState() {
+        dragging = false;
+        startY = 0;
+        currentTranslate = 0;
+        splash.classList.remove('dragging');
+        splash.style.transform = '';
+    }
+
+    function dismissSplash() {
+        if (dismissed) return;
+        dismissed = true;
+        splash.classList.remove('dragging');
+        splash.style.transform = '';
+        splash.classList.add('curtain-fall');
+
+        const forceHide = () => {
+            splash.style.display = 'none';
+            splash.style.pointerEvents = 'none';
+        };
+
+        splash.addEventListener('transitionend', forceHide, { once: true });
+        setTimeout(forceHide, 950);
+    }
+
+    function startDrag(clientY) {
+        if (dismissed) return;
+        dragging = true;
+        startY = clientY;
+        splash.classList.add('dragging');
+    }
+
+    function moveDrag(clientY) {
+        if (!dragging || dismissed) return;
+        applyDrag(clientY - startY);
+    }
+
+    function endDrag() {
+        if (!dragging || dismissed) return;
+        if (currentTranslate > dismissThreshold) {
+            dismissSplash();
+        } else {
+            clearDragState();
+        }
+    }
+
+    splash.addEventListener('click', () => {
+        if (!dismissed) dismissSplash();
+    });
+
+    splash.addEventListener('touchstart', (e) => {
+        startDrag(e.touches[0].clientY);
+    }, { passive: true });
+
+    splash.addEventListener('touchmove', (e) => {
+        moveDrag(e.touches[0].clientY);
+    }, { passive: true });
+
+    splash.addEventListener('touchend', endDrag, { passive: true });
+
+    splash.addEventListener('mousedown', (e) => {
+        startDrag(e.clientY);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+        moveDrag(e.clientY);
+    });
+
+    window.addEventListener('mouseup', endDrag);
+
+    splash.addEventListener('wheel', (e) => {
+        if (e.deltaY > 0) dismissSplash();
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+        if (['ArrowUp', 'ArrowDown', ' ', 'Enter'].includes(e.key)) dismissSplash();
+    });
+})();
