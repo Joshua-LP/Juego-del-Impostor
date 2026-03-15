@@ -551,5 +551,5 @@ body::before {
 
 @keyframes arrowBounce {
     0%, 100% { transform: translateY(0); opacity: 0.5; }
-    50%       { transform: translateY(-6px); opacity: 1; }
+    50%       { transform: translateY(6px); opacity: 1; }
 }
