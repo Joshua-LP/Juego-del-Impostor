@@ -2,7 +2,7 @@
 
 # 🎭 EL IMPOSTOR — Juego de Cartas
 
-### *¿Puedes descubrir al impostOR antes de que sea demasiado tarde?*
+### *¿Puedes descubrir al impostor antes de que sea demasiado tarde?*
 
 <br/>
 
@@ -15,7 +15,7 @@
 <br/>
 
 > **El juego de fiesta definitivo para grupos de amigos** — sin aplicaciones, sin descargas, sin complicaciones.  
-> Solo abre el navegador, escoge tus categorías... y que empiece la caos. 🔥
+> Solo abre el navegador, escoge tus categorías... y que empiece el caos. 🔥
 
 </div>
 
@@ -24,6 +24,7 @@
 ## 🤩 ¿Por qué vas a AMAR este juego?
 
 ¿Alguna vez has querido un juego que no necesite explicar reglas eternas, que sea perfecto para cualquier reunión y que haga reír a todos desde la primera ronda? **El Impostor** es exactamente eso.
+
 
 Cada jugador recibe una palabra secreta. **Todos menos uno**. Ese jugador diferente es **el Impostor** 🕵️ — y tiene que sobrevivir sin que nadie lo descubra.
 
