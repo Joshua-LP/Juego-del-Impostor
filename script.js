@@ -1026,6 +1026,62 @@ const THEMES = {
             { word: "Regular Show", emoji: "🎪" },
             { word: "Adventure Time", emoji: "🗡️" }
         ]
+    },
+    dragonball: {
+        name: "Dragon Ball",
+        emoji: "🔮",
+        words: [
+            { word: "Goku", emoji: "🥋" },
+            { word: "Vegeta", emoji: "👑" },
+            { word: "Gohan", emoji: "📚" },
+            { word: "Piccolo", emoji: "💚" },
+            { word: "Freezer", emoji: "❄️" },
+            { word: "Cell", emoji: "🔬" },
+            { word: "Majin Buu", emoji: "🟣" },
+            { word: "Trunks", emoji: "⚔️" },
+            { word: "Krillin", emoji: "👨‍🦲" },
+            { word: "Bulma", emoji: "👩‍🔬" },
+            { word: "Androide 18", emoji: "👱‍♀️" },
+            { word: "Broly", emoji: "💪" },
+            { word: "Gotenks", emoji: "👦" },
+            { word: "Vegito", emoji: "✨" },
+            { word: "Gogeta", emoji: "🌟" },
+            { word: "Whis", emoji: "🪄" },
+            { word: "Bills", emoji: "😺" },
+            { word: "Hit", emoji: "💨" },
+            { word: "Jiren", emoji: "🏋️" },
+            { word: "Zamasu", emoji: "🔱" },
+            { word: "Black Goku", emoji: "🌹" },
+            { word: "Raditz", emoji: "☄️" }
+        ]
+    },
+    naruto: {
+        name: "Naruto",
+        emoji: "🍥",
+        words: [
+            { word: "Naruto", emoji: "🦊" },
+            { word: "Sasuke", emoji: "⚡" },
+            { word: "Sakura", emoji: "🌸" },
+            { word: "Kakashi", emoji: "📖" },
+            { word: "Itachi", emoji: "🌙" },
+            { word: "Jiraiya", emoji: "🐸" },
+            { word: "Tsunade", emoji: "👩‍⚕️" },
+            { word: "Orochimaru", emoji: "🐍" },
+            { word: "Minato", emoji: "💛" },
+            { word: "Obito", emoji: "🌀" },
+            { word: "Madara", emoji: "🔥" },
+            { word: "Pain", emoji: "🗡️" },
+            { word: "Hinata", emoji: "💜" },
+            { word: "Rock Lee", emoji: "🥊" },
+            { word: "Gaara", emoji: "🏜️" },
+            { word: "Shikamaru", emoji: "🧠" },
+            { word: "Neji", emoji: "👁️" },
+            { word: "Kabuto", emoji: "🎭" },
+            { word: "Deidara", emoji: "💥" },
+            { word: "Temari", emoji: "🌬️" },
+            { word: "Kiba", emoji: "🐺" },
+            { word: "Sai", emoji: "🖌️" }
+        ]
     }
 };
 
@@ -1261,6 +1317,26 @@ function initializeInputListeners() {
 
     // Actualizar roles al cargar la página
     updateRolesInfo();
+
+    // Arreglar selección/deselección de categorías en móvil
+    // El handler global de touchend llama e.preventDefault() en doble-tap,
+    // lo que bloquea el click sintético y el toggle del checkbox.
+    // Usamos stopPropagation + toggle explícito para garantizar fiabilidad.
+    document.querySelectorAll('.theme-checkbox').forEach(label => {
+        const cb = label.querySelector('input[type="checkbox"]');
+        if (!cb) return;
+
+        // En touch: evitar que el handler global suprima el click sintético
+        label.addEventListener('touchend', (e) => {
+            e.stopPropagation();
+        });
+
+        // Click explícito: evitar el toggle nativo del label y hacerlo manualmente
+        label.addEventListener('click', (e) => {
+            e.preventDefault();
+            cb.checked = !cb.checked;
+        });
+    });
 }
 
 function updateRolesInfo() {
